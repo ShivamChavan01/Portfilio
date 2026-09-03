@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---- Fonts: wired to next/font variables (see app/layout.tsx) ---- */
+  --font-display: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* ---- Color: single light "paper" scheme (dark out of scope v1) ---- */
+  --color-bg: #fafaf8; /* warm paper */
+  --color-surface: #ffffff; /* raised: hover rows, panels */
+  --color-recessed: #f3f2ee; /* wells: code, spec tables */
+  --color-ink: #191817; /* primary text / primary button */
+  --color-ink-hover: #35332e; /* primary button hover */
+  --color-ink-2: #454340; /* body text */
+  --color-ink-muted: #6e6a63; /* labels, captions, metadata */
+  --color-ink-faint: #98948b; /* decorative numerals, disabled only */
+  --color-line: #e7e4dd; /* hairline rules */
+  --color-line-strong: #d8d4cb; /* hover rules, underlines, secondary border */
+  --color-accent: #0f7b4f; /* THE accent — deep signal green */
+  --color-accent-hover: #0b6340;
+  --color-accent-tint: #eaf2ec; /* reserved: WINNER tag, current marker */
+
+  /* ---- Type roles (utilities: text-hero, text-heading, ...) ---- */
+  --text-hero: clamp(2.75rem, 1.25rem + 7.5vw, 6rem); /* 44 → 96px */
+  --text-hero--line-height: 1.04;
+  --text-hero--letter-spacing: -0.015em;
+  --text-hero--font-weight: 400;
+
+  --text-display: clamp(2.25rem, 1.6rem + 2.6vw, 3.5rem); /* 36 → 56px */
+  --text-display--line-height: 1.08;
+  --text-display--letter-spacing: -0.01em;
+  --text-display--font-weight: 400;
+
+  --text-heading: clamp(1.5rem, 1.3rem + 0.8vw, 1.875rem); /* 24 → 30px */
+  --text-heading--line-height: 1.2;
+  --text-heading--letter-spacing: -0.02em;
+  --text-heading--font-weight: 600;
+
+  --text-subhead: 1.25rem; /* 20px */
+  --text-subhead--line-height: 1.35;
+  --text-subhead--letter-spacing: -0.01em;
+  --text-subhead--font-weight: 600;
+
+  --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem); /* 17 → 19px */
+  --text-lead--line-height: 1.65;
+  --text-lead--letter-spacing: -0.005em;
+
+  --text-body: 1rem; /* 16px */
+  --text-body--line-height: 1.65;
+
+  --text-small: 0.875rem; /* 14px */
+  --text-small--line-height: 1.55;
+
+  --text-caption: 0.8125rem; /* 13px */
+  --text-caption--line-height: 1.5;
+
+  --text-label: 0.75rem; /* 12px mono micro-label */
+  --text-label--line-height: 1.2;
+  --text-label--letter-spacing: 0.08em;
+
+  --text-meta: 0.75rem; /* 12px mono metadata */
+  --text-meta--line-height: 1.5;
+
+  --text-code: 0.875rem; /* 14px mono code */
+  --text-code--line-height: 1.6;
+
+  /* ---- Motion ---- */
+  --ease-entrance: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-state: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---- Structure ---- */
+  --container-page: 75rem; /* max-w-page = 1200px */
+  --container-measure: 65ch; /* max-w-measure */
+}
+
+:root {
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --duration-slow: 250ms;
+}
+
+/* ---- Dark theme (user-requested) ----
+   Same warm-ink system inverted: near-black warm paper, same single green
+   accent brightened for dark-ground contrast. Overriding the @theme color
+   variables re-maps every utility automatically (bg-bg, text-ink, border-line…). */
+[data-theme="dark"] {
+  --color-bg: #141312; /* warm near-black paper */
+  --color-surface: #1d1b19; /* raised: hover rows, panels */
+  --color-recessed: #181614; /* wells: code, spec tables */
+  --color-ink: #f2efe9; /* primary text / primary button fill */
+  --color-ink-hover: #dad6cc; /* primary button hover */
+  --color-ink-2: #c7c2b8; /* body text */
+  --color-ink-muted: #948f86; /* labels, captions, metadata */
+  --color-ink-faint: #615d55; /* decorative numerals, disabled only */
+  --color-line: #2a2724; /* hairline rules */
+  --color-line-strong: #3b3733; /* hover rules, underlines, secondary border */
+  --color-accent: #4cc38a; /* signal green, brightened for dark ground */
+  --color-accent-hover: #6bd29f;
+  --color-accent-tint: #14291d; /* reserved: WINNER tag, current marker */
+  color-scheme: dark;
+}
+
+/* The only two entrance animations permitted on the site (design system §6.2).
+   Both are killed by the prefers-reduced-motion rule below. */
+@keyframes hero-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-hero-entrance {
+  animation: hero-entrance var(--duration-slow) var(--ease-entrance) both;
+}
+
+@utility animate-panel-in {
+  animation: panel-in var(--duration-base) var(--ease-state) both;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  html {
+    scroll-behavior: smooth;
+  }  body {
+    background: var(--color-bg);
+    color: var(--color-ink-2);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-bg);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  h1,
+  h2,
+  h3 {
+    color: var(--color-ink);
+  }
+  table,
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  /* sticky nav never covers a section's eyebrow on anchor jumps */
+  [id] {
+    scroll-margin-top: 5rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
