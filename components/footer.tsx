@@ -1,141 +1,107 @@
-/**
- * AGENT F — Section 05 · Contact / footer (UX_AUDIT §2.6, DESIGN_SYSTEM §5.9,
- * CONTENT_STRATEGY §4 + §10). The close of the page: serif sign-off, a
- * low-friction contact ledger (EMAIL / GITHUB / LINKEDIN as mono text links),
- * and the mono colophon. No forms, no phone, no copy-to-clipboard, no icons —
- * the only glyph is ↗ via the ExternalLink primitive.
- */
-import { ExternalLink } from "@/components/ui/external-link";
-import { contact, sectionIntros, site } from "@/lib/data";
+/** Section 05 · Contact — serif close, email first, plain text links. */
+import { contact, site } from "@/lib/data";
+import { CalEmbed } from "@/components/ui/cal-embed";
 
-/**
- * Serif sign-off: the closing line's first sentence stands alone, so it is
- * reused verbatim as the one serif moment; the sans lead carries the rest.
- * Both are derived from contact.closing — the copy is rendered exactly once,
- * across two voices. Nothing hardcoded.
- */
-const divider = contact.closing.indexOf(". ");
-const signoff = divider === -1 ? contact.closing : contact.closing.slice(0, divider + 1);
-const offer = divider === -1 ? "" : contact.closing.slice(divider + 2);
+const RESUME_URL = "https://drive.google.com/file/d/1iL4V8Xgu5MAHFp6fuh-EW8Q6fxM3L4Yo/view";
+const CAL_LINK = "shivamchavan";
 
-/** Display form of a stored URL: "https://github.com/x" → "github.com/x". */
-function displayUrl(url: string): string {
-  return url.replace(/^https?:\/\//, "").replace(/^www\./, "");
+const LINKS = [
+  { label: "GitHub", href: site.links.github, external: true },
+  { label: "LinkedIn", href: site.links.linkedin, external: true },
+  { label: "X", href: site.links.x, external: true },
+  ...(site.links.spotify
+    ? [{ label: "Spotify", href: site.links.spotify, external: true }]
+    : []),
+  { label: "Resume", href: RESUME_URL, external: true },
+  { label: `Phone · ${site.phone}`, href: `tel:${site.phone.replace(/\s/g, "")}`, external: false },
+  { label: "Book a call ↗", href: `https://cal.com/${CAL_LINK}`, external: true },
+];
+
+/** Derives an open.spotify.com/embed path from any public Spotify URL. */
+function spotifyEmbedPath(url: string): string | null {
+  const match = url.match(/open\.spotify\.com\/(playlist|album|artist|track|show|episode)\/([A-Za-z0-9]+)/);
+  return match ? `https://open.spotify.com/embed/${match[1]}/${match[2]}?theme=0` : null;
 }
 
 export default function Footer() {
   return (
     <footer id="contact" aria-labelledby="contact-heading" className="border-t border-line">
-      <div className="mx-auto max-w-page px-5 sm:px-6 lg:px-10">
-        <div className="py-16 md:py-24 lg:py-28">
-          {/* Header row — mirrors the numbered section-header pattern, built
-              privately: SectionHeader renders a <section>, wrong inside a
-              <footer> landmark. */}
-          <div className="grid grid-cols-4 gap-4 lg:grid-cols-12 lg:gap-6">
-            <div className="col-span-4 lg:col-span-3">
-              <p className="font-mono text-label font-medium uppercase text-ink-muted">
-                <span aria-hidden="true">05 · </span>
-                Contact
-              </p>
-            </div>
-            <div className="col-span-4 mt-3 lg:col-span-8 lg:col-start-5 lg:mt-0">
-              <h2 id="contact-heading" className="text-heading text-ink">
-                Contact
-              </h2>
-            </div>
+      <div className="mx-auto max-w-page px-5 py-14 sm:px-6 md:py-20 lg:px-10 lg:py-24">
+        <div className="flex items-center gap-4">
+          <h2
+            id="contact-heading"
+            className="shrink-0 font-mono text-label font-medium uppercase text-ink-muted"
+          >
+            <span aria-hidden="true" className="text-ink-faint">
+              05 ·{" "}
+            </span>
+            CONTACT
+          </h2>
+          <div aria-hidden="true" className="h-px flex-1 bg-line" />
+        </div>
+
+        <p className="mt-8 max-w-2xl text-display font-display text-ink">
+          Got something <span className="text-accent">worth building</span>?
+        </p>
+        <p className="mt-4 max-w-[52ch] text-lead text-ink-2">{contact.closing}</p>
+
+        <p className="mt-8">
+          <a
+            href={`mailto:${site.email}`}
+            className="font-mono text-lg text-ink underline decoration-line-strong underline-offset-8 transition-colors duration-150 hover:text-accent hover:decoration-accent"
+          >
+            {site.email}
+          </a>
+        </p>
+
+        <p className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-small">
+          {LINKS.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              className="text-ink-2 transition-colors duration-150 hover:text-accent"
+            >
+              {link.label}
+              {link.external ? <span aria-hidden="true" className="ml-0.5">↗</span> : null}
+            </a>
+          ))}
+        </p>
+
+        {site.links.spotify && spotifyEmbedPath(site.links.spotify) ? (
+          <div className="mt-10 max-w-xl">
+            <p className="font-mono text-label font-medium uppercase text-ink-muted">Listening</p>
+            <iframe
+              src={spotifyEmbedPath(site.links.spotify)!}
+              width="100%"
+              height="152"
+              frameBorder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              title="Spotify embed"
+              className="mt-3 rounded-xl border border-line"
+            />
           </div>
+        ) : null}
 
-          <div className="mt-10 grid grid-cols-4 gap-8 lg:grid-cols-12 lg:gap-6">
-            {/* Col A — the argument's last word: serif sign-off, closing offer,
-                and the dry "no forms" one-liner. */}
-            <div className="col-span-4 lg:col-span-5">
-              <p className="font-display text-display text-ink">{signoff}</p>
-              {offer ? (
-                <p className="mt-4 max-w-[40ch] text-lead text-ink-2">{offer}</p>
-              ) : null}
-              <p className="mt-4 font-mono text-label font-medium uppercase text-ink-muted">
-                {sectionIntros.contact}
-              </p>
-            </div>
-
-            {/* Col B — contact ledger: mono key above mono value link (stacked
-                so URLs never wrap mid-string). Rows hang from top rules; links
-                carry a 44px tap target. */}
-            <div className="col-span-4 lg:col-span-4">
-              <dl>
-                <div className="min-h-11 border-t border-line py-3">
-                  <dt className="font-mono text-label font-medium uppercase text-ink-muted">
-                    Email
-                  </dt>
-                  <dd className="mt-1 max-w-full">
-                    <a
-                      href={`mailto:${site.email}`}
-                      className="inline-flex min-h-11 items-center font-mono text-meta text-ink underline decoration-line-strong underline-offset-4 transition-colors duration-150 hover:text-accent hover:decoration-accent"
-                    >
-                      {site.email}
-                    </a>
-                  </dd>
-                </div>
-                <div className="min-h-11 border-t border-line py-3">
-                  <dt className="font-mono text-label font-medium uppercase text-ink-muted">
-                    Phone
-                  </dt>
-                  <dd className="mt-1 max-w-full">
-                    <a
-                      href={`tel:${site.phone.replace(/[^+\d]/g, "")}`}
-                      className="inline-flex min-h-11 items-center font-mono text-meta text-ink underline decoration-line-strong underline-offset-4 transition-colors duration-150 hover:text-accent hover:decoration-accent"
-                    >
-                      {site.phone}
-                    </a>
-                  </dd>
-                </div>
-                <div className="min-h-11 border-t border-line py-3">
-                  <dt className="font-mono text-label font-medium uppercase text-ink-muted">
-                    Resume
-                  </dt>
-                  <dd className="mt-1 max-w-full">
-                    <ExternalLink href={site.resume} className="inline-flex min-h-11 items-center font-mono text-meta">
-                      View resume
-                    </ExternalLink>
-                  </dd>
-                </div>
-                <div className="min-h-11 border-t border-line py-3">
-                  <dt className="font-mono text-label font-medium uppercase text-ink-muted">
-                    GitHub
-                  </dt>
-                  <dd className="mt-1 max-w-full">
-                    <ExternalLink
-                      href={site.links.github}
-                      className="inline-flex min-h-11 items-center font-mono text-meta"
-                    >
-                      {displayUrl(site.links.github)}
-                    </ExternalLink>
-                  </dd>
-                </div>
-                <div className="min-h-11 border-t border-line py-3">
-                  <dt className="font-mono text-label font-medium uppercase text-ink-muted">
-                    LinkedIn
-                  </dt>
-                  <dd className="mt-1 max-w-full">
-                    <ExternalLink
-                      href={site.links.linkedin}
-                      className="inline-flex min-h-11 items-center font-mono text-meta"
-                    >
-                      {displayUrl(site.links.linkedin)}
-                    </ExternalLink>
-                  </dd>
-                </div>
-              </dl>
-            </div>
-
-            {/* Col C — the small print: mono facts, no tracking claims beyond
-                the data's own build note. Left-aligned until lg. */}
-            <div className="col-span-4 lg:col-span-3 lg:text-right">
-              <p className="font-mono text-caption text-ink-muted">{contact.colophon}</p>
-              <p className="mt-2 font-mono text-caption text-ink-muted">{contact.buildNote}</p>
-            </div>
+        <div className="mt-12">
+          <div className="flex items-center gap-4">
+            <p className="shrink-0 font-mono text-label font-medium uppercase text-ink-muted">
+              Book a call
+            </p>
+            <div aria-hidden="true" className="h-px flex-1 bg-line" />
+          </div>
+          <p className="mt-4 max-w-[52ch] text-small text-ink-2">
+            Pick a slot on my calendar, no back-and-forth emails.
+          </p>
+          <div className="mt-4">
+            <CalEmbed calLink={CAL_LINK} label="Open my calendar" />
           </div>
         </div>
+
+        <p className="mt-12 font-mono text-caption text-ink-faint">
+          {contact.colophon} · {contact.buildNote}
+        </p>
       </div>
     </footer>
   );

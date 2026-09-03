@@ -1,12 +1,8 @@
-/** AGENT C — Section 03, Experience (UX_AUDIT §2.4, DESIGN_SYSTEM §5.7). */
+/** Section 03, Experience — hanging-date editorial timeline row. */
 import type { ReactNode } from "react";
 import { SectionHeader } from "@/components/ui/section-header";
 import { education, experience, sectionIntros } from "@/lib/data";
 
-/**
- * Key metrics set in text-ink for scannability. Substring patterns only —
- * the rendered copy itself always comes verbatim from lib/data.ts.
- */
 const METRIC_PHRASES = [
   "50+ gyms and 10+ tenants",
   "1,400+ passing tests",
@@ -19,7 +15,6 @@ const METRIC_PATTERN = new RegExp(
   "g",
 );
 
-/** Wrap the key metrics of a bullet in <strong>; all other text passes through. */
 function renderBullet(text: string): ReactNode {
   return text.split(METRIC_PATTERN).map((part, i) =>
     i % 2 === 1 ? (
@@ -34,10 +29,9 @@ function renderBullet(text: string): ReactNode {
 
 export default function Experience() {
   return (
-    <SectionHeader id="experience" index="03" label="EXPERIENCE" heading="Experience">
+    <SectionHeader id="experience" index="03" label="EXPERIENCE">
       <p className="max-w-measure text-lead text-ink-2">{sectionIntros.experience}</p>
 
-      {/* Hanging-date editorial timeline — no connector line, no dots. */}
       <ol className="mt-8 list-none lg:mt-10">
         <li className="border-t border-line py-6 lg:py-8">
           <div className="grid grid-cols-4 gap-4 lg:grid-cols-12 lg:gap-6">
@@ -46,15 +40,16 @@ export default function Experience() {
                 {experience.dates}
               </p>
               {experience.current ? (
-                <span className="mt-2 inline-block bg-accent-tint px-2 py-1 font-mono text-label font-medium uppercase text-accent">
-                  CURRENT
+                <span className="mt-2 inline-flex items-center gap-1.5 font-mono text-label font-medium uppercase text-accent">
+                  <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-status" />
+                  Current
                 </span>
               ) : null}
             </div>
 
-            <div className="col-span-4 lg:col-span-8 lg:col-start-5">
-              <h3 className="text-subhead font-medium text-ink">{experience.role}</h3>
-              <p className="mt-1 font-mono text-meta uppercase text-ink-muted tabular-nums">
+            <div className="col-span-4 lg:col-span-9">
+              <h3 className="text-lg font-medium text-ink">{experience.role}</h3>
+              <p className="mt-1 font-mono text-meta uppercase text-ink-muted">
                 {experience.org} · {experience.platform} · {experience.location}
               </p>
               <p className="mt-4 max-w-measure text-body text-ink">{experience.framing}</p>
@@ -71,17 +66,16 @@ export default function Experience() {
             </div>
           </div>
         </li>
-      </ol>
 
-      {/* Education — quiet one-line record, hairline only. */}
-      <div className="grid grid-cols-4 gap-4 border-t border-line py-4 lg:grid-cols-12 lg:gap-6">
-        <p className="col-span-4 font-mono text-meta uppercase text-ink-muted lg:col-span-3">
-          EDUCATION
-        </p>
-        <p className="col-span-4 font-mono text-meta text-ink-muted tabular-nums lg:col-span-8 lg:col-start-5">
-          {education}
-        </p>
-      </div>
+        <li className="grid grid-cols-4 gap-4 border-t border-line py-5 lg:grid-cols-12 lg:gap-6">
+          <p className="col-span-4 font-mono text-label font-medium uppercase text-ink-muted lg:col-span-3">
+            Education
+          </p>
+          <p className="col-span-4 font-mono text-meta text-ink-muted tabular-nums lg:col-span-9">
+            {education}
+          </p>
+        </li>
+      </ol>
     </SectionHeader>
   );
 }

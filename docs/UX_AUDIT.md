@@ -43,7 +43,7 @@ A reviewer should be able to reject the shipped site if **any** of the following
 6. Any of the banned words from CONTENT_STRATEGY §11, or any exclamation mark.
 7. Two or more visually identical content blocks side by side anywhere on the page.
 8. A standalone "Skills" section with bars/tags/charts, or a standalone "Tech stack" logo area.
-9. The phone number `+91 91139 11660` appearing anywhere.
+9. The phone number `[redacted]` appearing anywhere.
 10. A link labeled "check it out", "learn more", "see more" — or any link whose href is not in FACTS.md.
 
 ---

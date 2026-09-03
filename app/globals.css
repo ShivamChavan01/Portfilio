@@ -1,77 +1,94 @@
 @import "tailwindcss";
 
 @theme {
-  /* ---- Fonts: wired to next/font variables (see app/layout.tsx) ---- */
-  --font-display: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
-  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  /* ---- Fonts ---- */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-serif), Georgia, "Times New Roman", serif;
   --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", Menlo, monospace;
 
-  /* ---- Color: single light "paper" scheme (dark out of scope v1) ---- */
-  --color-bg: #fafaf8; /* warm paper */
-  --color-surface: #ffffff; /* raised: hover rows, panels */
-  --color-recessed: #f3f2ee; /* wells: code, spec tables */
-  --color-ink: #191817; /* primary text / primary button */
-  --color-ink-hover: #35332e; /* primary button hover */
-  --color-ink-2: #454340; /* body text */
-  --color-ink-muted: #6e6a63; /* labels, captions, metadata */
-  --color-ink-faint: #98948b; /* decorative numerals, disabled only */
-  --color-line: #e7e4dd; /* hairline rules */
-  --color-line-strong: #d8d4cb; /* hover rules, underlines, secondary border */
-  --color-accent: #0f7b4f; /* THE accent — deep signal green */
-  --color-accent-hover: #0b6340;
-  --color-accent-tint: #eaf2ec; /* reserved: WINNER tag, current marker */
+  /* ---- Color: dim warm parchment (light, default) + warm charcoal dark ---- */
+  --color-bg: #e6e2d6;
+  --color-surface: #efede3;
+  --color-recessed: #dcd8ca;
+  --color-ink: #21201d;
+  --color-ink-hover: #000000;
+  --color-ink-2: #48463f;
+  --color-ink-muted: #6c6a61;
+  --color-ink-faint: #96937f;
+  --color-line: #d0ccbc;
+  --color-line-strong: #bfbba9;
+  --color-accent: #a34a26;
+  --color-accent-hover: #8c3e1f;
+  --color-accent-tint: #e6d7c8;
+  --color-status: #4e7a4e;
 
-  /* ---- Type roles (utilities: text-hero, text-heading, ...) ---- */
-  --text-hero: clamp(2.75rem, 1.25rem + 7.5vw, 6rem); /* 44 → 96px */
-  --text-hero--line-height: 1.04;
-  --text-hero--letter-spacing: -0.015em;
-  --text-hero--font-weight: 400;
+  /* ---- Type roles ---- */
+  --text-hero: clamp(2.75rem, 1.75rem + 4.5vw, 4.75rem);
+  --text-hero--line-height: 1.08;
+  --text-hero--letter-spacing: -0.02em;
+  --text-hero--font-weight: 600;
 
-  --text-display: clamp(2.25rem, 1.6rem + 2.6vw, 3.5rem); /* 36 → 56px */
-  --text-display--line-height: 1.08;
-  --text-display--letter-spacing: -0.01em;
-  --text-display--font-weight: 400;
+  --text-display: clamp(1.9rem, 1.4rem + 2vw, 2.75rem);
+  --text-display--line-height: 1.15;
+  --text-display--letter-spacing: -0.015em;
+  --text-display--font-weight: 600;
 
-  --text-heading: clamp(1.5rem, 1.3rem + 0.8vw, 1.875rem); /* 24 → 30px */
-  --text-heading--line-height: 1.2;
-  --text-heading--letter-spacing: -0.02em;
+  --text-heading: clamp(1.375rem, 1.2rem + 0.7vw, 1.75rem);
+  --text-heading--line-height: 1.25;
+  --text-heading--letter-spacing: -0.01em;
   --text-heading--font-weight: 600;
 
-  --text-subhead: 1.25rem; /* 20px */
-  --text-subhead--line-height: 1.35;
-  --text-subhead--letter-spacing: -0.01em;
+  --text-subhead: 1.125rem;
+  --text-subhead--line-height: 1.4;
   --text-subhead--font-weight: 600;
 
-  --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem); /* 17 → 19px */
-  --text-lead--line-height: 1.65;
-  --text-lead--letter-spacing: -0.005em;
+  --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  --text-lead--line-height: 1.7;
 
-  --text-body: 1rem; /* 16px */
-  --text-body--line-height: 1.65;
+  --text-body: 1rem;
+  --text-body--line-height: 1.7;
 
-  --text-small: 0.875rem; /* 14px */
-  --text-small--line-height: 1.55;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.6;
 
-  --text-caption: 0.8125rem; /* 13px */
+  --text-caption: 0.8125rem;
   --text-caption--line-height: 1.5;
 
-  --text-label: 0.75rem; /* 12px mono micro-label */
+  --text-label: 0.75rem;
   --text-label--line-height: 1.2;
-  --text-label--letter-spacing: 0.08em;
+  --text-label--letter-spacing: 0.12em;
 
-  --text-meta: 0.75rem; /* 12px mono metadata */
+  --text-meta: 0.75rem;
   --text-meta--line-height: 1.5;
-
-  --text-code: 0.875rem; /* 14px mono code */
-  --text-code--line-height: 1.6;
 
   /* ---- Motion ---- */
   --ease-entrance: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-state: cubic-bezier(0.4, 0, 0.2, 1);
 
+  --radius-card: 1.25rem;
+
   /* ---- Structure ---- */
   --container-page: 75rem; /* max-w-page = 1200px */
   --container-measure: 65ch; /* max-w-measure */
+}
+
+/* ---- Warm charcoal dark theme (toggle) ---- */
+[data-theme="dark"] {
+  --color-bg: #262624;
+  --color-surface: #30302e;
+  --color-recessed: #1f1e1d;
+  --color-ink: #f5f4ef;
+  --color-ink-hover: #ffffff;
+  --color-ink-2: #c2c0b6;
+  --color-ink-muted: #98968c;
+  --color-ink-faint: #6b6a62;
+  --color-line: #3a3936;
+  --color-line-strong: #4e4c46;
+  --color-accent: #d97757;
+  --color-accent-hover: #e08b6d;
+  --color-accent-tint: #3b2f28;
+  --color-status: #6fcf8e;
+  color-scheme: dark;
 }
 
 :root {
@@ -80,29 +97,6 @@
   --duration-slow: 250ms;
 }
 
-/* ---- Dark theme (user-requested) ----
-   Same warm-ink system inverted: near-black warm paper, same single green
-   accent brightened for dark-ground contrast. Overriding the @theme color
-   variables re-maps every utility automatically (bg-bg, text-ink, border-line…). */
-[data-theme="dark"] {
-  --color-bg: #141312; /* warm near-black paper */
-  --color-surface: #1d1b19; /* raised: hover rows, panels */
-  --color-recessed: #181614; /* wells: code, spec tables */
-  --color-ink: #f2efe9; /* primary text / primary button fill */
-  --color-ink-hover: #dad6cc; /* primary button hover */
-  --color-ink-2: #c7c2b8; /* body text */
-  --color-ink-muted: #948f86; /* labels, captions, metadata */
-  --color-ink-faint: #615d55; /* decorative numerals, disabled only */
-  --color-line: #2a2724; /* hairline rules */
-  --color-line-strong: #3b3733; /* hover rules, underlines, secondary border */
-  --color-accent: #4cc38a; /* signal green, brightened for dark ground */
-  --color-accent-hover: #6bd29f;
-  --color-accent-tint: #14291d; /* reserved: WINNER tag, current marker */
-  color-scheme: dark;
-}
-
-/* The only two entrance animations permitted on the site (design system §6.2).
-   Both are killed by the prefers-reduced-motion rule below. */
 @keyframes hero-entrance {
   from {
     opacity: 0;
@@ -139,7 +133,8 @@
   }
   html {
     scroll-behavior: smooth;
-  }  body {
+  }
+  body {
     background: var(--color-bg);
     color: var(--color-ink-2);
     font-family: var(--font-sans);
@@ -148,8 +143,8 @@
     text-rendering: optimizeLegibility;
   }
   ::selection {
-    background: var(--color-ink);
-    color: var(--color-bg);
+    background: var(--color-accent);
+    color: #ffffff;
   }
   :focus-visible {
     outline: 2px solid var(--color-accent);
@@ -164,7 +159,6 @@
   .tabular {
     font-variant-numeric: tabular-nums;
   }
-  /* sticky nav never covers a section's eyebrow on anchor jumps */
   [id] {
     scroll-margin-top: 5rem;
   }

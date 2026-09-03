@@ -13,7 +13,7 @@
 | Email | shivamrc189@gmail.com |
 | LinkedIn | https://linkedin.com/in/ShivamChavan01 |
 | GitHub | https://github.com/ShivamChavan01 |
-| Phone (resume only) | +91 91139 11660 |
+| Phone (resume only) | not published on the site |
 
 ## Resume Summary (verbatim intent)
 

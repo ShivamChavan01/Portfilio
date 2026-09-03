@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * AGENT E — Expandable case-study panels (DESIGN_SYSTEM §5.6, UX_AUDIT §4.2).
+ * Expandable case-study panels as rounded cards.
  *
  * Full body text is rendered unconditionally on the server; collapsed bodies
  * are hidden with the `hidden` utility — never null-rendered — so crawlers
@@ -15,6 +15,7 @@ import { caseStudies, type CaseStudy } from "@/lib/case-studies";
 import { ExternalLink } from "@/components/ui/external-link";
 import { MonoLabel } from "@/components/ui/mono-label";
 import { SpecRow } from "@/components/ui/spec-row";
+import { VideoEmbed } from "@/components/ui/video-embed";
 
 export default function CaseStudyPanels() {
   // Initial state: all collapsed on both server and client — no hydration
@@ -53,14 +54,13 @@ export default function CaseStudyPanels() {
   };
 
   return (
-    <div>
+    <div className="divide-y divide-line border-t border-line border-b">
       {caseStudies.map((entry, i) => (
         <CaseStudyPanel
           key={entry.slug}
           entry={entry}
           index={String(i + 1).padStart(2, "0")}
           open={openPanels.has(entry.anchor)}
-          last={i === caseStudies.length - 1}
           onToggle={() => toggle(entry.anchor)}
         />
       ))}
@@ -72,38 +72,33 @@ function CaseStudyPanel({
   entry,
   index,
   open,
-  last,
   onToggle,
 }: {
   entry: CaseStudy;
   index: string;
   open: boolean;
-  last: boolean;
   onToggle: () => void;
 }) {
   return (
-    <div id={entry.anchor} className={`border-t border-line${last ? " border-b" : ""}`}>
+    <div id={entry.anchor} className="border-t border-line">
       <button
         type="button"
         id={`${entry.anchor}-button`}
         aria-expanded={open}
         aria-controls={`${entry.anchor}-body`}
         onClick={onToggle}
-        className="grid w-full grid-cols-4 items-baseline gap-x-4 py-5 text-left transition-colors duration-150 hover:bg-surface lg:grid-cols-12 lg:gap-x-6 lg:py-6"
+        className="flex w-full items-start gap-4 py-5 text-left lg:py-6"
       >
-        <span aria-hidden="true" className="col-span-1 font-mono text-label text-ink-faint">
+        <span aria-hidden="true" className="mt-1 font-mono text-label text-ink-faint">
           {index}
         </span>
-        <span className="col-span-2 lg:col-span-6">
-          <span className="block text-subhead text-ink">{entry.project}</span>
+        <span className="min-w-0 flex-1">
+          <span className="block text-lg font-medium text-ink">{entry.project}</span>
           <span className="mt-1 block text-small text-ink-muted">{entry.teaser}</span>
-        </span>
-        <span className="hidden font-mono text-meta text-ink-muted lg:col-span-4 lg:block">
-          {entry.stack}
         </span>
         <span
           aria-hidden="true"
-          className="col-span-1 justify-self-end font-mono text-base leading-none text-ink-muted"
+          className="mt-0.5 shrink-0 font-mono text-base leading-none text-ink-muted"
         >
           {open ? "–" : "+"}
         </span>
@@ -115,13 +110,9 @@ function CaseStudyPanel({
         aria-labelledby={`${entry.anchor}-button`}
         className={open ? "block" : "hidden"}
       >
-        <div
-          className={`grid grid-cols-4 gap-4 pb-8 lg:grid-cols-12 lg:gap-6${
-            open ? " animate-panel-in" : ""
-          }`}
-        >
-          <div className="col-span-4 lg:col-span-8 lg:col-start-5">
-            <SpecRow items={[entry.stack, entry.year, entry.heroMetric]} />
+        <div className={`pb-8${open ? " animate-panel-in" : ""}`}>
+          <div className="border-t border-line pt-5">
+            <SpecRow items={[entry.stack, entry.year, entry.heroMetric]} className="break-all" />
             {entry.links.length > 0 ? (
               <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
                 {entry.links.map((link) => (
@@ -135,8 +126,13 @@ function CaseStudyPanel({
                 ))}
               </div>
             ) : null}
+            {entry.video ? (
+              <div className="mt-5 max-w-2xl">
+                <VideoEmbed id={entry.video.id} title={entry.video.label} />
+              </div>
+            ) : null}
             {entry.sections.map((section) => (
-              <div key={section.label} className="mt-8">
+              <div key={section.label} className="mt-7">
                 <MonoLabel>{section.label}</MonoLabel>
                 <p className="mt-2 max-w-measure text-body text-ink-2">{section.body}</p>
               </div>

@@ -18,6 +18,8 @@ export type CaseStudy = {
   year: string;
   heroMetric: string;
   links: { label: string; href: string }[];
+  /** Optional demo video (YouTube id) — rendered as a click-to-load facade. */
+  video?: { id: string; label: string };
   sections: CaseStudySection[];
 };
 
@@ -71,6 +73,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "GitHub", href: "https://github.com/ShivamChavan01/MCP_Foundry" },
       { label: "Demo", href: "https://youtu.be/vRT6zaGCySg" },
     ],
+    video: { id: "vRT6zaGCySg", label: "MCP Foundry demo from OpenAI Build Week" },
     sections: [
       {
         label: "CONTEXT",

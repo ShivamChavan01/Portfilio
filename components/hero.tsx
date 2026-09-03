@@ -1,77 +1,93 @@
-import type { ReactNode } from "react";
-import { hero } from "@/lib/data";
-import { ExternalLink } from "@/components/ui/external-link";
+import { hero, site } from "@/lib/data";
 
 /**
- * Hero — region 00 (unnumbered). Serif thesis statement, mono meta rail,
- * one primary CTA plus plain-text secondary links. The hero entrance
- * (250ms fade + rise, disabled under prefers-reduced-motion) is applied
- * to the statement block only; nothing else on the page animates in.
+ * Hero — text-first per the research consensus, with a mono facts panel
+ * filling the right column on desktop (the "quantified stat line" pattern
+ * from 6/15 AI engineer portfolios). No CTA buttons, no photo, no chips.
  */
 
-/** The single italic word permitted in a display statement (design system §1.2). */
-const ITALIC_WORD = "production";
+const HEADLINE = "I build production systems and AI infrastructure.";
+const MARK = "production systems";
 
-function renderHeadline(headline: string): ReactNode {
-  const index = headline.indexOf(ITALIC_WORD);
+function renderHeadline(headline: string): React.ReactNode {
+  const index = headline.indexOf(MARK);
   if (index === -1) return headline;
   return (
     <>
       {headline.slice(0, index)}
-      <em className="italic">{ITALIC_WORD}</em>
-      {headline.slice(index + ITALIC_WORD.length)}
+      <mark className="bg-accent/15 text-accent">{MARK}</mark>
+      {headline.slice(index + MARK.length)}
     </>
   );
 }
 
+const SOCIALS = [
+  { label: "GitHub", href: site.links.github, external: true },
+  { label: "LinkedIn", href: site.links.linkedin, external: true },
+  { label: "X", href: site.links.x, external: true },
+  { label: "Email", href: `mailto:${site.email}`, external: false },
+  {
+    label: "Resume",
+    href: "https://drive.google.com/file/d/1iL4V8Xgu5MAHFp6fuh-EW8Q6fxM3L4Yo/view",
+    external: true,
+  },
+];
+
 export default function Hero() {
   return (
-    <section className="mx-auto max-w-page px-5 pb-8 pt-16 sm:px-6 md:pt-24 lg:px-10 lg:pt-32">
-      <div className="grid grid-cols-4 gap-4 lg:grid-cols-12 lg:gap-6">
-        <div className="col-span-4 animate-hero-entrance lg:col-span-9">
-          <p className="mb-4 font-mono text-label font-medium uppercase text-ink-muted">
-            {hero.eyebrow}
+    <section className="mx-auto max-w-page px-5 pb-16 pt-16 sm:px-6 md:pt-24 lg:px-10 lg:pb-20 lg:pt-32">
+      <div className="grid max-w-none grid-cols-4 gap-4 animate-hero-entrance lg:grid-cols-12 lg:gap-6">
+        <div className="col-span-4 lg:col-span-8">
+          <p className="font-mono text-label font-medium uppercase text-ink-muted">
+            {site.name} · {site.title}
           </p>
-          <h1 className="text-hero font-display text-ink">{renderHeadline(hero.headline)}</h1>
-          <p className="mt-6 max-w-[56ch] text-lead text-ink-2">{hero.sub}</p>
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a
-              href={hero.ctaPrimary.href}
-              className="inline-flex h-11 items-center border border-ink bg-ink px-5 text-small font-medium text-bg transition-colors duration-150 hover:border-ink-hover hover:bg-ink-hover active:translate-y-px"
-            >
-              {hero.ctaPrimary.label}
-            </a>
-            {hero.ctaSecondary.map((link) =>
-              link.href.startsWith("mailto:") ? (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="inline-flex h-11 items-center text-small font-medium text-ink underline decoration-line-strong underline-offset-4 transition-colors duration-150 hover:text-accent hover:decoration-accent"
-                >
-                  {link.label}
-                </a>
-              ) : (
-                <ExternalLink
-                  key={link.label}
-                  href={link.href}
-                  className="inline-flex h-11 items-center text-small font-medium"
-                >
-                  {link.label}
-                </ExternalLink>
-              ),
-            )}
-          </div>
+          <h1 className="mt-5 text-hero font-display text-ink">
+            {renderHeadline(HEADLINE)}
+          </h1>
+
+          <p className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-1 text-small text-ink-2">
+            <span className="inline-flex items-center gap-2">
+              <span aria-hidden="true" className="h-2 w-2 rounded-full bg-status" />
+              {site.location}
+            </span>
+            <span aria-hidden="true">·</span>
+            <span>Currently building Strivo at Eazytag</span>
+            <span aria-hidden="true">·</span>
+            <span className="text-ink">Open to full-stack & AI engineering roles</span>
+          </p>
+
+          <p className="mt-4 max-w-[60ch] text-lead text-ink-2">
+            I work across voice AI observability, multi-tenant SaaS, and LLM tooling, from React
+            frontends to event-driven backend systems.
+          </p>
+
+          <p className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-small">
+            {SOCIALS.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                {...(social.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="text-ink-2 transition-colors duration-150 hover:text-accent"
+              >
+                {social.label}
+                {social.external ? <span aria-hidden="true" className="ml-0.5">↗</span> : null}
+              </a>
+            ))}
+          </p>
         </div>
-        <ul className="col-span-4 mt-10 lg:col-span-3 lg:col-start-10 lg:mt-0">
-          {hero.metaRail.map((item) => (
-            <li
-              key={item}
-              className="border-t border-line py-3 font-mono text-label font-medium uppercase text-ink-muted"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
+
+        <aside className="col-span-4 mt-10 lg:col-span-4 lg:mt-2" aria-label="Quick facts">
+          <ul className="list-none">
+            {hero.metaRail.map((fact) => (
+              <li
+                key={fact}
+                className="border-t border-line py-3 font-mono text-label font-medium uppercase leading-relaxed text-ink-muted"
+              >
+                {fact}
+              </li>
+            ))}
+          </ul>
+        </aside>
       </div>
     </section>
   );

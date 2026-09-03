@@ -332,7 +332,7 @@ Link: `Demo` → https://youtu.be/03hsGuhBdzQ
 **Small print (mono, footer):**
 > `Shivam Chavan · Full Stack Engineer · Bengaluru, India · 2026`
 
-`[Phone number (+91 91139 11660) is resume-only. It must NOT appear anywhere on the site.]`
+`[Phone number ([redacted]) is resume-only. It must NOT appear anywhere on the site.]`
 
 ---
 

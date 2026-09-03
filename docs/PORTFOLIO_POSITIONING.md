@@ -142,7 +142,7 @@ Today is Sep 2026; the resume is dated 2025–2026. Use dates verbatim from FACT
 - Jira CI/CD Status Panel: **no link**; present as winner, no URL, no fake repo.
 - AutoAce: **live link only** (voice-classifier.up.railway.app); no GitHub link.
 - OpenMetadata: use the PR link derived from the verified PR number (#27602); JKube: org link github.com/eclipse-jkube/jkube.
-- Phone (+91 91139 11660) is marked "resume only" — **do not publish on the site** unless the user explicitly approves.
+- Phone ([redacted]) is marked "resume only" — **do not publish on the site** unless the user explicitly approves.
 
 ### Hard "do not add" list
 No employers, projects, metrics, dates, certifications, client names, or capabilities beyond FACTS.md. No "trusted by," no inferred team sizes, no inferred funding/scale, no invented logos (even of real integrations platforms — the 6 platforms are *integration targets named in facts*, and may appear only in that factual context).
