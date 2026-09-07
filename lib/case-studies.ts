@@ -32,10 +32,10 @@ export const caseStudies: CaseStudy[] = [
       "How a voice AI observability platform ingests six platforms' webhooks safely, and measures its own judge.",
     stack: "Python · FastAPI · OpenAI · Anthropic · Gemini · Groq · Mistral · Whisper · ChromaDB · Railway",
     year: "Jun – Jul 2026",
-    heroMetric: "300+ tests",
+    heroMetric: "6 platform integrations",
     links: [
       { label: "GitHub", href: "https://github.com/ShivamChavan01/voiceScope" },
-      { label: "Live", href: "https://voice-scope.vercel.app/" },
+      { label: "Live", href: "https://voice-scope.vercel.app/runs" },
     ],
     sections: [
       {
@@ -48,15 +48,15 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         label: "ENGINEERING CHALLENGE",
-        body: "Ingesting webhooks from six external platforms means ingesting attack surface, so the integration layer carries SSRF protection as a first-class requirement. A validation harness that judges other systems must itself be trustworthy, which is why harness accuracy is benchmarked and auto-tuned rather than assumed. Supporting five LLM providers means the analysis layer has to stay provider-agnostic without quality drifting per vendor. And a regression-testing platform claiming 300+ passing tests needs CI that actually runs them on every push.",
+        body: "Ingesting webhooks from six external platforms means ingesting attack surface, so the integration layer carries SSRF protection as a first-class requirement. A validation harness that judges other systems must itself be trustworthy, which is why harness accuracy is benchmarked and auto-tuned rather than assumed. Supporting five LLM providers means the analysis layer has to stay provider-agnostic without quality drifting per vendor. And a regression-testing platform needs CI that actually runs its suite on every push.",
       },
       {
         label: "DECISIONS",
-        body: "Validate first, trust later: every webhook passes SSRF-protected ingest before analysis. Measure the judge: the harness auto-tunes its weights from each run's benchmark instead of being hand-tuned once. Retrieve before judging: RAG context via ChromaDB grounds the LLM analysis in retrieved call context instead of model priors. Stay vendor-neutral: analysis runs across OpenAI, Anthropic, Gemini, Groq, and Mistral. Ship tests with the platform: 300+ tests gate the build in GitHub Actions.",
+        body: "Validate first, trust later: every webhook passes SSRF-protected ingest before analysis. Measure the judge: the harness auto-tunes its weights from each run's benchmark instead of being hand-tuned once. Retrieve before judging: RAG context via ChromaDB grounds the LLM analysis in retrieved call context instead of model priors. Stay vendor-neutral: analysis runs across OpenAI, Anthropic, Gemini, Groq, and Mistral. Ship tests with the platform: the suite gates the build in GitHub Actions.",
       },
       {
         label: "RESULT",
-        body: "VoiceScope is open source, live, and integrated with six voice AI platforms. 300+ tests pass in CI. The platform transcribes, analyzes, and reports on voice agent calls with a 7-layer harness that catches hallucinations and schema violations, and re-tunes itself each run. Streaming SSE keeps reports live in the browser.",
+        body: "VoiceScope is open source, live, and integrated with six voice AI platforms. The suite passes in CI. The platform transcribes, analyzes, and reports on voice agent calls with a 7-layer harness that catches hallucinations and schema violations, and re-tunes itself each run. Streaming SSE keeps reports live in the browser.",
       },
     ],
   },
@@ -102,15 +102,15 @@ export const caseStudies: CaseStudy[] = [
     anchor: "case-study-strivo",
     project: "Strivo",
     teaser:
-      "Booking correctness under concurrent writes on a multi-tenant SaaS running 50+ gyms, with the tests to prove it.",
+      "Booking correctness under concurrent writes on a multi-tenant SaaS running 100+ gyms.",
     stack: "Angular · Java 21 · Micronaut · MongoDB · Change Streams",
     year: "10/2025 – Present",
-    heroMetric: "1,400+ tests",
+    heroMetric: "100+ gyms",
     links: [],
     sections: [
       {
         label: "CONTEXT",
-        body: "Strivo is Eazytag's multi-tenant SaaS platform for gyms, running across 50+ gyms and 10+ tenants. Two problems dominate the domain. Class booking is concurrency-heavy: slot scheduling, recurring series, waitlist promotion, biometric check-in, and a full session deduction/refund lifecycle all touch the same state. And gym operators were running a manual weekly review to understand facility health. I joined as Full Stack Developer in October 2025 and own features across the entire stack.",
+        body: "Strivo is Eazytag's multi-tenant SaaS platform for gyms, running across 100+ gyms grouped under 60+ tenants, where a single tenant can operate a dozen gyms. Two problems dominate the domain. Class booking is concurrency-heavy: slot scheduling, recurring series, waitlist promotion, biometric check-in, and a full session deduction/refund lifecycle all touch the same state. And gym operators were running a manual weekly review to understand facility health. I joined as Full Stack Developer in October 2025 and own features across the entire stack.",
       },
       {
         label: "ARCHITECTURE",
@@ -118,15 +118,15 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         label: "ENGINEERING CHALLENGE",
-        body: "Concurrent writes are the core difficulty: two members booking the last slot, a waitlist promoting while someone checks in biometrically, a refund racing a session deduction. The design had to be correct under that load, and the proof had to be executable: 1,400+ passing tests. External APIs fail on their own schedule, so retry logic has to absorb their failures while the platform itself holds 99%+ uptime. And operator intuition about gym health had to be translated into a scoring engine with alert tiers precise enough to act on nightly.",
+        body: "Concurrent writes are the core difficulty: two members booking the last slot, a waitlist promoting while someone checks in biometrically, a refund racing a session deduction. The design had to be correct under that load, and the proof had to be executable: a suite covering the booking lifecycle. External APIs fail on their own schedule, so retry logic has to absorb their failures without them surfacing as platform incidents. And operator intuition about gym health had to be translated into a scoring engine with alert tiers precise enough to act on nightly.",
       },
       {
         label: "DECISIONS",
-        body: "Treat tests as the specification: correctness under concurrent writes is enforced by 1,400+ passing tests, not by hope. Automate the review: the manual weekly process became a nightly health-scoring pipeline, cutting reporting overhead and incidents by 40% each. Put retries at the third-party boundary so WhatsApp, PDF, and GST invoicing failures don't surface as platform incidents. Use MongoDB Change Streams to broadcast updates across instances without adding a separate message broker.",
+        body: "Treat tests as the specification: correctness under concurrent writes is enforced by the suite, not by hope. Automate the review: the manual weekly process became a nightly health-scoring pipeline with alert tiers. Put retries at the third-party boundary so WhatsApp, PDF, and GST invoicing failures don't surface as platform incidents. Use MongoDB Change Streams to broadcast updates across instances without adding a separate message broker.",
       },
       {
         label: "RESULT",
-        body: "Production code across 50+ gyms and 10+ tenants. 1,400+ tests passing on the booking platform; 99%+ uptime maintained alongside third-party integrations. Reporting overhead and incidents each down 40% after the health scoring engine replaced the manual weekly review. And weekly on-call with client engineering teams: leading product demos, resolving production issues in real time, as the technical point of contact between product and customer.",
+        body: "Production code across 100+ gyms and 60+ tenants. Full test coverage on the booking platform, with third-party integrations behind retry logic. The health scoring engine replaced the manual weekly review with a nightly pipeline. And weekly on-call with client engineering teams: leading product demos, resolving production issues in real time, as the technical point of contact between product and customer.",
       },
     ],
   },
@@ -138,10 +138,10 @@ export const caseStudies: CaseStudy[] = [
       "A multi-tenant chatbot platform with provider fallback, grounded tools, and server-enforced usage limits.",
     stack: "Python · FastAPI · SQLAlchemy · PostgreSQL · pgvector · React · TypeScript · Docker",
     year: "AI PLATFORM",
-    heroMetric: "120+ tests",
+    heroMetric: "25 LLMs",
     links: [
       { label: "GitHub", href: "https://github.com/ShivamChavan01/agent-platform" },
-      { label: "Live", href: "https://agent-platform-popb.onrender.com" },
+      { label: "Live", href: "https://agent-platform-popb.onrender.com/" },
     ],
     sections: [
       {
@@ -162,7 +162,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         label: "RESULT",
-        body: "Open Agent works end to end as a multi-tenant AI platform: projects, conversations, JWT authentication, pgvector-backed RAG, calculator/document/web tools, provider fallback, SSE token streaming, and rolling token-budget metering. More than 120 tests cover the application, and the project is available as both a public repository and a live deployment.",
+        body: "Open Agent works end to end as a multi-tenant AI platform: projects, conversations, JWT authentication, pgvector-backed RAG, calculator/document/web tools, provider fallback, SSE token streaming, and rolling token-budget metering. Automated tests cover the application, and the project is available as both a public repository and a live deployment.",
       },
     ],
   },

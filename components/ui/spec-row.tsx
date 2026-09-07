@@ -1,5 +1,5 @@
 /**
- * Inline mono metric row: `300+ tests · 6 platform integrations · …`
+ * Inline mono metric row: `6 platform integrations · SSRF protection · …`
  * The middot separators are decorative (aria-hidden).
  */
 export function SpecRow({

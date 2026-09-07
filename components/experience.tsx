@@ -3,12 +3,7 @@ import type { ReactNode } from "react";
 import { SectionHeader } from "@/components/ui/section-header";
 import { education, experience, sectionIntros } from "@/lib/data";
 
-const METRIC_PHRASES = [
-  "50+ gyms and 10+ tenants",
-  "1,400+ passing tests",
-  "40% each",
-  "99%+ uptime",
-] as const;
+const METRIC_PHRASES = ["100+ gyms and 60+ tenants"] as const;
 
 const METRIC_PATTERN = new RegExp(
   `(${METRIC_PHRASES.map((phrase) => phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`,

@@ -16,8 +16,6 @@ export const site = {
   title: "Full Stack Engineer",
   location: "Bengaluru, India",
   email: "shivamrc189@gmail.com",
-  phone: "+91 91139 11660",
-  resume: "https://drive.google.com/file/d/1iL4V8Xgu5MAHFp6fuh-EW8Q6fxM3L4Yo/view",
   links: {
     github: "https://github.com/ShivamChavan01",
     linkedin: "https://www.linkedin.com/in/ShivamChavan01",
@@ -53,12 +51,11 @@ export const hero = {
   ctaSecondary: [
     { label: "Email", href: "mailto:shivamrc189@gmail.com" },
     { label: "GitHub", href: "https://github.com/ShivamChavan01" },
-    { label: "Resume", href: "https://drive.google.com/file/d/1iL4V8Xgu5MAHFp6fuh-EW8Q6fxM3L4Yo/view" },
   ] as SiteLink[],
 } as const;
 
 export const sectionIntros = {
-  work: "Five systems, built end to end, with the tests, links, and numbers attached.",
+  work: "Five systems, built end to end, with links and numbers attached.",
   experience: "One role, one platform, owned end to end. On-call included.",
   openSource:
     "Merged, reviewed, and shipped in other people's codebases: Eclipse Foundation, OpenMetadata, Atlassian, npm.",
@@ -88,7 +85,7 @@ export const work: WorkEntry[] = [
     year: "Jun – Jul 2026",
     descriptor: "Open source observability and regression-testing platform for voice AI agents.",
     summary:
-      "Voice agents fail in the field, and their operators rarely see why. VoiceScope ingests call webhooks from six voice AI platforms and runs a three-stage agentic pipeline (Whisper transcription, LLM analysis with RAG context retrieval, structured report generation) over a 7-layer validation harness that catches hallucinations and schema violations. Open source, live, with 300+ tests gating the build.",
+      "Voice agents fail in the field, and their operators rarely see why. VoiceScope ingests call webhooks from six voice AI platforms and runs a three-stage agentic pipeline (Whisper transcription, LLM analysis with RAG context retrieval, structured report generation) over a 7-layer validation harness that catches hallucinations and schema violations. Open source, live, with CI gating the build.",
     stack: [
       "Python",
       "FastAPI",
@@ -102,10 +99,10 @@ export const work: WorkEntry[] = [
       "RAG",
       "Railway",
     ],
-    spec: ["300+ tests", "6 platform integrations", "SSRF protection", "7-layer validation harness"],
+    spec: ["6 platform integrations", "SSRF protection", "7-layer validation harness"],
     links: [
       { label: "GitHub", href: "https://github.com/ShivamChavan01/voiceScope", external: true },
-      { label: "Live", href: "https://voice-scope.vercel.app/", external: true },
+      { label: "Live", href: "https://voice-scope.vercel.app/runs", external: true },
     ],
   },
   {
@@ -133,7 +130,7 @@ export const work: WorkEntry[] = [
     summary:
       "Strivo runs gyms: slot scheduling, recurring class series, waitlist promotion, biometric check-in, and a full session deduction/refund lifecycle. I own features across the stack (Angular, Java 21 with Micronaut, and MongoDB), including a consolidated health scoring engine that turned a manual weekly review into a nightly, alert-tiered pipeline. MongoDB change streams broadcast real-time updates across instances, and third-party integrations run behind retry logic.",
     stack: ["Angular", "Java 21", "Micronaut", "MongoDB", "Change Streams"],
-    spec: ["1,400+ tests", "50+ gyms", "10+ tenants", "99%+ uptime", "−40% overhead & incidents"],
+    spec: ["100+ gyms", "60+ tenants"],
     links: [],
     caseStudyHref: "#case-study-strivo",
   },
@@ -156,10 +153,10 @@ export const work: WorkEntry[] = [
       "TypeScript",
       "Docker",
     ],
-    spec: ["25 LLMs", "120+ tests", "provider fallback", "token-budget metering"],
+    spec: ["25 LLMs", "provider fallback", "token-budget metering"],
     links: [
       { label: "GitHub", href: "https://github.com/ShivamChavan01/agent-platform", external: true },
-      { label: "Live", href: "https://agent-platform-popb.onrender.com", external: true },
+      { label: "Live", href: "https://agent-platform-popb.onrender.com/", external: true },
     ],
   },
   {
@@ -185,9 +182,9 @@ export const experience = {
   current: true,
   framing: "Features owned end to end, then defended weekly in front of client engineering teams.",
   bullets: [
-    "Shipped full-stack features (Angular, Java 21, Micronaut, MongoDB change streams) for 50+ gyms and 10+ tenants.",
-    "Engineered the class booking platform for correctness under concurrent writes: waitlists, biometric check-in, refund lifecycle, 1,400+ passing tests.",
-    "Automated weekly reviews into a nightly health-scoring pipeline, cutting reporting overhead and incidents 40% each; 99%+ uptime on third-party integrations.",
+    "Shipped full-stack features (Angular, Java 21, Micronaut, MongoDB change streams) for 100+ gyms and 60+ tenants.",
+    "Engineered the class booking platform for correctness under concurrent writes: waitlists, biometric check-in, refund lifecycle.",
+    "Automated manual weekly reviews into a nightly health-scoring pipeline with alert tiers; third-party integrations run behind retry logic.",
   ],
 } as const;
 

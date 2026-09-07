@@ -26,11 +26,6 @@ const SOCIALS = [
   { label: "LinkedIn", href: site.links.linkedin, external: true },
   { label: "X", href: site.links.x, external: true },
   { label: "Email", href: `mailto:${site.email}`, external: false },
-  {
-    label: "Resume",
-    href: "https://drive.google.com/file/d/1iL4V8Xgu5MAHFp6fuh-EW8Q6fxM3L4Yo/view",
-    external: true,
-  },
 ];
 
 export default function Hero() {

@@ -2,7 +2,6 @@
 import { contact, site } from "@/lib/data";
 import { CalEmbed } from "@/components/ui/cal-embed";
 
-const RESUME_URL = "https://drive.google.com/file/d/1iL4V8Xgu5MAHFp6fuh-EW8Q6fxM3L4Yo/view";
 const CAL_LINK = "shivamchavan";
 
 const LINKS = [
@@ -12,8 +11,6 @@ const LINKS = [
   ...(site.links.spotify
     ? [{ label: "Spotify", href: site.links.spotify, external: true }]
     : []),
-  { label: "Resume", href: RESUME_URL, external: true },
-  { label: `Phone · ${site.phone}`, href: `tel:${site.phone.replace(/\s/g, "")}`, external: false },
   { label: "Book a call ↗", href: `https://cal.com/${CAL_LINK}`, external: true },
 ];
 

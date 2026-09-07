@@ -22,7 +22,7 @@ Full Stack Engineer with deep Python experience building production-grade agenti
 ## Experience
 
 ### Full Stack Developer — Eazytag (Strivo SaaS Platform) · 10/2025 – Present · Bengaluru, India
-- Owned features end to end across the full stack — React frontends, Java 17 and Spring Boot backends, MongoDB data layers, and Kafka event pipelines; shipped production code for **50+ gyms and 10+ tenants**.
+- Owned features end to end across the full stack — Angular frontends, Java 21 and Micronaut backends, MongoDB data layers, and MongoDB change-stream event pipelines; shipped production code for **50+ gyms and 10+ tenants**.
 - Ran **weekly on-call support** directly with client engineering teams — led product demos, resolved production issues and client-reported queries in real time; technical point of contact between product and customer.
 - Translated gym operator workflows into a **consolidated health scoring engine with alert tiers**; automated a manual weekly review into a nightly pipeline, cutting reporting overhead and incidents by **40% each**.
 - Engineered a **class booking platform** covering slot scheduling, recurring series, waitlist promotion, biometric check-in, and full session deduction/refund lifecycle, designed for correctness under concurrent writes, with **1,400+ passing tests**; integrated third-party APIs (WhatsApp, PDF, GST invoicing) with retry logic, maintaining **99%+ uptime**.
@@ -53,7 +53,7 @@ Full Stack Engineer with deep Python experience building production-grade agenti
 
 ### 1. VoiceScope · Jun – Jul 2026
 - **Stack:** Python, FastAPI, OpenAI, Anthropic, Gemini, Groq, Mistral, Whisper, ChromaDB, RAG, Railway
-- **Links:** GitHub https://github.com/ShivamChavan01/voiceScope · Live https://voice-scope.vercel.app/
+- **Links:** GitHub https://github.com/ShivamChavan01/voiceScope · Live https://voice-scope.vercel.app/runs
 - Architected an **open source observability and regression-testing platform for voice AI agents**: 3-stage agentic pipeline (Whisper transcription → LLM-based analysis with RAG context retrieval → structured report generation) and a **7-layer validation harness** catching hallucinations and schema violations, with a feedback loop that benchmarks harness accuracy and auto-tunes weights each run.
 - Delivered native webhook integrations for **6 voice AI platforms (Vapi, Retell, Bland, Bolna, Synthflow, Air.ai)** with **SSRF protection**; **300+ tests** passing, multi-LLM support, streaming SSE, CI/CD via GitHub Actions.
 
@@ -64,7 +64,7 @@ Full Stack Engineer with deep Python experience building production-grade agenti
 
 ### 3. Open Agent (yellow.ai SDE-1 take-home) · Take-Home Assignment
 - **Stack:** Python, FastAPI, SQLAlchemy, PostgreSQL, pgvector, JWT, React, TypeScript, Docker
-- **Links:** GitHub https://github.com/ShivamChavan01/agent-platform · Live https://agent-platform-popb.onrender.com
+- **Links:** GitHub https://github.com/ShivamChavan01/agent-platform · Live https://agent-platform-popb.onrender.com/
 - Built a **multi-tenant chatbot platform** with per-project system prompts, SSE token streaming, live chain-of-thought display, and a tool-calling loop (calculator, RAG document search, web search) across **25 LLMs** with automatic provider fallback.
 - Implemented a **pgvector-backed RAG pipeline** scoped per project, JWT auth, and server-enforced rolling **token-budget metering** (session/weekly caps); **120+ tests** passing, deployed via multi-stage Docker.
 
