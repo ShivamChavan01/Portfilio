@@ -42,8 +42,7 @@ Full Stack Engineer with deep Python experience building production-grade agenti
 - Org link: https://github.com/open-metadata
 
 ### Jira CI/CD Status Panel
-- Developed a Jira Forge plugin surfacing **real-time CI/CD pipeline status inside Jira issues**.
-- **Won the Atlassian ForgeQuest Hackathon.**
+- Developed a Jira Forge plugin surfacing **real-time CI/CD pipeline status inside Jira issues**, built for the **Atlassian ForgeQuest Hackathon**.
 
 ### supabase-lingo
 - Published an **npm package** for a real-time, PostgreSQL event-driven translation pipeline, for the **Lingo.dev Hackathon**.
@@ -70,7 +69,7 @@ Full Stack Engineer with deep Python experience building production-grade agenti
 
 ### 4. AutoAce · 2026
 - **Stack:** Python, Groq (Whisper + LLM), librosa, Silero VAD (ONNX), FastAPI, React — Voice AI Take-Home Assessment
-- **Links:** Live https://voice-classifier.up.railway.app
+- **Links:** GitHub https://github.com/ShivamChavan01/autoace-voice-tone-classifier
 - Built a **hybrid DSP + LLM pipeline** classifying call-center audio into **9 fields** (tone, noise type/severity, quality, overlap, silence) under a hard **$0.003/audio-minute cost ceiling**, measured under **$0.001/min** (~30% of budget) with **85% field-match accuracy vs. 55%** for a DSP-only baseline.
 - Replaced torch-based VAD with an ONNX runtime, cutting peak server memory by **~90% (830MB → 85MB)**; shipped a login-gated dashboard for batch ZIP upload, cost tracking, and CSV/JSON export.
 
@@ -93,5 +92,5 @@ Full Stack Engineer with deep Python experience building production-grade agenti
 - All project links above were extracted from the resume PDF's hyperlink annotations — they are the user's own stated destinations.
 - `linkedin.com/in/ShivamChavan01` → canonical form `https://www.linkedin.com/in/ShivamChavan01`.
 - supabase-lingo has a verified YouTube demo; its npm/repo URL was NOT in the resume — link only the demo (or the npm package only if independently verified later).
-- Jira CI/CD Status Panel has no link — present it as an Atlassian ForgeQuest **winner** without a URL.
+- Jira CI/CD Status Panel has no link — present it as built for the Atlassian ForgeQuest **hackathon** without any placement or prize claim.
 - Eclipse JKube / OpenMetadata: use org/PR links listed above (derived from verified org names + PR number).

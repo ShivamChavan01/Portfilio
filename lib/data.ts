@@ -16,6 +16,7 @@ export const site = {
   title: "Full Stack Engineer",
   location: "Bengaluru, India",
   email: "shivamrc189@gmail.com",
+  resume: "https://drive.google.com/file/d/1wKUMLS4Z1Qudry4FqZDJbPuPwuS8467w/view?usp=sharing",
   links: {
     github: "https://github.com/ShivamChavan01",
     linkedin: "https://www.linkedin.com/in/ShivamChavan01",
@@ -40,7 +41,7 @@ export const nav = {
 export const hero = {
   eyebrow: "SHIVAM CHAVAN · FULL STACK ENGINEER",
   headline: "I build production systems and AI infrastructure.",
-  sub: "I work across voice AI observability, multi-tenant SaaS, and LLM tooling, from React frontends to event-driven backend systems.",
+  sub: "I work across voice AI observability, multi-tenant SaaS, and LLM tooling, from Angular frontends to event-driven backend systems.",
   metaRail: [
     "BENGALURU, INDIA",
     "FULL STACK ENGINEER",
@@ -51,14 +52,15 @@ export const hero = {
   ctaSecondary: [
     { label: "Email", href: "mailto:shivamrc189@gmail.com" },
     { label: "GitHub", href: "https://github.com/ShivamChavan01" },
+    { label: "Resume", href: site.resume, external: true },
   ] as SiteLink[],
 } as const;
 
 export const sectionIntros = {
-  work: "Five systems, built end to end, with links and numbers attached.",
-  experience: "One role, one platform, owned end to end. On-call included.",
+  work: "Things I've built.",
+  experience: "One role, one platform. Features owned end to end, on-call included.",
   openSource:
-    "Merged, reviewed, and shipped in other people's codebases: Eclipse Foundation, OpenMetadata, Atlassian, npm.",
+    "Merged and shipped in other people's codebases: Eclipse Foundation, OpenMetadata, Atlassian, npm.",
   contact: "No forms. Email is fastest.",
 } as const;
 
@@ -169,7 +171,13 @@ export const work: WorkEntry[] = [
       "AutoAce classifies call-center audio into 9 fields (tone, noise type and severity, quality, overlap, silence) under a hard $0.003/audio-minute cost ceiling. The hybrid DSP + LLM pipeline measures under $0.001/min, about 30% of budget, and hits 85% field-match accuracy against 55% for a DSP-only baseline. Replacing torch-based VAD with an ONNX runtime cut peak server memory from 830MB to 85MB; a login-gated dashboard handles batch ZIP upload, cost tracking, and CSV/JSON export.",
     stack: ["Python", "Groq (Whisper + LLM)", "librosa", "Silero VAD (ONNX)", "FastAPI", "React"],
     spec: ["< $0.001/min vs $0.003 ceiling", "85% vs 55%", "830MB → 85MB", "9 fields"],
-    links: [{ label: "Live", href: "https://voice-classifier.up.railway.app", external: true }],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/ShivamChavan01/autoace-voice-tone-classifier",
+        external: true,
+      },
+    ],
   },
 ];
 
@@ -198,7 +206,6 @@ export type OpenSourceEntry = {
   description: string;
   meta: string;
   links: SiteLink[];
-  winner?: boolean;
 };
 
 export const openSource: OpenSourceEntry[] = [
@@ -228,10 +235,9 @@ export const openSource: OpenSourceEntry[] = [
   {
     name: "Jira CI/CD Status Panel",
     description:
-      "A Jira Forge plugin surfacing real-time CI/CD pipeline status inside Jira issues. Won the Atlassian ForgeQuest Hackathon.",
-    meta: "ATLASSIAN FORGE · REAL-TIME CI/CD IN JIRA · FORGEQUEST HACKATHON · WINNER",
+      "A Jira Forge plugin surfacing real-time CI/CD pipeline status inside Jira issues, built for the Atlassian ForgeQuest Hackathon.",
+    meta: "ATLASSIAN FORGE · REAL-TIME CI/CD IN JIRA · FORGEQUEST HACKATHON",
     links: [],
-    winner: true,
   },
   {
     name: "supabase-lingo",

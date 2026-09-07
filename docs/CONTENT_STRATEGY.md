@@ -290,9 +290,9 @@ Link: `GitHub` → https://github.com/eclipse-jkube/jkube
 Links: `PR #27602` → https://github.com/open-metadata/OpenMetadata/pull/27602 · `Organization` → https://github.com/open-metadata
 
 ### Jira CI/CD Status Panel
-> A Jira Forge plugin surfacing real-time CI/CD pipeline status inside Jira issues. Won the Atlassian ForgeQuest Hackathon.
+> A Jira Forge plugin surfacing real-time CI/CD pipeline status inside Jira issues, built for the Atlassian ForgeQuest Hackathon.
 
-> `ATLASSIAN FORGE · REAL-TIME CI/CD IN JIRA · FORGEQUEST HACKATHON — WINNER`
+> `ATLASSIAN FORGE · REAL-TIME CI/CD IN JIRA · FORGEQUEST HACKATHON`
 
 `[No link exists in FACTS.md — render without a URL. Do not invent prize details, placement, or cash amounts.]`
 

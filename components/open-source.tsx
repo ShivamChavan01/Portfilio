@@ -76,11 +76,6 @@ export default async function OpenSource() {
           <li key={entry.name} className="border-t border-line py-6 lg:py-7">
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
               <h3 className="text-lg font-medium text-ink">{entry.name}</h3>
-              {entry.winner === true ? (
-                <span className="font-mono text-[0.6875rem] font-medium uppercase text-accent">
-                  Winner
-                </span>
-              ) : null}
               {entry.org ? (
                 <>
                   <span

@@ -26,6 +26,7 @@ const SOCIALS = [
   { label: "LinkedIn", href: site.links.linkedin, external: true },
   { label: "X", href: site.links.x, external: true },
   { label: "Email", href: `mailto:${site.email}`, external: false },
+  { label: "Resume", href: site.resume, external: true },
 ];
 
 export default function Hero() {
@@ -52,7 +53,7 @@ export default function Hero() {
           </p>
 
           <p className="mt-4 max-w-[60ch] text-lead text-ink-2">
-            I work across voice AI observability, multi-tenant SaaS, and LLM tooling, from React
+            I work across voice AI observability, multi-tenant SaaS, and LLM tooling, from Angular
             frontends to event-driven backend systems.
           </p>
 

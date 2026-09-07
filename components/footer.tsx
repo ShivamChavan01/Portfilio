@@ -11,6 +11,7 @@ const LINKS = [
   ...(site.links.spotify
     ? [{ label: "Spotify", href: site.links.spotify, external: true }]
     : []),
+  { label: "Resume", href: site.resume, external: true },
   { label: "Book a call ↗", href: `https://cal.com/${CAL_LINK}`, external: true },
 ];
 
