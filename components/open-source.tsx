@@ -62,10 +62,12 @@ function Heatmap({ days }: { days: { date: string; count: number; level: number 
 }
 
 export default async function OpenSource() {
-  const [recentPRs, contributions] = await Promise.all([
+  const [prResult, contributions] = await Promise.all([
     getRecentMergedPRs(6),
     getContributions(),
   ]);
+  const recentPRs = prResult.prs;
+  const prsLive = prResult.live;
 
   return (
     <SectionHeader id="open-source" index="04" label="OPEN SOURCE">
@@ -132,9 +134,25 @@ export default async function OpenSource() {
             <Heatmap days={contributions.days} />
             <p className="mt-3 font-mono text-meta text-ink-faint tabular-nums">
               {contributions.total} public contributions in the last year
+              {contributions.live ? null : " · cached"}
             </p>
           </>
-        ) : null}
+        ) : (
+          <p className="mt-4 rounded-xl border border-line bg-surface p-4 font-mono text-meta text-ink-faint">
+            Contribution graph is fetched live and is unavailable right now.{" "}
+            <a
+              href="https://github.com/ShivamChavan01"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-ink-2 underline decoration-line-strong underline-offset-4 hover:text-accent"
+            >
+              View activity on GitHub
+              <span aria-hidden="true" className="ml-0.5">
+                ↗
+              </span>
+            </a>
+          </p>
+        )}
 
         {recentPRs.length > 0 ? (
           <div className="mt-8">
@@ -170,13 +188,15 @@ export default async function OpenSource() {
               ))}
             </ul>
             <p className="mt-3 font-mono text-meta text-ink-faint">
-              Live from the GitHub API · refreshes hourly
+              {prsLive
+                ? "Live from the GitHub API · refreshes hourly"
+                : "Showing last synced PRs · live API rate-limited, refreshes hourly"}
             </p>
           </div>
         ) : (
           <p className="mt-4 font-mono text-meta text-ink-faint">
             Recent pull requests are fetched live from the GitHub API and are unavailable right
-            now.{" "}
+            now. Set GITHUB_TOKEN to raise API limits.{" "}
             <a
               href="https://github.com/ShivamChavan01"
               target="_blank"

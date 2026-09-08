@@ -179,6 +179,21 @@ export const work: WorkEntry[] = [
       },
     ],
   },
+  {
+    slug: "opencode-terminal",
+    index: "06",
+    name: "opencode-terminal",
+    year: "Sep 2026",
+    descriptor: "OpenCode plugin giving agents a real terminal and process control.",
+    summary:
+      "Stock agent shells run a command and wait; opencode-terminal opens native TTYs and manages persistent background sessions instead. Nine tools cover native terminal windows, project auto-detect (Node, Maven, Gradle, Django, FastAPI, Go, Rust, and more), one-shot runs with limits, and session start/log/send/kill with full process-tree cleanup across macOS, Windows, and Linux. Published to npm as opencode-terminal under MIT.",
+    stack: ["TypeScript", "Node", "Bun", "OpenCode Plugins", "macOS", "Windows", "Linux"],
+    spec: ["9 tools", "auto-detect 15+ stacks", "tree-kill cleanup", "npm published"],
+    links: [
+      { label: "GitHub", href: "https://github.com/ShivamChavan01/terminal-", external: true },
+      { label: "npm", href: "https://www.npmjs.com/package/opencode-terminal", external: true },
+    ],
+  },
 ];
 
 export const experience = {
