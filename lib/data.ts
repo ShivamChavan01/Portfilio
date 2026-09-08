@@ -74,7 +74,7 @@ export type WorkEntry = {
   stack: string[];
   spec: string[];
   links: SiteLink[];
-  /** In-page case study anchor (Strivo only — no external link exists in FACTS). */
+  /** In-page case study anchor (no external link exists in FACTS). */
   caseStudyHref?: string;
   current?: boolean;
 };
@@ -106,6 +106,7 @@ export const work: WorkEntry[] = [
       { label: "GitHub", href: "https://github.com/ShivamChavan01/voiceScope", external: true },
       { label: "Live", href: "https://voice-scope.vercel.app/runs", external: true },
     ],
+    caseStudyHref: "#case-study-voicescope",
   },
   {
     slug: "mcp-foundry",
@@ -121,6 +122,7 @@ export const work: WorkEntry[] = [
       { label: "GitHub", href: "https://github.com/ShivamChavan01/MCP_Foundry", external: true },
       { label: "Demo", href: "https://youtu.be/vRT6zaGCySg", external: true },
     ],
+    caseStudyHref: "#case-study-mcp-foundry",
   },
   {
     slug: "strivo",
@@ -160,6 +162,7 @@ export const work: WorkEntry[] = [
       { label: "GitHub", href: "https://github.com/ShivamChavan01/agent-platform", external: true },
       { label: "Live", href: "https://agent-platform-popb.onrender.com/", external: true },
     ],
+    caseStudyHref: "#case-study-open-agent",
   },
   {
     slug: "autoace",
