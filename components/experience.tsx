@@ -1,4 +1,4 @@
-/** Section 03, Experience — hanging-date editorial timeline row. */
+/** Section 04, Experience — hanging-date editorial timeline row. */
 import type { ReactNode } from "react";
 import { SectionHeader } from "@/components/ui/section-header";
 import { education, experience, sectionIntros } from "@/lib/data";
@@ -24,7 +24,7 @@ function renderBullet(text: string): ReactNode {
 
 export default function Experience() {
   return (
-    <SectionHeader id="experience" index="03" label="EXPERIENCE">
+    <SectionHeader id="experience" index="04" label="EXPERIENCE">
       <p className="max-w-measure text-lead text-ink-2">{sectionIntros.experience}</p>
 
       <ol className="mt-8 list-none lg:mt-10">

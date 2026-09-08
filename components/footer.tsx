@@ -39,7 +39,7 @@ export default function Footer() {
         </div>
 
         <p className="mt-8 max-w-2xl text-display font-display text-ink">
-          Got something <span className="text-accent">worth building</span>?
+          Get in touch.
         </p>
         <p className="mt-4 max-w-[52ch] text-lead text-ink-2">{contact.closing}</p>
 

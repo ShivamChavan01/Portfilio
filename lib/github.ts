@@ -1,7 +1,7 @@
 /**
  * Live GitHub data for the Open Source section.
  * Server-side fetch with ISR (hourly revalidate) — optional GITHUB_TOKEN,
- * request timeouts, and committed fallback snapshots so a transient API
+ * request timeouts, and a committed fallback snapshot so a transient API
  * failure or rate limit never renders a blank section.
  * Note: GitHub's public APIs only surface public activity — private repo
  * contributions and PRs are intentionally not shown.
@@ -137,35 +137,4 @@ export function formatPRDate(iso: string): string {
     day: "numeric",
     year: "numeric",
   }).format(new Date(iso));
-}
-
-export type ContributionDay = { date: string; count: number; level: number };
-
-/** Daily public contribution levels (0-4) for the self-rendered heatmap. */
-export async function getContributions(): Promise<{
-  days: ContributionDay[];
-  total: number;
-  live: boolean;
-}> {
-  try {
-    const res = await fetchWithTimeout(
-      `https://github-contributions-api.jogruber.de/v4/${USER}?y=last`,
-      {
-        next: { revalidate: 3600 },
-      },
-    );
-    if (!res.ok) return { days: [], total: 0, live: false };
-    const data = await res.json();
-    const days: ContributionDay[] = (data.contributions ?? []).map(
-      (d: { date: string; count: number; level: number }) => ({
-        date: d.date,
-        count: d.count,
-        level: d.level,
-      }),
-    );
-    if (days.length === 0) return { days: [], total: 0, live: false };
-    return { days, total: data.total?.lastYear ?? 0, live: true };
-  } catch {
-    return { days: [], total: 0, live: false };
-  }
 }

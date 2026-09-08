@@ -16,8 +16,8 @@ export default function Home() {
         <Hero />
         <SelectedWork />
         <CaseStudies />
-        <Experience />
         <OpenSource />
+        <Experience />
       </main>
       <Footer />
     </>
