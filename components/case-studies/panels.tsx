@@ -93,7 +93,7 @@ function CaseStudyPanel({
           {index}
         </span>
         <span className="min-w-0 flex-1">
-          <span className="block text-lg font-medium text-ink">{entry.project}</span>
+          <span className="block font-geist text-lg font-medium text-ink">{entry.project}</span>
           <span className="mt-1 block text-small text-ink-muted">{entry.teaser}</span>
         </span>
         <span

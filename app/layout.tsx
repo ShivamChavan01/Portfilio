@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Source_Serif_4, Inter, IBM_Plex_Mono } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 
 const serif = Source_Serif_4({
@@ -58,7 +59,7 @@ export default function RootLayout({
       lang="en"
       data-theme="light"
       suppressHydrationWarning
-      className={`${serif.variable} ${sans.variable} ${mono.variable}`}
+      className={`${serif.variable} ${sans.variable} ${mono.variable} ${GeistSans.variable}`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />

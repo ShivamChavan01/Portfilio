@@ -77,7 +77,7 @@ export default async function OpenSource() {
         {openSource.map((entry) => (
           <li key={entry.name} className="border-t border-line py-6 lg:py-7">
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <h3 className="text-lg font-medium text-ink">{entry.name}</h3>
+              <h3 className="font-geist text-lg font-medium text-ink">{entry.name}</h3>
               {entry.org ? (
                 <>
                   <span

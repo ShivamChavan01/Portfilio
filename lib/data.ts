@@ -40,12 +40,11 @@ export const nav = {
 
 export const hero = {
   eyebrow: "SHIVAM CHAVAN · FULL STACK ENGINEER",
-  headline: "I build production systems and AI infrastructure.",
-  sub: "I work across voice AI observability, multi-tenant SaaS, and LLM tooling, from Angular frontends to event-driven backend systems.",
+  headline: "I build AI products and the systems underneath them.",
+  sub: "Full-stack engineer working across agentic systems, voice infrastructure, and developer tooling.",
   metaRail: [
     "BENGALURU, INDIA",
-    "FULL STACK ENGINEER",
-    "FOCUS: AGENTIC AI · VOICE AI · MULTI-TENANT SAAS",
+    "BUILDING STRIVO AT EAZYTAG",
     "PYTHON · JAVA 21 · TYPESCRIPT",
   ],
   ctaPrimary: { label: "View selected work", href: "#work" },
@@ -85,9 +84,8 @@ export const work: WorkEntry[] = [
     index: "01",
     name: "VoiceScope",
     year: "Jun – Jul 2026",
-    descriptor: "Open source observability and regression-testing platform for voice AI agents.",
-    summary:
-      "Voice agents fail in the field, and their operators rarely see why. VoiceScope ingests call webhooks from six voice AI platforms and runs a three-stage agentic pipeline (Whisper transcription, LLM analysis with RAG context retrieval, structured report generation) over a 7-layer validation harness that catches hallucinations and schema violations. Open source, live, with CI gating the build.",
+    descriptor: "Voice AI observability across six platforms, with SSRF-protected ingest and a self-tuning validation harness.",
+    summary: "Voice agents fail in the field and their operators rarely see why. VoiceScope ingests call webhooks from six voice AI platforms through a three-stage pipeline — Whisper transcription, LLM analysis with RAG retrieval, structured reports — under a validation harness that benchmarks and re-tunes its own weights every run. Open source, live, CI-gated.",
     stack: [
       "Python",
       "FastAPI",
@@ -113,9 +111,8 @@ export const work: WorkEntry[] = [
     index: "02",
     name: "MCP Foundry",
     year: "Jul 2026",
-    descriptor: "Generates MCP servers from OpenAPI specs, then verifies every tool it ships.",
-    summary:
-      "A generated MCP tool with an ambiguous description or broken behavior fails when an agent runs it. MCP Foundry, built at the OpenAI Build Week Hackathon, parses any OpenAPI spec, uses an LLM to rewrite ambiguous tool descriptions, and evaluates every generated tool against a live agent on an isolated Prism mock. Failing tools are auto-repaired and re-tested for up to 3 rounds against direct, rephrased, edge-case, and adversarial prompts, then registered into Codex's MCP config with a transparent pass/fail scorecard.",
+    descriptor: "Generates MCP servers from OpenAPI specs, then tests every tool against a live agent before registering it.",
+    summary: "A generated tool with a vague description fails at agent runtime. MCP Foundry rewrites ambiguous descriptions with an LLM, evaluates each tool against a live agent on an isolated Prism mock, and auto-repairs failures for up to 3 rounds across direct, rephrased, edge-case, and adversarial prompts. Survivors register into Codex's MCP config with a pass/fail scorecard. Built at the OpenAI Build Week Hackathon.",
     stack: ["Python", "FastAPI", "OpenAPI", "Codex/GPT-5.6", "Prism", "FastMCP"],
     spec: ["up to 3 repair rounds", "4 prompt classes", "live-agent evals", "pass/fail scorecard"],
     links: [
@@ -131,8 +128,7 @@ export const work: WorkEntry[] = [
     year: "10/2025 – Present",
     current: true,
     descriptor: "Multi-tenant gym SaaS: bookings, biometric check-in, health scoring, GST invoicing.",
-    summary:
-      "Strivo runs gyms: slot scheduling, recurring class series, waitlist promotion, biometric check-in, and a full session deduction/refund lifecycle. I own features across the stack (Angular, Java 21 with Micronaut, and MongoDB), including a consolidated health scoring engine that turned a manual weekly review into a nightly, alert-tiered pipeline. MongoDB change streams broadcast real-time updates across instances, and third-party integrations run behind retry logic.",
+    summary: "Slot scheduling, recurring series, waitlists, biometric check-in, and refunds all touch the same state, so the booking platform is built for correctness under concurrent writes. A nightly health-scoring pipeline with alert tiers replaced a manual weekly review; MongoDB change streams broadcast realtime updates, and third-party integrations sit behind retry logic.",
     stack: ["Angular", "Java 21", "Micronaut", "MongoDB", "Change Streams"],
     spec: ["100+ gyms", "60+ tenants"],
     links: [],
@@ -143,9 +139,8 @@ export const work: WorkEntry[] = [
     index: "04",
     name: "Open Agent",
     year: "AI PLATFORM",
-    descriptor: "Multi-tenant chatbot platform: 25 LLMs, tool calling, RAG, metering.",
-    summary:
-      "Open Agent is a multi-tenant chatbot platform with per-project system prompts, SSE token streaming, live chain-of-thought display, and a tool-calling loop (calculator, RAG document search, web search) across 25 LLMs with automatic provider fallback. A pgvector-backed RAG pipeline is scoped per project, and server-enforced rolling token-budget metering caps sessions and weeks.",
+    descriptor: "Multi-tenant chatbots across 25 LLMs, with tool calling, per-project RAG, and server-enforced token budgets.",
+    summary: "Each project gets its own system prompt and knowledge base. The server owns access control and token accounting, responses stream over SSE, and a bounded tool-calling loop covers calculator, RAG document search, and web search with automatic provider fallback. pgvector retrieval is scoped per project, so tenants never see each other's documents.",
     stack: [
       "Python",
       "FastAPI",
@@ -169,9 +164,8 @@ export const work: WorkEntry[] = [
     index: "05",
     name: "AutoAce",
     year: "2026",
-    descriptor: "Call-audio classifier at 85% accuracy under a hard cost ceiling.",
-    summary:
-      "AutoAce classifies call-center audio into 9 fields (tone, noise type and severity, quality, overlap, silence) under a hard $0.003/audio-minute cost ceiling. The hybrid DSP + LLM pipeline measures under $0.001/min, about 30% of budget, and hits 85% field-match accuracy against 55% for a DSP-only baseline. Replacing torch-based VAD with an ONNX runtime cut peak server memory from 830MB to 85MB; a login-gated dashboard handles batch ZIP upload, cost tracking, and CSV/JSON export.",
+    descriptor: "Call-audio classifier at 85% accuracy under a hard $0.003/minute cost ceiling.",
+    summary: "Nine fields — tone, noise type and severity, quality, overlap, silence — classified by a hybrid DSP + LLM pipeline that measures under $0.001/min at 85% field-match accuracy against 55% for DSP alone. Swapping torch-based VAD for an ONNX runtime cut peak server memory from 830MB to 85MB. A login-gated dashboard handles batch ZIP upload, cost tracking, and CSV/JSON export.",
     stack: ["Python", "Groq (Whisper + LLM)", "librosa", "Silero VAD (ONNX)", "FastAPI", "React"],
     spec: ["< $0.001/min vs $0.003 ceiling", "85% vs 55%", "830MB → 85MB", "9 fields"],
     links: [
@@ -187,9 +181,8 @@ export const work: WorkEntry[] = [
     index: "06",
     name: "opencode-terminal",
     year: "Sep 2026",
-    descriptor: "OpenCode plugin giving agents a real terminal and process control.",
-    summary:
-      "Stock agent shells run a command and wait; opencode-terminal opens native TTYs and manages persistent background sessions instead. Nine tools cover native terminal windows, project auto-detect (Node, Maven, Gradle, Django, FastAPI, Go, Rust, and more), one-shot runs with limits, and session start/log/send/kill with full process-tree cleanup across macOS, Windows, and Linux. Published to npm as opencode-terminal under MIT.",
+    descriptor: "An OpenCode plugin for real terminals and persistent process control.",
+    summary: "Agent shells run a command and wait; development needs persistent servers, REPLs, and TTY programs. Nine tools open native terminal windows, auto-detect the project's run command across 15+ stacks, and manage background sessions — start, poll logs, send input, kill the whole process tree. Closing a window stops its process, so nothing orphans ports. Published to npm under MIT.",
     stack: ["TypeScript", "Node", "Bun", "OpenCode Plugins", "macOS", "Windows", "Linux"],
     spec: ["9 tools", "auto-detect 15+ stacks", "tree-kill cleanup", "npm published"],
     links: [
@@ -206,7 +199,7 @@ export const experience = {
   dates: "10/2025 – Present",
   location: "Bengaluru, India",
   current: true,
-  framing: "Features owned end to end, then defended weekly in front of client engineering teams.",
+  framing: "Full-stack features across Angular, Java 21 with Micronaut, and MongoDB — with weekly on-call alongside client engineering teams.",
   bullets: [
     "Shipped full-stack features (Angular, Java 21, Micronaut, MongoDB change streams) for 100+ gyms and 60+ tenants.",
     "Engineered the class booking platform for correctness under concurrent writes: waitlists, biometric check-in, refund lifecycle.",

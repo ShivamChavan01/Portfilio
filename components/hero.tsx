@@ -6,8 +6,8 @@ import { hero, site } from "@/lib/data";
  * from 6/15 AI engineer portfolios). No CTA buttons, no photo, no chips.
  */
 
-const HEADLINE = "I build production systems and AI infrastructure.";
-const MARK = "production systems";
+const HEADLINE = hero.headline;
+const MARK = "AI products";
 
 function renderHeadline(headline: string): React.ReactNode {
   const index = headline.indexOf(MARK);
@@ -52,10 +52,7 @@ export default function Hero() {
             <span className="text-ink">Open to full-stack & AI engineering roles</span>
           </p>
 
-          <p className="mt-4 max-w-[60ch] text-lead text-ink-2">
-            I work across voice AI observability, multi-tenant SaaS, and LLM tooling, from Angular
-            frontends to event-driven backend systems.
-          </p>
+          <p className="mt-4 max-w-[60ch] text-lead text-ink-2">{hero.sub}</p>
 
           <p className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-small">
             {SOCIALS.map((social) => (

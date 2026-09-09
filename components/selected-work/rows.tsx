@@ -56,7 +56,7 @@ function WorkRow({
   return (
     <li key={entry.slug} className="border-t border-line py-6 lg:py-7">
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        <h3 className="text-lg font-medium text-ink">{entry.name}</h3>
+        <h3 className="font-geist text-lg font-medium text-ink">{entry.name}</h3>
         {entry.current ? (
           <span className="inline-flex items-center gap-1.5 font-mono text-[0.6875rem] font-medium uppercase text-accent">
             <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-status" />

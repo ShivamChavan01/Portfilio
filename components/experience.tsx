@@ -43,7 +43,7 @@ export default function Experience() {
             </div>
 
             <div className="col-span-4 lg:col-span-9">
-              <h3 className="text-lg font-medium text-ink">{experience.role}</h3>
+              <h3 className="font-geist text-lg font-medium text-ink">{experience.role}</h3>
               <p className="mt-1 font-mono text-meta uppercase text-ink-muted">
                 {experience.org} · {experience.platform} · {experience.location}
               </p>
