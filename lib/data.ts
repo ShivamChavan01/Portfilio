@@ -40,11 +40,12 @@ export const nav = {
 
 export const hero = {
   eyebrow: "SHIVAM CHAVAN · FULL STACK ENGINEER",
-  headline: "I build AI products and the systems underneath them.",
-  sub: "Full-stack engineer working across agentic systems, voice infrastructure, and developer tooling.",
+  headline: "I build production systems and AI infrastructure.",
+  sub: "I work across voice AI observability, multi-tenant SaaS, and LLM tooling, from Angular frontends to event-driven backend systems.",
   metaRail: [
     "BENGALURU, INDIA",
-    "BUILDING STRIVO AT EAZYTAG",
+    "FULL STACK ENGINEER",
+    "FOCUS: AGENTIC AI · VOICE AI · MULTI-TENANT SAAS",
     "PYTHON · JAVA 21 · TYPESCRIPT",
   ],
   ctaPrimary: { label: "View selected work", href: "#work" },
