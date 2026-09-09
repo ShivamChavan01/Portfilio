@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Source_Serif_4, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
-const display = Geist({
-  weight: ["400", "500", "600"],
+const serif = Source_Serif_4({
+  weight: ["600", "700"],
   subsets: ["latin"],
-  variable: "--font-geist",
+  variable: "--font-serif",
   display: "swap",
 });
 
@@ -58,7 +58,7 @@ export default function RootLayout({
       lang="en"
       data-theme="light"
       suppressHydrationWarning
-      className={`${display.variable} ${sans.variable} ${mono.variable}`}
+      className={`${serif.variable} ${sans.variable} ${mono.variable}`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />

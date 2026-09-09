@@ -1,9 +1,25 @@
 import { hero, site } from "@/lib/data";
 
 /**
- * Hero — short and technically specific. One statement, one supporting
- * line, secondary details kept small. No highlight effects.
+ * Hero — text-first per the research consensus, with a mono facts panel
+ * filling the right column on desktop (the "quantified stat line" pattern
+ * from 6/15 AI engineer portfolios). No CTA buttons, no photo, no chips.
  */
+
+const HEADLINE = "I build production systems and AI infrastructure.";
+const MARK = "production systems";
+
+function renderHeadline(headline: string): React.ReactNode {
+  const index = headline.indexOf(MARK);
+  if (index === -1) return headline;
+  return (
+    <>
+      {headline.slice(0, index)}
+      <mark className="bg-accent/15 text-accent">{MARK}</mark>
+      {headline.slice(index + MARK.length)}
+    </>
+  );
+}
 
 const SOCIALS = [
   { label: "GitHub", href: site.links.github, external: true },
@@ -19,11 +35,11 @@ export default function Hero() {
       <div className="grid max-w-none grid-cols-4 gap-4 animate-hero-entrance lg:grid-cols-12 lg:gap-6">
         <div className="col-span-4 lg:col-span-8">
           <p className="font-mono text-label font-medium uppercase text-ink-muted">
-            {hero.eyebrow}
+            {site.name} · {site.title}
           </p>
-          <h1 className="mt-5 text-hero font-display text-ink">{hero.headline}</h1>
-
-          <p className="mt-6 max-w-[60ch] text-lead text-ink-2">{hero.sub}</p>
+          <h1 className="mt-5 text-hero font-display text-ink">
+            {renderHeadline(HEADLINE)}
+          </h1>
 
           <p className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-1 text-small text-ink-2">
             <span className="inline-flex items-center gap-2">
@@ -34,6 +50,11 @@ export default function Hero() {
             <span>Currently building Strivo at Eazytag</span>
             <span aria-hidden="true">·</span>
             <span className="text-ink">Open to full-stack & AI engineering roles</span>
+          </p>
+
+          <p className="mt-4 max-w-[60ch] text-lead text-ink-2">
+            I work across voice AI observability, multi-tenant SaaS, and LLM tooling, from Angular
+            frontends to event-driven backend systems.
           </p>
 
           <p className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-small">

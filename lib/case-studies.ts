@@ -4,7 +4,7 @@
  */
 
 export type CaseStudySection = {
-  label: "PROBLEM" | "BUILT" | "HARD PART" | "DECISIONS" | "RESULT";
+  label: "CONTEXT" | "ARCHITECTURE" | "ENGINEERING CHALLENGE" | "DECISIONS" | "RESULT";
   body: string;
 };
 
@@ -39,15 +39,15 @@ export const caseStudies: CaseStudy[] = [
     ],
     sections: [
       {
-        label: "PROBLEM",
-        body: "Voice AI agents deployed on platforms like Vapi, Retell, Bland, Bolna, Synthflow, and Air.ai report back through webhooks. When an agent hallucinates an answer or returns malformed output, someone has to notice before the next call — VoiceScope makes that noticing systematic rather than manual.",
+        label: "CONTEXT",
+        body: "Voice AI agents deployed on platforms like Vapi, Retell, Bland, Bolna, Synthflow, and Air.ai report back through webhooks. When an agent hallucinates an answer or returns malformed output, someone has to notice, ideally before the next call. VoiceScope is my open source answer: an observability and regression-testing platform for voice AI agents. It was built to make that noticing systematic rather than manual.",
       },
       {
-        label: "BUILT",
+        label: "ARCHITECTURE",
         body: "A three-stage agentic pipeline does the core work: Whisper transcription, then LLM-based analysis with RAG context retrieval, then structured report generation. ChromaDB provides the vector store for RAG; FastAPI serves the platform in Python. A 7-layer validation harness sits over the pipeline, catching hallucinations and schema violations. The harness is itself measured: a feedback loop benchmarks harness accuracy and auto-tunes its weights each run. Multi-LLM support spans OpenAI, Anthropic, Gemini, Groq, and Mistral, with results streaming to the UI over SSE. CI/CD runs on GitHub Actions; the stack deploys on Railway.",
       },
       {
-        label: "HARD PART",
+        label: "ENGINEERING CHALLENGE",
         body: "Ingesting webhooks from six external platforms means ingesting attack surface, so the integration layer carries SSRF protection as a first-class requirement. A validation harness that judges other systems must itself be trustworthy, which is why harness accuracy is benchmarked and auto-tuned rather than assumed. Supporting five LLM providers means the analysis layer has to stay provider-agnostic without quality drifting per vendor. And a regression-testing platform needs CI that actually runs its suite on every push.",
       },
       {
@@ -76,15 +76,15 @@ export const caseStudies: CaseStudy[] = [
     video: { id: "vRT6zaGCySg", label: "MCP Foundry demo from OpenAI Build Week" },
     sections: [
       {
-        label: "PROBLEM",
-        body: "MCP servers give coding agents new tools, and OpenAPI specs describe existing APIs. Bridging the two by hand is slow; generating blindly is worse, because a generated tool with an ambiguous description or broken behavior fails at agent runtime. Nothing MCP Foundry produces ships untested.",
+        label: "CONTEXT",
+        body: "MCP servers give coding agents new tools, and OpenAPI specs describe existing APIs. Bridging the two by hand is slow; generating blindly is worse, because a generated tool with an ambiguous description or broken behavior fails at agent runtime. MCP Foundry, built during the OpenAI Build Week Hackathon in July 2026, is a self-verifying OpenAPI-to-MCP server generator. Nothing it produces ships untested.",
       },
       {
-        label: "BUILT",
+        label: "ARCHITECTURE",
         body: "The generator parses any OpenAPI spec and produces MCP server tooling. An LLM pass rewrites ambiguous tool descriptions before anything is evaluated. Evaluation runs every generated tool against a live agent on an isolated Prism mock; no generated tool is ever exercised against a real service. Failing tools enter an auto-repair loop: repair, re-test, repeat, for up to 3 rounds against four prompt classes: direct, rephrased, edge-case, and adversarial. Tools that survive are registered into Codex's MCP config with a transparent pass/fail scorecard. The stack is Python, FastAPI, OpenAPI, Codex/GPT-5.6, Prism, and FastMCP.",
       },
       {
-        label: "HARD PART",
+        label: "ENGINEERING CHALLENGE",
         body: "Evaluation needs an agent to evaluate against, so every tool check runs a live agent, which means the mock environment has to be isolated, or verification becomes the hazard. Auto-repair needs a stopping condition, bounded here at 3 rounds. And the test surface has to be adversarial enough to be worth the loop: direct, rephrased, edge-case, and adversarial prompts, not a single happy path.",
       },
       {
@@ -109,15 +109,15 @@ export const caseStudies: CaseStudy[] = [
     links: [],
     sections: [
       {
-        label: "PROBLEM",
-        body: "Strivo is Eazytag's multi-tenant SaaS platform for gyms, where class booking is concurrency-heavy: slot scheduling, recurring series, waitlist promotion, biometric check-in, and refunds all touch the same state. Operators were also running a manual weekly review to understand facility health. I joined as Full Stack Developer in October 2025 and own features across the stack.",
+        label: "CONTEXT",
+        body: "Strivo is Eazytag's multi-tenant SaaS platform for gyms, running across 100+ gyms grouped under 60+ tenants, where a single tenant can operate a dozen gyms. Two problems dominate the domain. Class booking is concurrency-heavy: slot scheduling, recurring series, waitlist promotion, biometric check-in, and a full session deduction/refund lifecycle all touch the same state. And gym operators were running a manual weekly review to understand facility health. I joined as Full Stack Developer in October 2025 and own features across the entire stack.",
       },
       {
-        label: "BUILT",
+        label: "ARCHITECTURE",
         body: "Angular on the frontend; Java 21 and Micronaut behind it; MongoDB as the data layer; MongoDB Change Streams broadcasting real-time updates across instances. The consolidated health scoring engine with alert tiers runs as a nightly pipeline, replacing the manual weekly review. Third-party APIs (WhatsApp, PDF, GST invoicing) sit behind integration layers with retry logic.",
       },
       {
-        label: "HARD PART",
+        label: "ENGINEERING CHALLENGE",
         body: "Concurrent writes are the core difficulty: two members booking the last slot, a waitlist promoting while someone checks in biometrically, a refund racing a session deduction. The design had to be correct under that load, and the proof had to be executable: a suite covering the booking lifecycle. External APIs fail on their own schedule, so retry logic has to absorb their failures without them surfacing as platform incidents. And operator intuition about gym health had to be translated into a scoring engine with alert tiers precise enough to act on nightly.",
       },
       {
@@ -145,15 +145,15 @@ export const caseStudies: CaseStudy[] = [
     ],
     sections: [
       {
-        label: "PROBLEM",
-        body: "Open Agent is a multi-tenant chatbot platform built around a practical question: how do you let different projects use capable language models without losing control of prompts, tools, data, or spend? Each project has its own system prompt and knowledge base, across 25 LLMs.",
+        label: "CONTEXT",
+        body: "Open Agent is a multi-tenant chatbot platform built around a practical question: how do you let different projects use capable language models without losing control of prompts, tools, data, or spend? Each project has its own system prompt and knowledge base. The platform supports 25 LLMs, calculator and search tools, document-grounded answers, live streaming, and rolling session and weekly token budgets.",
       },
       {
-        label: "BUILT",
+        label: "ARCHITECTURE",
         body: "A React and TypeScript frontend talks to a FastAPI backend. SQLAlchemy persists users, projects, conversations, messages, usage, and uploaded documents in PostgreSQL. Document chunks are embedded into pgvector with project-scoped retrieval. Chat responses stream to the browser over Server-Sent Events, including tool and provider updates, while Docker packages the application for deployment.",
       },
       {
-        label: "HARD PART",
+        label: "ENGINEERING CHALLENGE",
         body: "The hard part is coordinating several failure-prone boundaries in one request: authentication, tenant ownership, retrieval, model selection, tool execution, and streaming. A model can return malformed tool arguments, a provider can fail mid-conversation, or a user can exhaust a budget while a stream is active. The server therefore owns project access and token accounting instead of trusting the client, and the tool-calling loop is bounded so a model cannot run forever.",
       },
       {
