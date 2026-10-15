@@ -60,7 +60,7 @@ export const sectionIntros = {
   work: "Things I've built.",
   experience: "One role, one platform. Features owned end to end, on-call included.",
   openSource:
-    "Merged and shipped in other people's codebases: Eclipse Foundation, OpenMetadata, Atlassian, npm.",
+    "Contributions to other people's codebases: merged PRs in Eclipse JKube, submitted work in OpenMetadata, plus Atlassian and npm.",
   contact: "No forms. Email is fastest.",
 } as const;
 
@@ -100,7 +100,7 @@ export const work: WorkEntry[] = [
       "RAG",
       "Railway",
     ],
-    spec: ["6 platform integrations", "SSRF protection", "7-layer validation harness"],
+    spec: ["6 platform integrations", "SSRF protection", "7-layer validation harness", "KB-grounded hallucination detection"],
     links: [
       { label: "GitHub", href: "https://github.com/ShivamChavan01/voiceScope", external: true },
       { label: "Live", href: "https://voice-scope.vercel.app/runs", external: true },
@@ -166,9 +166,9 @@ export const work: WorkEntry[] = [
     name: "AutoAce",
     year: "2026",
     descriptor: "Call-audio classifier at 85% accuracy under a hard $0.003/minute cost ceiling.",
-    summary: "Nine fields — tone, noise type and severity, quality, overlap, silence — classified by a hybrid DSP + LLM pipeline that measures under $0.001/min at 85% field-match accuracy against 55% for DSP alone. Swapping torch-based VAD for an ONNX runtime cut peak server memory from 830MB to 85MB. A login-gated dashboard handles batch ZIP upload, cost tracking, and CSV/JSON export.",
+    summary: "Nine fields — tone, noise type and severity, quality, overlap, silence — classified by a hybrid DSP + LLM pipeline that measures under $0.001/min at 85% field-match accuracy against 56% for DSP alone. Swapping torch-based VAD for an ONNX runtime cut peak server memory from 830MB to 85MB. A login-gated dashboard handles batch ZIP upload, cost tracking, and CSV/JSON export. The accuracy figure is a calibration measurement over three labeled calls.",
     stack: ["Python", "Groq (Whisper + LLM)", "librosa", "Silero VAD (ONNX)", "FastAPI", "React"],
-    spec: ["< $0.001/min vs $0.003 ceiling", "85% vs 55%", "830MB → 85MB", "9 fields"],
+    spec: ["< $0.001/min vs $0.003 ceiling", "85% vs 56%", "830MB → 85MB", "9 fields"],
     links: [
       {
         label: "GitHub",
@@ -187,8 +187,22 @@ export const work: WorkEntry[] = [
     stack: ["TypeScript", "Node", "Bun", "OpenCode Plugins", "macOS", "Windows", "Linux"],
     spec: ["9 tools", "auto-detect 15+ stacks", "tree-kill cleanup", "npm published"],
     links: [
-      { label: "GitHub", href: "https://github.com/ShivamChavan01/terminal-", external: true },
+      { label: "GitHub", href: "https://github.com/ShivamChavan01/opencode-terminal", external: true },
       { label: "npm", href: "https://www.npmjs.com/package/opencode-terminal", external: true },
+    ],
+  },
+  {
+    slug: "voicecli",
+    index: "07",
+    name: "voicecli",
+    year: "Jun 2026",
+    descriptor: "An offline push-to-talk voice layer for terminal coding agents.",
+    summary: "Terminal agents are read, not heard. voicecli holds Ctrl+Space to record, transcribes locally with faster-whisper, and types the text into whichever CLI has focus. A background watcher tails each agent's session store — Claude Code and Codex CLI JSONL, OpenCode's SQLite database — and speaks new assistant messages back through Piper TTS. Fully offline, with no cloud STT and no API key for the core loop.",
+    stack: ["Python", "faster-whisper", "xdotool", "Piper TTS", "SQLite"],
+    spec: ["fully offline", "Ctrl+Space push-to-talk", "watches Claude Code, OpenCode, Codex CLI"],
+    links: [
+      { label: "GitHub", href: "https://github.com/ShivamChavan01/voicecli", external: true },
+      { label: "Demo", href: "https://youtu.be/fVV5UPiRxZI", external: true },
     ],
   },
 ];
@@ -204,6 +218,7 @@ export const experience = {
   bullets: [
     "Shipped full-stack features (Angular, Java 21, Micronaut, MongoDB change streams) for 100+ gyms and 60+ tenants.",
     "Engineered the class booking platform for correctness under concurrent writes: waitlists, biometric check-in, refund lifecycle.",
+    "Fixed a money-pipeline bug where transfer, freeze, and settlement fees never reached collection reports; added a payment-category model and dual-writes so fees surface in reporting.",
     "Automated manual weekly reviews into a nightly health-scoring pipeline with alert tiers; third-party integrations run behind retry logic.",
   ],
 } as const;
@@ -224,17 +239,17 @@ export const openSource: OpenSourceEntry[] = [
   {
     name: "Eclipse JKube",
     org: "Eclipse Foundation",
-    period: "05/2024 – 03/2025",
+    period: "07/2024 – 11/2024",
     description:
-      "Contributed across 15+ modules of Eclipse's Kubernetes tooling for Java, with PRs reviewed by Principal Engineer Marc Nuri.",
-    meta: "ECLIPSE FOUNDATION · 05/2024 – 03/2025 · 15+ MODULES · TDD · −60% FLAKY CI · +30% DELIVERY",
+      "Authored 27 PRs across Eclipse's Kubernetes tooling for Java, 18 of them merged, modernizing AssertJ and Mockito tests. Reviewed by Principal Engineer Marc Nuri.",
+    meta: "ECLIPSE FOUNDATION · 07/2024 – 11/2024 · 27 PRS · 18 MERGED · ASSERTJ + MOCKITO · REVIEWED BY MARC NURI",
     links: [{ label: "GitHub", href: "https://github.com/eclipse-jkube/jkube", external: true }],
   },
   {
     name: "OpenMetadata",
     description:
-      "Implemented frontend search for the Roles entity (PR #27602) using Ant Design typeahead; investigated Greenplum and Databricks lineage issues.",
-    meta: "PR #27602 · ANT DESIGN TYPEAHEAD · ROLES ENTITY SEARCH · GREENPLUM + DATABRICKS INVESTIGATIONS",
+      "Submitted frontend search for the Roles entity (PR #27602) using Ant Design typeahead, plus PRs for Greenplum DDL extraction and Databricks lineage.",
+    meta: "PR #27602 · ANT DESIGN TYPEAHEAD · ROLES ENTITY SEARCH · GREENPLUM DDL + DATABRICKS LINEAGE",
     links: [
       {
         label: "PR #27602",
