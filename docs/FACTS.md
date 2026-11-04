@@ -1,4 +1,6 @@
-# VERIFIED FACT BASE — Shivam Chavan
+> **Current audit: 2026-11-04.** The evidence review in [fact-audit-2026-11-04.md](research/fact-audit-2026-11-04.md) supersedes older verification labels and claims below. Résumé, education, employment scale and hackathon participation remain profile-provided unless an independent source is explicitly recorded. The AI uses only `lib/profile-facts.ts`; it does not ingest this historical document as evidence.
+
+# Portfolio fact base — Shivam Chavan
 
 > **Single source of truth.** Extracted from `Shivam_Chavan_Resume_OnePage.pdf` (incl. PDF hyperlink annotations).
 > **Re-verified 2026-10-15** against the GitHub API, the npm registry, and each project's own README. Source resume: `Shivam_Chavan_Resume.pdf` (Drive, modified 2026-09-30). Corrections applied below supersede the earlier extraction where they conflict.

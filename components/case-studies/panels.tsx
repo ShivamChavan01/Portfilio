@@ -1,145 +1,166 @@
 "use client";
 
-/**
- * Expandable case-study panels as rounded cards.
- *
- * Full body text is rendered unconditionally on the server; collapsed bodies
- * are hidden with the `hidden` utility — never null-rendered — so crawlers
- * and no-JS readers always see the complete copy. Collapsed/expanded is a
- * display toggle only: height never animates; the open body gets a single
- * 200ms opacity + 4px-rise fade via the `animate-panel-in` utility.
- */
-
-import { useEffect, useState } from "react";
-import { caseStudies, type CaseStudy } from "@/lib/case-studies";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { caseStudies, type CaseStudy, type CaseStudySection } from "@/lib/case-studies";
 import { ExternalLink } from "@/components/ui/external-link";
-import { MonoLabel } from "@/components/ui/mono-label";
-import { SpecRow } from "@/components/ui/spec-row";
 import { VideoEmbed } from "@/components/ui/video-embed";
 
+const sectionTitles: Record<CaseStudySection["label"], string> = {
+  CONTEXT: "The problem",
+  ARCHITECTURE: "Implementation",
+  "ENGINEERING CHALLENGE": "The hard part",
+  DECISIONS: "Trade-offs",
+  RESULT: "Outcome & limits",
+};
+
 export default function CaseStudyPanels() {
-  // Initial state: all collapsed on both server and client — no hydration
-  // mismatch. Deep-link expansion happens in an effect after first render.
-  const [openPanels, setOpenPanels] = useState<ReadonlySet<string>>(() => new Set<string>());
+  const [activeAnchor, setActiveAnchor] = useState(caseStudies[0]?.anchor);
+  const tabs = useRef<(HTMLButtonElement | null)[]>([]);
 
   useEffect(() => {
-    const anchors = new Set(caseStudies.map((entry) => entry.anchor));
-    const expandFromHash = () => {
-      const hash = window.location.hash.slice(1);
-      if (!anchors.has(hash)) return;
-      setOpenPanels((prev) => {
-        if (prev.has(hash)) return prev;
-        const next = new Set(prev);
-        next.add(hash);
-        return next;
+    let frame: number | undefined;
+    function selectFromHash() {
+      const entry = caseStudies.find((item) => `#${item.anchor}` === window.location.hash);
+      if (!entry) return;
+      setActiveAnchor(entry.anchor);
+      if (frame !== undefined) window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(() => {
+        document.getElementById(entry.anchor)?.scrollIntoView({ block: "start" });
       });
+    }
+    selectFromHash();
+    window.addEventListener("hashchange", selectFromHash);
+    return () => {
+      window.removeEventListener("hashchange", selectFromHash);
+      if (frame !== undefined) window.cancelAnimationFrame(frame);
     };
-    expandFromHash();
-    // Also covers in-page deep links (e.g. the index's `Case study ↓` jump to
-    // #case-study-strivo), which change the hash without a page load.
-    window.addEventListener("hashchange", expandFromHash);
-    return () => window.removeEventListener("hashchange", expandFromHash);
   }, []);
 
-  const toggle = (anchor: string) => {
-    setOpenPanels((prev) => {
-      const next = new Set(prev);
-      if (next.has(anchor)) {
-        next.delete(anchor);
-      } else {
-        next.add(anchor);
-      }
-      return next;
-    });
-  };
+  function select(entry: CaseStudy) {
+    setActiveAnchor(entry.anchor);
+    window.history.replaceState(window.history.state, "", `#${entry.anchor}`);
+  }
+
+  function navigate(event: KeyboardEvent<HTMLButtonElement>, index: number) {
+    let next: number;
+    switch (event.key) {
+      case "ArrowRight":
+      case "ArrowDown":
+        next = (index + 1) % caseStudies.length;
+        break;
+      case "ArrowLeft":
+      case "ArrowUp":
+        next = (index - 1 + caseStudies.length) % caseStudies.length;
+        break;
+      case "Home":
+        next = 0;
+        break;
+      case "End":
+        next = caseStudies.length - 1;
+        break;
+      default:
+        return;
+    }
+    event.preventDefault();
+    const entry = caseStudies[next];
+    if (!entry) return;
+    select(entry);
+    tabs.current[next]?.focus({ preventScroll: true });
+    tabs.current[next]?.scrollIntoView({ block: "nearest", inline: "nearest" });
+  }
 
   return (
-    <div className="divide-y divide-line border-t border-line border-b">
-      {caseStudies.map((entry, i) => (
-        <CaseStudyPanel
-          key={entry.slug}
-          entry={entry}
-          index={String(i + 1).padStart(2, "0")}
-          open={openPanels.has(entry.anchor)}
-          onToggle={() => toggle(entry.anchor)}
-        />
-      ))}
+    <div className="engineering-notebook">
+      <div className="notebook-index">
+        <p className="notebook-index-label">Contents</p>
+        <div className="notebook-tabs" role="tablist" aria-label="Engineering projects">
+          {caseStudies.map((entry, index) => (
+            <button
+              key={entry.slug}
+              ref={(node) => { tabs.current[index] = node; }}
+              id={`${entry.anchor}-button`}
+              type="button"
+              role="tab"
+              aria-selected={activeAnchor === entry.anchor}
+              aria-controls={entry.anchor}
+              tabIndex={activeAnchor === entry.anchor ? 0 : -1}
+              onClick={() => select(entry)}
+              onKeyDown={(event) => navigate(event, index)}
+              className="notebook-tab"
+            >
+              <span className="notebook-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+              <span><strong>{entry.project}</strong><small>{entry.focus}</small></span>
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="notebook-pages">
+        {caseStudies.map((entry, index) => (
+          <NotebookPage
+            key={entry.slug}
+            entry={entry}
+            index={index + 1}
+            active={activeAnchor === entry.anchor}
+          />
+        ))}
+      </div>
     </div>
   );
 }
 
-function CaseStudyPanel({
-  entry,
-  index,
-  open,
-  onToggle,
-}: {
+function NotebookPage({ entry, index, active }: {
   entry: CaseStudy;
-  index: string;
-  open: boolean;
-  onToggle: () => void;
+  index: number;
+  active: boolean;
 }) {
   return (
-    <div id={entry.anchor} className="border-t border-line">
-      <button
-        type="button"
-        id={`${entry.anchor}-button`}
-        aria-expanded={open}
-        aria-controls={`${entry.anchor}-body`}
-        onClick={onToggle}
-        className="flex w-full items-start gap-4 py-5 text-left lg:py-6"
-      >
-        <span aria-hidden="true" className="mt-1 font-mono text-label text-ink-faint">
-          {index}
-        </span>
-        <span className="min-w-0 flex-1">
-          <span className="block font-geist text-lg font-medium text-ink">{entry.project}</span>
-          <span className="mt-1 block text-small text-ink-muted">{entry.teaser}</span>
-        </span>
-        <span
-          aria-hidden="true"
-          className="mt-0.5 shrink-0 font-mono text-base leading-none text-ink-muted"
-        >
-          {open ? "–" : "+"}
-        </span>
-      </button>
-
-      <div
-        id={`${entry.anchor}-body`}
-        role="region"
-        aria-labelledby={`${entry.anchor}-button`}
-        className={open ? "block" : "hidden"}
-      >
-        <div className={`pb-8${open ? " animate-panel-in" : ""}`}>
-          <div className="border-t border-line pt-5">
-            <SpecRow items={[entry.stack, entry.year, entry.heroMetric]} className="break-all" />
-            {entry.links.length > 0 ? (
-              <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
-                {entry.links.map((link) => (
-                  <ExternalLink
-                    key={link.href}
-                    href={link.href}
-                    className="text-small font-medium"
-                  >
-                    {link.label}
-                  </ExternalLink>
-                ))}
-              </div>
-            ) : null}
-            {entry.video ? (
-              <div className="mt-5 max-w-2xl">
-                <VideoEmbed id={entry.video.id} title={entry.video.label} />
-              </div>
-            ) : null}
-            {entry.sections.map((section) => (
-              <div key={section.label} className="mt-7">
-                <MonoLabel>{section.label}</MonoLabel>
-                <p className="mt-2 max-w-measure text-body text-ink-2">{section.body}</p>
-              </div>
-            ))}
-          </div>
+    <article
+      id={entry.anchor}
+      role="tabpanel"
+      aria-labelledby={`${entry.anchor}-button`}
+      hidden={!active}
+      tabIndex={0}
+      className="notebook-page"
+    >
+      <header className="notebook-page-header">
+        <div className="notebook-meta"><span>Note {String(index).padStart(2, "0")} / {entry.focus}</span><span>{entry.year}</span></div>
+        <h3>{entry.project}</h3>
+        <p className="notebook-question">{entry.teaser}</p>
+        <div className="notebook-links">
+          {entry.links.map((link) => (
+            <ExternalLink key={link.href} href={link.href}>{link.label}</ExternalLink>
+          ))}
+          <a href={`#${entry.anchor}`} aria-label={`Permalink to ${entry.project} engineering notes`}>Permalink ↗</a>
         </div>
+      </header>
+      <div className="notebook-decision">
+        <p className="notebook-label">The decision</p>
+        <p>{entry.decision}</p>
       </div>
-    </div>
+      <section className="notebook-system" aria-label={`${entry.project} architecture overview`}>
+        <p className="notebook-label">System path</p>
+        <ol className="notebook-flow">
+          {entry.flow.map((step, i) => (
+            <li key={step.label}>
+              <span className="notebook-node" aria-hidden="true">{i + 1}</span>
+              <strong>{step.label}</strong>
+              <span>{step.detail}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
+      <div id={`${entry.anchor}-body`} className="notebook-body">
+        {entry.sections.map((section, i) => (
+          <section key={section.label} aria-labelledby={`${entry.anchor}-section-${i}`}>
+            <h4 id={`${entry.anchor}-section-${i}`}>{sectionTitles[section.label]}</h4>
+            <p>{section.body}</p>
+          </section>
+        ))}
+        <div className="notebook-stack"><span className="notebook-label">Built with</span><p>{entry.stack}</p></div>
+        {entry.video && (
+          <div className="notebook-video"><VideoEmbed id={entry.video.id} title={entry.video.label} /></div>
+        )}
+      </div>
+    </article>
   );
 }
