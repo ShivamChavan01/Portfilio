@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-11-04",
+  "repositories": {
+    "agent-platform": "596022714a88ab95476d7881bfb0c158d9382d98",
+    "cutroom": "1bc9c647074ad95dc1ec4be0bff8bdecb6c6f877",
+    "voiceScope": "f9d459c75e7152e370afed838bc547dde9d0a2d5",
+    "MCP_Foundry": "dafb83fbaede2f2f5452dec748a47df06040a4b8",
+    "autoace-voice-tone-classifier": "134e0088438e01df478e033c8af693370bdbe3a4",
+    "opencode-terminal": "6154fe540c24f83665d95ee6cc6cfc493b9b2dba",
+    "voicecli": "90346fc7a35278cd57e09bc956bcdaa4e747e0ef"
+  },
+  "openMetadata": [
+    {
+      "number": "27602",
+      "state": "closed",
+      "merged": false,
+      "url": "https://github.com/open-metadata/OpenMetadata/pull/27602"
+    },
+    {
+      "number": "27445",
+      "state": "closed",
+      "merged": false,
+      "url": "https://github.com/open-metadata/OpenMetadata/pull/27445"
+    },
+    {
+      "number": "27648",
+      "state": "closed",
+      "merged": false,
+      "url": "https://github.com/open-metadata/OpenMetadata/pull/27648"
+    }
+  ],
+  "jkube": {
+    "searchReturned": 20,
+    "mergedReturned": 18,
+    "query": "author:ShivamChavan01 repo:eclipse-jkube/jkube"
+  }
+}

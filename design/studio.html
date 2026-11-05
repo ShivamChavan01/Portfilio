@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shivam Chavan · Studio concept</title>
+    <link rel="stylesheet" href="studio.css" />
+    <style>
+      :root {
+        --color-bg: #f7f5ef;
+        --color-surface: #fcfbf8;
+        --color-recessed: #eeece4;
+        --color-ink: #272a24;
+        --color-ink-muted: #696b61;
+        --color-line: #ddded3;
+        --color-line-strong: #c4c7b9;
+        --color-accent: #b74426;
+        --color-status: #5e7848;
+        --font-geist: Arial, sans-serif;
+        --font-display: Georgia, serif;
+        --font-mono: monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--color-bg);
+        color: var(--color-ink);
+        font-family: Arial, sans-serif;
+      }
+      p,
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+      }
+      a {
+        color: inherit;
+      }
+      section,
+      footer {
+        scroll-margin-top: 100px;
+      }
+      :focus-visible {
+        outline: 2px solid var(--color-accent);
+        outline-offset: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="studio-nav">
+      <nav class="studio-shell studio-nav-inner" aria-label="Primary">
+        <a href="#main" class="studio-brand"
+          ><span class="studio-monogram">sc.</span
+          ><span class="brand-name">Shivam Chavan</span></a
+        >
+        <ul class="studio-nav-links">
+          <li><a href="#work">Work</a></li>
+          <li class="nav-secondary"><a href="#experience">About</a></li>
+          <li class="nav-secondary"><a href="#open-source">Open source</a></li>
+          <li><a class="nav-contact" href="#contact">Let’s talk ↗</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="studio-shell studio-hero">
+        <div class="hero-overline studio-label">
+          <span class="hello"
+            ><i class="status-dot"></i>Full stack engineer · Curious by
+            default</span
+          ><span class="location">Bengaluru, India ↗</span>
+        </div>
+        <div class="hero-grid">
+          <div>
+            <h1 class="hero-title">
+              Good ideas.<br />Real systems.<br /><em>Built to work.</em>
+            </h1>
+            <p class="hero-copy">
+              I’m Shivam. I build
+              <strong>production software and AI tools</strong>, from the
+              interface you touch to the systems you depend on.
+            </p>
+            <div class="hero-actions">
+              <a class="studio-button" href="#work"
+                >Explore my work <span>↓</span></a
+              ><a class="studio-text-link" href="#contact">Get in touch ↗</a>
+            </div>
+          </div>
+          <div class="hero-workbench">
+            <div class="workbench-note studio-label">
+              <span>A few things on my workbench</span><span>01 — 04</span>
+            </div>
+            <div class="workbench-window">
+              <div class="workbench-titlebar">
+                <i class="window-dot"></i><i class="window-dot"></i
+                ><i class="window-dot"></i
+                ><span class="studio-label">~/shivam / building</span>
+              </div>
+              <div class="workbench-body">
+                <a class="bench-tile" href="#work"
+                  ><div class="tile-heading">
+                    <strong>Cutroom</strong><span>↗</span>
+                  </div>
+                  <svg
+                    class="bench-visual"
+                    viewBox="0 0 150 55"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M12 33H135M42 33V12H100V33"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <g fill="#e9eddf" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="33" r="4" />
+                      <circle cx="42" cy="33" r="4" />
+                      <circle cx="72" cy="12" r="4" />
+                      <circle cx="100" cy="33" r="4" />
+                      <circle cx="135" cy="33" r="4" />
+                    </g></svg
+                  ><small>Version control for video</small></a
+                ><a class="bench-tile" href="#work"
+                  ><div class="tile-heading">
+                    <strong>VoiceScope</strong><span>↗</span>
+                  </div>
+                  <svg
+                    class="bench-visual"
+                    viewBox="0 0 150 55"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M5 28H15L18 21L23 38L28 12L33 45L38 18L43 36L48 25L53 28H64L68 16L73 40L78 7L83 48L88 17L93 35L98 24L103 28H145"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    /></svg
+                  ><small>Making voice AI observable</small></a
+                ><a class="bench-tile" href="#work"
+                  ><div class="tile-heading">
+                    <strong>Strivo</strong><span>↗</span>
+                  </div>
+                  <svg
+                    class="bench-visual"
+                    viewBox="0 0 150 55"
+                    aria-hidden="true"
+                  >
+                    <g stroke="currentColor" fill="none">
+                      <rect x="16" y="10" width="118" height="38" rx="3" />
+                      <path d="M16 21H134M55 21V48M94 21V48" />
+                    </g>
+                    <g fill="currentColor" opacity=".5">
+                      <rect x="23" y="27" width="25" height="13" rx="2" />
+                      <rect x="62" y="27" width="25" height="13" rx="2" />
+                      <rect x="101" y="27" width="25" height="13" rx="2" />
+                    </g></svg
+                  ><small>Software for the everyday</small></a
+                ><a class="bench-tile" href="#work"
+                  ><div class="tile-heading">
+                    <strong>MCP Foundry</strong><span>↗</span>
+                  </div>
+                  <svg
+                    class="bench-visual"
+                    viewBox="0 0 150 55"
+                    aria-hidden="true"
+                  >
+                    <g stroke="currentColor" fill="none">
+                      <rect x="6" y="16" width="35" height="23" rx="3" />
+                      <rect x="58" y="16" width="35" height="23" rx="3" />
+                      <rect x="110" y="16" width="35" height="23" rx="3" />
+                      <path d="M41 28H58M93 28H110M128 40V48H75V40" />
+                    </g>
+                    <text x="23" y="31" text-anchor="middle" font-size="11">
+                      { }
+                    </text>
+                    <text x="76" y="31" text-anchor="middle" font-size="11">
+                      ⌘
+                    </text>
+                    <text x="128" y="31" text-anchor="middle" font-size="11">
+                      ✓
+                    </text></svg
+                  ><small>Tools that earn their place</small></a
+                >
+              </div>
+              <div class="workbench-footer studio-label">
+                <span class="status-dot"></span>Always a work in progress<span
+                  >Made with intent ↗</span
+                >
+              </div>
+            </div>
+            <p class="workbench-caption">
+              A little craft. A lot of engineering.
+            </p>
+          </div>
+        </div>
+        <div class="hero-bottom">
+          <p>
+            <strong>Currently at Eazytag</strong> · Building Strivo, a
+            multi-tenant SaaS platform
+          </p>
+          <div class="hero-socials">
+            <a href="https://github.com/ShivamChavan01">GitHub ↗</a
+            ><a href="https://www.linkedin.com/in/ShivamChavan01">LinkedIn ↗</a
+            ><a href="#contact">Email ↗</a>
+          </div>
+        </div>
+      </section>
+      <section class="studio-shell studio-section" id="work">
+        <div class="section-kicker studio-label">
+          <span><span class="section-number">01 /</span>Selected work</span
+          ><span>Independent projects & production work</span>
+        </div>
+        <div class="section-heading-row">
+          <h2 class="studio-heading">Less talk.<br /><em>More shipped.</em></h2>
+          <p class="section-description">
+            A collection of systems, experiments, and tools. Each started with a
+            problem worth solving.
+          </p>
+        </div>
+        <div class="project-filters">
+          <button aria-pressed="true">All work</button
+          ><button aria-pressed="false">Products</button
+          ><button aria-pressed="false">AI systems</button
+          ><button aria-pressed="false">Developer tools</button>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-art project-art-cutroom">
+              <span class="project-art-label studio-label"
+                >01 / Explore. Compare. Merge.</span
+              >
+              <div class="art-window">
+                <div class="art-window-bar">
+                  <span>cutroom / motion study</span><span>main ⌄</span>
+                </div>
+                <div class="art-window-body">
+                  <div class="cutroom-preview">
+                    <div class="cutroom-frame"></div>
+                    <div class="preview-caption">
+                      A different cut.<br />The same starting point.
+                    </div>
+                  </div>
+                  <div class="timeline-ruler">
+                    <span>00:00</span><span>00:02</span><span>00:04</span
+                    ><span>00:06</span>
+                  </div>
+                  <div class="timeline-track">
+                    <span style="width: 35%">opening</span
+                    ><span style="width: 27%">middle</span
+                    ><span style="width: 36%">ending</span>
+                  </div>
+                  <div class="timeline-track audio">
+                    <span style="width: 100%"></span>
+                  </div>
+                </div>
+              </div>
+              <span class="project-art-corner">TIMELINE STUDY ↗</span>
+            </div>
+            <div class="project-meta studio-label">
+              <span>Browser video editor · Prototype</span><span>2026</span>
+            </div>
+            <h3>Cutroom</h3>
+            <p class="project-summary">
+              Explore alternate cuts. Compare the changes. Merge without losing
+              the edits that matter.
+            </p>
+            <div class="project-tags">
+              <span>TypeScript</span><span>React</span><span>IndexedDB</span>
+            </div>
+            <div class="project-links">
+              <a href="https://cutroom-editor.vercel.app">Try the editor ↗</a
+              ><a href="https://github.com/ShivamChavan01/cutroom"
+                >Source code ↗</a
+              >
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-art project-art-voicescope">
+              <span class="project-art-label studio-label"
+                >02 / Listen closer.</span
+              >
+              <div class="art-window voice-art">
+                <div class="art-window-bar">
+                  <span>voicescope / analysis pipeline</span
+                  ><span>audio → evidence</span>
+                </div>
+                <div class="art-window-body">
+                  <svg
+                    class="voice-waveform"
+                    viewBox="0 0 300 75"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M0 38H20L25 29L30 50L35 20L40 62L45 9L50 68L55 25L60 47L65 32L70 38H100L105 23L110 52L115 13L120 63L125 6L130 70L135 20L140 56L145 28L150 45L155 33L160 38H200L205 24L210 51L215 15L220 62L225 28L230 47L235 36H300"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                  <div class="voice-pipeline">
+                    <span>Transcribe</span>→<span>Analyze</span>→<span
+                      >Validate</span
+                    >
+                  </div>
+                  <div class="voice-footnote">
+                    <span>Policy-grounded analysis</span
+                    ><span>Human review ↗</span>
+                  </div>
+                </div>
+              </div>
+              <span class="project-art-corner">PIPELINE STUDY ↗</span>
+            </div>
+            <div class="project-meta studio-label">
+              <span>Voice AI · Open source</span><span>2026</span>
+            </div>
+            <h3>VoiceScope</h3>
+            <p class="project-summary">
+              Understand what happened on a voice AI call, with transcription,
+              policy-grounded analysis, and validation.
+            </p>
+            <div class="project-tags">
+              <span>Python</span><span>FastAPI</span><span>RAG</span>
+            </div>
+            <div class="project-links">
+              <a href="https://voice-scope.vercel.app/runs">Open app ↗</a
+              ><a href="https://github.com/ShivamChavan01/voiceScope"
+                >Source code ↗</a
+              >
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-art project-art-strivo">
+              <span class="project-art-label studio-label"
+                >03 / Keep the everyday running.</span
+              >
+              <div class="art-window strivo-art">
+                <div class="art-window-bar">
+                  <span>strivo / class bookings</span><span>Weekly view</span>
+                </div>
+                <div class="art-window-body">
+                  <div class="booking-heading">
+                    <span>One place for every booking.</span><span>↗</span>
+                  </div>
+                  <div class="booking-grid">
+                    <span></span><span>MON</span><span>TUE</span><span>WED</span
+                    ><span>08</span><span class="booked">Yoga</span><span></span
+                    ><span class="confirmed">Strength</span><span>09</span
+                    ><span></span><span class="booked">Mobility</span
+                    ><span></span><span>10</span
+                    ><span class="confirmed">Strength</span><span></span
+                    ><span class="booked">Yoga</span>
+                  </div>
+                </div>
+              </div>
+              <span class="project-art-corner">SCHEDULING STUDY ↗</span>
+            </div>
+            <div class="project-meta studio-label">
+              <span>Production SaaS · At Eazytag</span><span>Current</span>
+            </div>
+            <h3>Strivo</h3>
+            <p class="project-summary">
+              Bookings, memberships, and biometric check-ins for a multi-tenant
+              gym platform.
+            </p>
+            <div class="project-tags">
+              <span>Angular</span><span>Java 21</span><span>MongoDB</span>
+            </div>
+            <div class="project-links">
+              <a href="#experience">The work behind it ↓</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-art project-art-mcp-foundry">
+              <span class="project-art-label studio-label"
+                >04 / Generate. Evaluate. Repair.</span
+              >
+              <div class="art-window">
+                <div class="art-window-bar">
+                  <span>mcp-foundry / proof loop</span
+                  ><span>OpenAPI → MCP</span>
+                </div>
+                <div class="art-window-body foundry-flow">
+                  <div class="foundry-input">{ } OpenAPI specification</div>
+                  <span>↓</span>
+                  <div class="foundry-steps">
+                    <span>Generate</span>→<span>Evaluate</span>→<span
+                      >Register</span
+                    >
+                  </div>
+                  <div class="foundry-repair">↳ Repair & re-evaluate ↲</div>
+                </div>
+              </div>
+              <span class="project-art-corner">ARCHITECTURE STUDY ↗</span>
+            </div>
+            <div class="project-meta studio-label">
+              <span>Developer tools · Hackathon build</span><span>2026</span>
+            </div>
+            <h3>MCP Foundry</h3>
+            <p class="project-summary">
+              Turn an API spec into agent tools, then test and repair them
+              before registration.
+            </p>
+            <div class="project-tags">
+              <span>Python</span><span>FastMCP</span><span>Prism</span>
+            </div>
+            <div class="project-links">
+              <a href="https://youtu.be/vRT6zaGCySg">Watch demo ↗</a
+              ><a href="https://github.com/ShivamChavan01/MCP_Foundry"
+                >Source code ↗</a
+              >
+            </div>
+          </article>
+        </div>
+        <div class="project-archive">
+          <div class="archive-heading studio-label">
+            <span>Also on the workbench</span><span>More projects ↙</span>
+          </div>
+          <div class="archive-row">
+            <h3>Open Agent</h3>
+            <p>
+              Multi-provider chat, project-scoped retrieval, and token budgets.
+            </p>
+            <a href="https://github.com/ShivamChavan01/agent-platform"
+              >GitHub ↗</a
+            >
+          </div>
+          <div class="archive-row">
+            <h3>opencode-terminal</h3>
+            <p>Real terminals and persistent process control for OpenCode.</p>
+            <a href="https://github.com/ShivamChavan01/opencode-terminal"
+              >GitHub ↗</a
+            >
+          </div>
+          <div class="archive-row">
+            <h3>VectorShift Pipeline Builder</h3>
+            <p>A visual node canvas with backend graph validation.</p>
+            <a
+              href="https://github.com/ShivamChavan01/vectorshift-pipeline-builder"
+              >GitHub ↗</a
+            >
+          </div>
+        </div>
+      </section>
+      <section class="studio-about" id="experience">
+        <div class="studio-shell studio-section">
+          <div class="section-kicker studio-label">
+            <span
+              ><span class="section-number">02 /</span>The person behind the
+              code</span
+            >
+          </div>
+          <div class="about-grid">
+            <div>
+              <h2 class="studio-heading">
+                From the first sketch<br />to <em>the on-call shift.</em>
+              </h2>
+              <p class="about-intro">
+                I’m a full stack engineer in Bengaluru. I work across
+                interfaces, backend systems, and AI tooling, with a particular
+                interest in what happens after the happy path.
+              </p>
+              <p class="about-note">Build it. Understand it. Make it better.</p>
+            </div>
+            <div>
+              <div class="experience-header">
+                <h3>Eazytag</h3>
+                <span class="studio-label">Oct 2025 — Present</span>
+              </div>
+              <p class="experience-role">
+                Full Stack Developer · Strivo SaaS Platform
+              </p>
+              <ul class="experience-bullets">
+                <li>
+                  Features across Angular, Java 21, Micronaut, and MongoDB.
+                </li>
+                <li>
+                  Class bookings, waitlists, biometric check-in, and refunds.
+                </li>
+                <li>Weekly on-call alongside client engineering teams.</li>
+              </ul>
+              <div class="about-skills studio-label">
+                In the toolkit
+                <p>
+                  TypeScript · Angular · React · Python · FastAPI · Java ·
+                  Micronaut · MongoDB · PostgreSQL
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="studio-shell studio-section" id="open-source">
+        <div class="section-kicker studio-label">
+          <span
+            ><span class="section-number">03 /</span>Building in the open</span
+          >
+        </div>
+        <h2 class="studio-heading">Better, <em>together.</em></h2>
+        <div class="project-archive">
+          <div class="archive-row">
+            <h3>Eclipse JKube</h3>
+            <p>
+              Java tooling contributions, modernizing AssertJ and Mockito tests.
+            </p>
+            <a href="https://github.com/eclipse-jkube/jkube">Explore ↗</a>
+          </div>
+          <div class="archive-row">
+            <h3>OpenMetadata</h3>
+            <p>Submitted work on entity search, DDL extraction, and lineage.</p>
+            <a href="https://github.com/open-metadata/OpenMetadata/pull/27602"
+              >View PR ↗</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="studio-contact" id="contact">
+      <div class="studio-shell">
+        <div class="section-kicker studio-label">
+          <span>04 / Let’s make something useful</span
+          ><span>Bengaluru, India</span>
+        </div>
+        <div class="contact-grid">
+          <div>
+            <h2 class="contact-heading">
+              Good things start<br />with <em>a conversation.</em>
+            </h2>
+            <p class="contact-copy">
+              Have a product in mind, an interesting engineering problem, or a
+              role worth talking about?
+            </p>
+            <a class="contact-email" href="mailto:shivamrc189@gmail.com"
+              >shivamrc189@gmail.com ↗</a
+            >
+          </div>
+          <div class="contact-side">
+            <a class="studio-text-link" href="https://cal.com/shivamchavan"
+              >Book a conversation ↗</a
+            >
+            <p>Or find me elsewhere on the internet.</p>
+            <div class="contact-socials">
+              <a href="https://github.com/ShivamChavan01">GitHub ↗</a
+              ><a href="https://www.linkedin.com/in/ShivamChavan01"
+                >LinkedIn ↗</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="studio-colophon studio-label">
+          <span>© 2026 Shivam Chavan</span
+          ><span>Made with intent. Built with Next.js.</span
+          ><a href="#main">Back to top ↑</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

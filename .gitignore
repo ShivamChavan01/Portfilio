@@ -13,4 +13,5 @@ next-env.d.ts
 .tooling/
 .gstack/
 .vercel
-.env*
+
+/.next-dev/

@@ -16,7 +16,8 @@ export const site = {
   title: "Full Stack Engineer",
   location: "Bengaluru, India",
   email: "shivamrc189@gmail.com",
-  resume: "https://drive.google.com/file/d/1ko-1AWqJjt3nLiXt0wtilNyQoRlxfavY/view?usp=sharing",
+  resume:
+    "https://drive.google.com/file/d/1ko-1AWqJjt3nLiXt0wtilNyQoRlxfavY/view?usp=sharing",
   links: {
     github: "https://github.com/ShivamChavan01",
     linkedin: "https://www.linkedin.com/in/ShivamChavan01",
@@ -28,14 +29,13 @@ export const site = {
 
 export const nav = {
   anchors: [
-    { index: "01", label: "WORK", href: "#work" },
-    { index: "02", label: "CASE STUDIES", href: "#case-studies" },
-    { index: "03", label: "EXPERIENCE", href: "#experience" },
-    { index: "04", label: "OPEN SOURCE", href: "#open-source" },
-    { index: "05", label: "CONTACT", href: "#contact" },
+    { index: "01", label: "work", href: "#experience" },
+    { index: "02", label: "projects", href: "#work" },
+    { index: "03", label: "notes", href: "#case-studies" },
+    { index: "04", label: "open source", href: "#open-source" },
+    { index: "05", label: "contact", href: "#contact" },
   ],
-  /** Mobile keeps only the anchors that fit at 320px. */
-  mobile: [0, 2, 4],
+  mobile: [0, 1],
 } as const;
 
 export const hero = {
@@ -58,7 +58,8 @@ export const hero = {
 
 export const sectionIntros = {
   work: "Things I've built.",
-  experience: "One role, one platform. Features owned end to end, on-call included.",
+  experience:
+    "One role, one platform. Features owned end to end, on-call included.",
   openSource:
     "Contributions to other people's codebases: merged PRs in Eclipse JKube, submitted work in OpenMetadata, plus Atlassian and npm.",
   contact: "No forms. Email is fastest.",
@@ -73,6 +74,7 @@ export type WorkEntry = {
   summary: string;
   stack: string[];
   spec: string[];
+  highlights?: { label: string; detail: string }[];
   links: SiteLink[];
   /** In-page case study anchor (no external link exists in FACTS). */
   caseStudyHref?: string;
@@ -81,12 +83,42 @@ export type WorkEntry = {
 
 export const work: WorkEntry[] = [
   {
+    slug: "cutroom",
+    index: "00",
+    name: "Cutroom",
+    year: "2026",
+    descriptor:
+      "Browser video editing with alternate versions, diffs, and merge review.",
+    summary:
+      "A browser video-editor prototype with versioned timelines, three-way merges, explicit conflict resolution, and structural checks. Local edits restore through IndexedDB and OPFS. Exports are timeline interchange files, not rendered video; live collaboration is not implemented.",
+    stack: ["TypeScript", "React", "IndexedDB", "OPFS"],
+    spec: [
+      "Three-way timeline merge",
+      "Explicit conflict review",
+      "Local persistence",
+    ],
+    links: [
+      {
+        label: "Try the editor",
+        href: "https://cutroom-editor.vercel.app/",
+        external: true,
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/ShivamChavan01/cutroom",
+        external: true,
+      },
+    ],
+    caseStudyHref: "#case-study-cutroom",
+  },
+  {
     slug: "voicescope",
     index: "01",
     name: "VoiceScope",
     year: "Jun – Jul 2026",
-    descriptor: "Voice AI observability across six platforms, with SSRF-protected ingest and a self-tuning validation harness.",
-    summary: "Voice agents fail in the field and their operators rarely see why. VoiceScope ingests call webhooks from six voice AI platforms through a three-stage pipeline — Whisper transcription, LLM analysis with RAG retrieval, structured reports — under a validation harness that benchmarks and re-tunes its own weights every run. Open source, live, CI-gated.",
+    descriptor: "Voice AI call analysis grounded in transcripts and policies.",
+    summary:
+      "Voice agents fail in the field and their operators rarely see why. VoiceScope ingests call webhooks from six voice AI platforms through a pipeline with Deepgram, Gemini, or Whisper transcription, LLM analysis grounded in a knowledge base, structured reporting, and deterministic validation. The benchmark uses a small labeled dataset; its results are not a guarantee of accuracy on new calls.",
     stack: [
       "Python",
       "FastAPI",
@@ -100,10 +132,23 @@ export const work: WorkEntry[] = [
       "RAG",
       "Railway",
     ],
-    spec: ["6 platform integrations", "SSRF protection", "7-layer validation harness", "KB-grounded hallucination detection"],
+    spec: [
+      "6 platform integrations",
+      "SSRF protection",
+      "Deterministic validation",
+      "KB-grounded hallucination detection",
+    ],
     links: [
-      { label: "GitHub", href: "https://github.com/ShivamChavan01/voiceScope", external: true },
-      { label: "Live", href: "https://voice-scope.vercel.app/runs", external: true },
+      {
+        label: "GitHub",
+        href: "https://github.com/ShivamChavan01/voiceScope",
+        external: true,
+      },
+      {
+        label: "Live",
+        href: "https://voice-scope.vercel.app/runs",
+        external: true,
+      },
     ],
     caseStudyHref: "#case-study-voicescope",
   },
@@ -112,12 +157,30 @@ export const work: WorkEntry[] = [
     index: "02",
     name: "MCP Foundry",
     year: "Jul 2026",
-    descriptor: "Generates MCP servers from OpenAPI specs, then tests every tool against a live agent before registering it.",
-    summary: "A generated tool with a vague description fails at agent runtime. MCP Foundry rewrites ambiguous descriptions with an LLM, evaluates each tool against a live agent on an isolated Prism mock, and auto-repairs failures for up to 3 rounds across direct, rephrased, edge-case, and adversarial prompts. Survivors register into Codex's MCP config with a pass/fail scorecard. Built at the OpenAI Build Week Hackathon.",
-    stack: ["Python", "FastAPI", "OpenAPI", "Codex/GPT-5.6", "Prism", "FastMCP"],
-    spec: ["up to 3 repair rounds", "4 prompt classes", "live-agent evals", "pass/fail scorecard"],
+    descriptor:
+      "Generate MCP tools from API specs, then evaluate and repair them.",
+    summary:
+      "A generated tool with a vague description fails at agent runtime. MCP Foundry rewrites ambiguous descriptions with an LLM, evaluates each tool against a live agent on an isolated Prism mock, and auto-repairs failures for up to 3 rounds across direct, rephrased, edge-case, and adversarial prompts. Survivors register into Codex's MCP config with a pass/fail scorecard. Built at the OpenAI Build Week Hackathon.",
+    stack: [
+      "Python",
+      "FastAPI",
+      "OpenAPI",
+      "provider adapters",
+      "Prism",
+      "FastMCP",
+    ],
+    spec: [
+      "up to 3 repair rounds",
+      "4 prompt classes",
+      "live-agent evals",
+      "pass/fail scorecard",
+    ],
     links: [
-      { label: "GitHub", href: "https://github.com/ShivamChavan01/MCP_Foundry", external: true },
+      {
+        label: "GitHub",
+        href: "https://github.com/ShivamChavan01/MCP_Foundry",
+        external: true,
+      },
       { label: "Demo", href: "https://youtu.be/vRT6zaGCySg", external: true },
     ],
     caseStudyHref: "#case-study-mcp-foundry",
@@ -128,8 +191,10 @@ export const work: WorkEntry[] = [
     name: "Strivo",
     year: "10/2025 – Present",
     current: true,
-    descriptor: "Multi-tenant gym SaaS: bookings, biometric check-in, health scoring, GST invoicing.",
-    summary: "Slot scheduling, recurring series, waitlists, biometric check-in, and refunds all touch the same state, so the booking platform is built for correctness under concurrent writes. A nightly health-scoring pipeline with alert tiers replaced a manual weekly review; MongoDB change streams broadcast realtime updates, and third-party integrations sit behind retry logic.",
+    descriptor:
+      "Multi-tenant gym SaaS: bookings, biometric check-in, health scoring, GST invoicing.",
+    summary:
+      "Slot scheduling, recurring series, waitlists, biometric check-in, and refunds all touch the same state, so the booking platform is built for correctness under concurrent writes. A nightly health-scoring pipeline with alert tiers replaced a manual weekly review; MongoDB change streams broadcast realtime updates, and third-party integrations sit behind retry logic.",
     stack: ["Angular", "Java 21", "Micronaut", "MongoDB", "Change Streams"],
     spec: ["100+ gyms", "60+ tenants"],
     links: [],
@@ -140,8 +205,10 @@ export const work: WorkEntry[] = [
     index: "04",
     name: "Open Agent",
     year: "AI PLATFORM",
-    descriptor: "Multi-tenant chatbots across 25 LLMs, with tool calling, per-project RAG, and server-enforced token budgets.",
-    summary: "Each project gets its own system prompt and knowledge base. The server owns access control and token accounting, responses stream over SSE, and a bounded tool-calling loop covers calculator, RAG document search, and web search with automatic provider fallback. pgvector retrieval is scoped per project, so tenants never see each other's documents.",
+    descriptor:
+      "Project-specific AI assistants with document search, tools, and configurable model providers.",
+    summary:
+      "Built the React chat interface and FastAPI backend around project-specific prompts, conversations, and knowledge bases. Document retrieval uses pgvector, and assistants can call calculator, document-search, and web-search tools. Responses and tool updates stream over SSE; provider fallback handles unavailable models.",
     stack: [
       "Python",
       "FastAPI",
@@ -153,10 +220,23 @@ export const work: WorkEntry[] = [
       "TypeScript",
       "Docker",
     ],
-    spec: ["25 LLMs", "provider fallback", "token-budget metering"],
+    spec: ["multi-model interface", "provider fallback", "token-budget metering"],
+    highlights: [
+      { label: "Project boundaries", detail: "Server-side ownership checks and project-scoped document retrieval." },
+      { label: "Controlled tool use", detail: "A bounded execution loop keeps model-driven tool calls from running indefinitely." },
+      { label: "Usage controls", detail: "Configurable session and weekly token budgets, with server-side usage metering." },
+    ],
     links: [
-      { label: "GitHub", href: "https://github.com/ShivamChavan01/agent-platform", external: true },
-      { label: "Live", href: "https://agent-platform-popb.onrender.com/", external: true },
+      {
+        label: "GitHub",
+        href: "https://github.com/ShivamChavan01/agent-platform",
+        external: true,
+      },
+      {
+        label: "Live",
+        href: "https://agent-platform-popb.onrender.com/",
+        external: true,
+      },
     ],
     caseStudyHref: "#case-study-open-agent",
   },
@@ -165,10 +245,23 @@ export const work: WorkEntry[] = [
     index: "05",
     name: "AutoAce",
     year: "2026",
-    descriptor: "Call-audio classifier at 85% accuracy under a hard $0.003/minute cost ceiling.",
-    summary: "Nine fields — tone, noise type and severity, quality, overlap, silence — classified by a hybrid DSP + LLM pipeline that measures under $0.001/min at 85% field-match accuracy against 56% for DSP alone. Swapping torch-based VAD for an ONNX runtime cut peak server memory from 830MB to 85MB. A login-gated dashboard handles batch ZIP upload, cost tracking, and CSV/JSON export. The accuracy figure is a calibration measurement over three labeled calls.",
-    stack: ["Python", "Groq (Whisper + LLM)", "librosa", "Silero VAD (ONNX)", "FastAPI", "React"],
-    spec: ["< $0.001/min vs $0.003 ceiling", "85% vs 56%", "830MB → 85MB", "9 fields"],
+    descriptor:
+      "Hybrid DSP and LLM call-audio classification with calibration and cost reporting.",
+    summary:
+      "Nine fields — tone, noise type and severity, quality, overlap, silence — classified by a hybrid DSP + LLM pipeline that measures under $0.001/min at 85% field-match accuracy against 56% for DSP alone. A login-gated dashboard handles batch ZIP upload, cost tracking, and CSV/JSON export. The accuracy figure is a calibration measurement over three labeled calls.",
+    stack: [
+      "Python",
+      "Groq (Whisper + LLM)",
+      "librosa",
+      "Silero VAD (ONNX)",
+      "FastAPI",
+      "React",
+    ],
+    spec: [
+      "< $0.001/min vs $0.003 ceiling",
+      "85% vs 56% on 3 calibration calls",
+      "9 fields",
+    ],
     links: [
       {
         label: "GitHub",
@@ -182,13 +275,36 @@ export const work: WorkEntry[] = [
     index: "06",
     name: "opencode-terminal",
     year: "Sep 2026",
-    descriptor: "An OpenCode plugin for real terminals and persistent process control.",
-    summary: "Agent shells run a command and wait; development needs persistent servers, REPLs, and TTY programs. Nine tools open native terminal windows, auto-detect the project's run command across 15+ stacks, and manage background sessions — start, poll logs, send input, kill the whole process tree. Closing a window stops its process, so nothing orphans ports. Published to npm under MIT.",
-    stack: ["TypeScript", "Node", "Bun", "OpenCode Plugins", "macOS", "Windows", "Linux"],
-    spec: ["9 tools", "auto-detect 15+ stacks", "tree-kill cleanup", "npm published"],
+    descriptor:
+      "An OpenCode plugin for real terminals and persistent process control.",
+    summary:
+      "Agent shells run a command and wait; development needs persistent servers, REPLs, and TTY programs. Nine tools open native terminal windows, auto-detect the project's run command across 15+ stacks, and manage background sessions — start, poll logs, send input, kill the whole process tree. Process cleanup is best-effort and depends on the operating system and terminal setup. Published to npm under MIT.",
+    stack: [
+      "TypeScript",
+      "Node",
+      "Bun",
+      "OpenCode Plugins",
+      "macOS",
+      "Windows",
+      "Linux",
+    ],
+    spec: [
+      "9 tools",
+      "auto-detect 15+ stacks",
+      "tree-kill cleanup",
+      "npm published",
+    ],
     links: [
-      { label: "GitHub", href: "https://github.com/ShivamChavan01/opencode-terminal", external: true },
-      { label: "npm", href: "https://www.npmjs.com/package/opencode-terminal", external: true },
+      {
+        label: "GitHub",
+        href: "https://github.com/ShivamChavan01/opencode-terminal",
+        external: true,
+      },
+      {
+        label: "npm",
+        href: "https://www.npmjs.com/package/opencode-terminal",
+        external: true,
+      },
     ],
   },
   {
@@ -196,12 +312,22 @@ export const work: WorkEntry[] = [
     index: "07",
     name: "voicecli",
     year: "Jun 2026",
-    descriptor: "An offline push-to-talk voice layer for terminal coding agents.",
-    summary: "Terminal agents are read, not heard. voicecli holds Ctrl+Space to record, transcribes locally with faster-whisper, and types the text into whichever CLI has focus. A background watcher tails each agent's session store — Claude Code and Codex CLI JSONL, OpenCode's SQLite database — and speaks new assistant messages back through Piper TTS. Fully offline, with no cloud STT and no API key for the core loop.",
+    descriptor:
+      "An offline push-to-talk voice layer for terminal coding agents.",
+    summary:
+      "Terminal agents are read, not heard. voicecli holds Ctrl+Space to record, transcribes locally with faster-whisper, and types the text into whichever CLI has focus. A background watcher tails each agent's session store — Claude Code and Codex CLI JSONL, OpenCode's SQLite database — and speaks new assistant messages back through Piper TTS. The core loop runs locally after model setup, using a supported desktop environment, with no cloud STT key.",
     stack: ["Python", "faster-whisper", "xdotool", "Piper TTS", "SQLite"],
-    spec: ["fully offline", "Ctrl+Space push-to-talk", "watches Claude Code, OpenCode, Codex CLI"],
+    spec: [
+      "fully offline",
+      "Ctrl+Space push-to-talk",
+      "watches Claude Code, OpenCode, Codex CLI",
+    ],
     links: [
-      { label: "GitHub", href: "https://github.com/ShivamChavan01/voicecli", external: true },
+      {
+        label: "GitHub",
+        href: "https://github.com/ShivamChavan01/voicecli",
+        external: true,
+      },
       { label: "Demo", href: "https://youtu.be/fVV5UPiRxZI", external: true },
     ],
   },
@@ -214,7 +340,8 @@ export const experience = {
   dates: "10/2025 – Present",
   location: "Bengaluru, India",
   current: true,
-  framing: "Full-stack features across Angular, Java 21 with Micronaut, and MongoDB — with weekly on-call alongside client engineering teams.",
+  framing:
+    "Full-stack features across Angular, Java 21 with Micronaut, and MongoDB — with weekly on-call alongside client engineering teams.",
   bullets: [
     "Shipped full-stack features (Angular, Java 21, Micronaut, MongoDB change streams) for 100+ gyms and 60+ tenants.",
     "Engineered the class booking platform for correctness under concurrent writes: waitlists, biometric check-in, refund lifecycle.",
@@ -241,14 +368,20 @@ export const openSource: OpenSourceEntry[] = [
     org: "Eclipse Foundation",
     period: "07/2024 – 11/2024",
     description:
-      "Authored 27 PRs across Eclipse's Kubernetes tooling for Java, 18 of them merged, modernizing AssertJ and Mockito tests. Reviewed by Principal Engineer Marc Nuri.",
-    meta: "ECLIPSE FOUNDATION · 07/2024 – 11/2024 · 27 PRS · 18 MERGED · ASSERTJ + MOCKITO · REVIEWED BY MARC NURI",
-    links: [{ label: "GitHub", href: "https://github.com/eclipse-jkube/jkube", external: true }],
+      "18 merged PRs in Eclipse JKube were returned by GitHub’s authored-PR search on 4 November 2026, including AssertJ and Mockito test modernization.",
+    meta: "ECLIPSE FOUNDATION · 07/2024 – 11/2024 · 18 MERGED PRS CHECKED 2026-11-04 · ASSERTJ + MOCKITO",
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/eclipse-jkube/jkube",
+        external: true,
+      },
+    ],
   },
   {
     name: "OpenMetadata",
     description:
-      "Submitted frontend search for the Roles entity (PR #27602) using Ant Design typeahead, plus PRs for Greenplum DDL extraction and Databricks lineage.",
+      "Submitted frontend Roles search (PR #27602), Greenplum DDL extraction (#27445), and Databricks lineage (#27648). All three PRs were closed and unmerged when checked on 4 November 2026.",
     meta: "PR #27602 · ANT DESIGN TYPEAHEAD · ROLES ENTITY SEARCH · GREENPLUM DDL + DATABRICKS LINEAGE",
     links: [
       {
@@ -256,7 +389,11 @@ export const openSource: OpenSourceEntry[] = [
         href: "https://github.com/open-metadata/OpenMetadata/pull/27602",
         external: true,
       },
-      { label: "Organization", href: "https://github.com/open-metadata", external: true },
+      {
+        label: "Organization",
+        href: "https://github.com/open-metadata",
+        external: true,
+      },
     ],
   },
   {
@@ -272,7 +409,11 @@ export const openSource: OpenSourceEntry[] = [
       "Published an npm package for a real-time, PostgreSQL event-driven translation pipeline, built for the Lingo.dev Hackathon.",
     meta: "NPM PACKAGE · POSTGRESQL EVENT-DRIVEN PIPELINE · LINGO.DEV HACKATHON",
     links: [
-      { label: "npm", href: "https://www.npmjs.com/package/supabase-lingo", external: true },
+      {
+        label: "npm",
+        href: "https://www.npmjs.com/package/supabase-lingo",
+        external: true,
+      },
       { label: "Demo", href: "https://youtu.be/03hsGuhBdzQ", external: true },
     ],
   },
