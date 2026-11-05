@@ -557,7 +557,7 @@ export const approvedFacts: readonly ProfileFact[] = [
     "topic": "recruiter",
     "title": "Reasons to consider Shivam",
     "keywords": "hire hiring candidate strengths value team company recommend choose consider",
-    "text": "Reasons to consider Shivam for a software engineering role include end-to-end product work and practical AI/backend experience. Open Agent combines React and FastAPI with document retrieval, tool calling, provider fallback and usage controls. His supplied Eazytag résumé describes Angular, Java/Micronaut and MongoDB product work, plus weekly on-call support.",
+    "text": "Shivam is a full-stack engineer with experience building interfaces, backend services and database-backed product features. His supplied Eazytag résumé describes Angular, Java/Micronaut and MongoDB work on Strivo, plus weekly on-call support. Open Agent adds a React frontend, FastAPI backend, document retrieval, tool calling, provider fallback and usage controls.",
     "evidence": [
       {
         "basis": "repository",
@@ -629,7 +629,7 @@ export const approvedFacts: readonly ProfileFact[] = [
     "topic": "recruiter",
     "title": "Relevant engineering roles",
     "keywords": "roles positions fit fullstack full stack suited career seniority",
-    "text": "His published work is most relevant to assessing fit for full-stack product engineering, Python/FastAPI backend development and applied-AI tooling. Open Agent combines interfaces, APIs, retrieval and model integration; Cutroom adds a TypeScript editing engine. His Eazytag résumé describes Java/Micronaut and Angular work. A specific role or seniority level should be assessed against its requirements.",
+    "text": "Shivam is a full-stack engineer. His supplied Eazytag résumé describes Angular interfaces, Java/Micronaut services and MongoDB product work. Open Agent combines a React frontend, FastAPI backend and PostgreSQL/pgvector retrieval; Cutroom adds a TypeScript editing engine. AI integrations are part of his full-stack project work. A specific role or seniority level should be assessed against its requirements.",
     "evidence": [
       {
         "basis": "repository",

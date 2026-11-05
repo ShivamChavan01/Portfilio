@@ -1,6 +1,6 @@
 # Portfolio questions and reviewed facts
 
-The portfolio uses the preferred split layout, visible explanations for eight projects, a notebook for engineering detail, and Vercel Geist Sans for the name. VectorShift is removed. Open Agent is featured with project boundaries, controlled tools, provider fallback, and configurable usage controls. Main body text is 16px.
+The portfolio uses the preferred split layout, visible explanations for eight projects, a notebook for engineering detail, and Vercel Geist Sans for the name. The profile and general recruiter answers identify Shivam as a full-stack engineer, with frontend, backend and database experience. VectorShift is removed. Open Agent is featured with project boundaries, controlled tools, provider fallback, and configurable usage controls. Main body text is 16px.
 
 ## Run and configure
 
@@ -48,7 +48,7 @@ Input-pattern screening is heuristic. The canonical output boundary prevents gen
 
 ## Verification
 
-`npm test` uses Node's existing test runner. The 50 tests cover the fact catalog, recruiter question variants, the hiring-question API regression, strict selection, canonical rendering, evidence URLs, input boundaries, Unicode and forged-role attacks, malformed/oversized/aborted streams, origin checks, provider failures, unsupported models, request limits, and the portfolio UI. Provider responses in automated tests are controlled fixtures. The adversarial corpus tests the output boundary even when an input filter is bypassed. CI runs this suite before building.
+`npm test` uses Node's existing test runner. The 51 tests cover the fact catalog, full-stack positioning, recruiter question variants, the hiring-question API regression, strict selection, canonical rendering, evidence URLs, input boundaries, Unicode and forged-role attacks, malformed/oversized/aborted streams, origin checks, provider failures, unsupported models, request limits, and the portfolio UI. Provider responses in automated tests are controlled fixtures. The adversarial corpus tests the output boundary even when an input filter is bypassed. CI runs this suite before building.
 
 `npm run typecheck` and `npm run build` check the application and route. Native Chrome checks cover five screen widths, notebook selection, keyboard navigation, deep links, themes, and the question panel without adding Playwright.
 

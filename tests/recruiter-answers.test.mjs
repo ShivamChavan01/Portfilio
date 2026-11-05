@@ -52,6 +52,18 @@ test('recruiter summaries are canonical, sourced, and do not grant access to unr
  assert.equal(resolveFactSelection('{"factIds":["recruiter.fit"]}',findProfileFacts('Cutroom export MP4')),null);
  assert.equal(resolveFactSelection('{"factIds":["recruiter.fit"],"answer":"Best engineer in the world"}',findProfileFacts('Why hire him?')),null);
 });
+test('hiring and role answers identify a full-stack engineer with frontend, backend and database experience',()=>{
+ for(const question of ['Why should we hire him?','What are his strengths?','What roles is he suited for?','Is he a full stack engineer?']){
+  const candidates=findProfileFacts(question);
+  const result=resolveFactSelection(JSON.stringify({factIds:[candidates[0].id]}),candidates);
+  assert.match(result.answer,/^Shivam is a full-stack engineer\b/);
+  assert.match(result.answer,/Angular/);
+  assert.match(result.answer,/React frontend/);
+  assert.match(result.answer,/FastAPI backend/);
+  assert.match(result.answer,/MongoDB/);
+  assert.ok(result.sources.length>0);
+ }
+});
 test('hiring prompts allow evidence-based fit without requesting invented rankings or personality',()=>{
  const prompt=buildFactSelectionPrompt(findProfileFacts('Why should we hire him?'));
  assert.ok(prompt.includes('recruiter.fit'));
