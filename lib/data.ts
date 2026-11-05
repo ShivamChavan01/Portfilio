@@ -17,7 +17,7 @@ export const site = {
   location: "Bengaluru, India",
   email: "shivamrc189@gmail.com",
   resume:
-    "https://drive.google.com/file/d/1ko-1AWqJjt3nLiXt0wtilNyQoRlxfavY/view?usp=sharing",
+    "https://drive.google.com/file/d/1Urq06xCQivEwkBLXqahpKLpPQHH0oW7O/view?usp=sharing",
   links: {
     github: "https://github.com/ShivamChavan01",
     linkedin: "https://www.linkedin.com/in/ShivamChavan01",
