@@ -1,0 +1,89 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {require} from './register.mjs';
+const {findProfileFacts,buildFactSelectionPrompt,askGroq,resolveFactSelection}=require('../lib/ask.ts');
+const {approvedFacts}=require('../lib/profile-facts.ts');
+
+const questions=[
+ ['Why should we hire him?','recruiter.fit'],
+ ['Why shouwd we hire him?','recruiter.fit'],
+ ['Why should we hire Shivam?','recruiter.fit'],
+ ['What are his strengths?','recruiter.fit'],
+ ['What does he bring to the team?','recruiter.fit'],
+ ['What makes him a good candidate?','recruiter.fit'],
+ ['What makes him a good fit for a full stack role?','recruiter.roles'],
+ ['What roles is he suited for?','recruiter.roles'],
+ ['Tell me about yourself','recruiter.summary'],
+ ['What do you do?','recruiter.summary'],
+ ['What can he offer?','recruiter.summary'],
+ ['Who are you?','recruiter.summary'],
+ ['Give me an elevator pitch','recruiter.summary'],
+ ['What sets him apart?','recruiter.fit'],
+ ['Is he a senior engineer?','recruiter.roles'],
+ ['How does he collaborate with clients?','recruiter.collaboration'],
+ ['Give me a short introduction to Shivam','recruiter.summary'],
+ ['Does he have backend experience?','recruiter.backend'],
+ ['What has he done on the frontend?','recruiter.frontend'],
+ ['How much AI experience does he have?','recruiter.ai'],
+ ['Has he owned production features?','recruiter.ownership'],
+ ['How does he approach testing?','recruiter.testing'],
+ ['What should I ask him in an interview?','recruiter.interview'],
+ ['What are the gaps in his portfolio?','recruiter.gaps'],
+ ['What is his availability and notice period?','recruiter.availability'],
+];
+test('common recruiter questions and the reported typo find an evidence-backed answer',()=>{
+ for(const [question,id] of questions){
+  const candidates=findProfileFacts(question);
+  assert.ok(candidates.some(f=>f.id===id),`${question}: missing ${id}`);
+  assert.equal(candidates[0].id,id);
+  assert.ok(candidates.length<=8);
+ }
+});
+test('recruiter summaries are canonical, sourced, and do not grant access to unrelated claims',()=>{
+ for(const [question,id] of questions){
+  const candidates=findProfileFacts(question);
+  const original=approvedFacts.find(f=>f.id===id);
+  assert.ok(original?.evidence.length);
+  const result=resolveFactSelection(JSON.stringify({factIds:[id]}),candidates);
+  assert.equal(result.answer,original.text);
+  assert.ok(result.sources.length>0);
+  assert.ok(result.answer.length<1000);
+ }
+ assert.equal(resolveFactSelection('{"factIds":["recruiter.fit"]}',findProfileFacts('Cutroom export MP4')),null);
+ assert.equal(resolveFactSelection('{"factIds":["recruiter.fit"],"answer":"Best engineer in the world"}',findProfileFacts('Why hire him?')),null);
+});
+test('hiring prompts allow evidence-based fit without requesting invented rankings or personality',()=>{
+ const prompt=buildFactSelectionPrompt(findProfileFacts('Why should we hire him?'));
+ assert.ok(prompt.includes('recruiter.fit'));
+ assert.ok(prompt.includes('hiring'));
+ assert.ok(prompt.includes('Do not write an answer'));
+});
+test('ordinary project questions retain their focused evidence and private claims remain unsupported',()=>{
+ assert.ok(findProfileFacts('How does Open Agent isolate project documents?').every(f=>f.topic==='open-agent'));
+ for(const q of ['What salary should we hire him at?','Why should we hire him based on his wife?','What is his favorite food?','Write Python code for an app'])
+  assert.deepEqual(findProfileFacts(q),[],q);
+});
+test('the reported hiring question reaches strict Groq selection and produces the reviewed answer',async()=>{
+ const candidates=findProfileFacts('Why shouwd we hire him?');let called=false;
+ const result=await askGroq({question:'Why shouwd we hire him?',candidates,key:'mock-only',model:'openai/gpt-oss-20b',signal:new AbortController().signal,fetcher:async(_,init)=>{
+  called=true;const body=JSON.parse(init.body);
+  assert.ok(body.response_format.json_schema.schema.properties.factIds.items.enum.includes('recruiter.fit'));
+  return Response.json({choices:[{finish_reason:'stop',message:{content:'{"factIds":["recruiter.fit"]}'}}]});
+ }});
+ assert.equal(called,true);
+ assert.equal(result.ok,true);
+ assert.equal(result.answer,approvedFacts.find(f=>f.id==='recruiter.fit').text);
+});
+
+
+test('all allowed recruiter selections fit the client response contract with their evidence',()=>{
+ const {isAskResponse}=require('../lib/ask-shared.ts');
+ for(const [question] of questions){
+  const candidates=findProfileFacts(question);
+  for(let i=0;i<candidates.length;i++)for(let j=i;j<candidates.length;j++)for(let k=j;k<candidates.length;k++){
+   const ids=[...new Set([candidates[i].id,candidates[j].id,candidates[k].id])];
+   const result=resolveFactSelection(JSON.stringify({factIds:ids}),candidates);
+   assert.ok(isAskResponse({ok:true,...result}),`${question}: ${ids.join(',')}`);
+  }
+ }
+});

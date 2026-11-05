@@ -551,5 +551,389 @@ export const approvedFacts: readonly ProfileFact[] = [
         "reviewedAt": "2026-11-04"
       }
     ]
+  },
+  {
+    "id": "recruiter.fit",
+    "topic": "recruiter",
+    "title": "Reasons to consider Shivam",
+    "keywords": "hire hiring candidate strengths value team company recommend choose consider",
+    "text": "Reasons to consider Shivam for a software engineering role include end-to-end product work and practical AI/backend experience. Open Agent combines React and FastAPI with document retrieval, tool calling, provider fallback and usage controls. His supplied Eazytag résumé describes Angular, Java/Micronaut and MongoDB product work, plus weekly on-call support.",
+    "evidence": [
+      {
+        "basis": "repository",
+        "title": "agent-platform · README",
+        "href": "https://github.com/ShivamChavan01/agent-platform/blob/596022714a88ab95476d7881bfb0c158d9382d98/README.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "code",
+        "title": "agent-platform · tools.py",
+        "href": "https://github.com/ShivamChavan01/agent-platform/blob/596022714a88ab95476d7881bfb0c158d9382d98/app/tools.py",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "profile",
+        "title": "Strivo scope from supplied résumé",
+        "href": "#experience",
+        "reviewedAt": "2026-11-04"
+      }
+    ]
+  },
+  {
+    "id": "recruiter.summary",
+    "topic": "recruiter",
+    "title": "Professional introduction",
+    "keywords": "summary introduction introduce overview bio yourself",
+    "text": "Shivam Chavan is a full-stack engineer based in Bengaluru. His supplied résumé lists a Full Stack Developer role at Eazytag, working on Strivo. His public projects include Open Agent for project-specific AI assistants, Cutroom for versioned video editing, and VoiceScope for voice-call analysis. His work spans TypeScript/React interfaces and Python/FastAPI backends, with Angular/Java experience described in his employment profile.",
+    "evidence": [
+      {
+        "basis": "profile",
+        "title": "Portfolio profile",
+        "href": "#hero-heading",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "repository",
+        "title": "agent-platform · README",
+        "href": "https://github.com/ShivamChavan01/agent-platform/blob/596022714a88ab95476d7881bfb0c158d9382d98/README.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "repository",
+        "title": "cutroom · README",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/1bc9c647074ad95dc1ec4be0bff8bdecb6c6f877/README.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "code",
+        "title": "voiceScope · pipeline.py",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f9d459c75e7152e370afed838bc547dde9d0a2d5/core/pipeline.py",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "repository",
+        "title": "voiceScope · README",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f9d459c75e7152e370afed838bc547dde9d0a2d5/README.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "profile",
+        "title": "Employment details supplied by Shivam",
+        "href": "#experience",
+        "reviewedAt": "2026-11-04"
+      }
+    ]
+  },
+  {
+    "id": "recruiter.roles",
+    "topic": "recruiter",
+    "title": "Relevant engineering roles",
+    "keywords": "roles positions fit fullstack full stack suited career seniority",
+    "text": "His published work is most relevant to assessing fit for full-stack product engineering, Python/FastAPI backend development and applied-AI tooling. Open Agent combines interfaces, APIs, retrieval and model integration; Cutroom adds a TypeScript editing engine. His Eazytag résumé describes Java/Micronaut and Angular work. A specific role or seniority level should be assessed against its requirements.",
+    "evidence": [
+      {
+        "basis": "repository",
+        "title": "agent-platform · README",
+        "href": "https://github.com/ShivamChavan01/agent-platform/blob/596022714a88ab95476d7881bfb0c158d9382d98/README.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "repository",
+        "title": "cutroom · README",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/1bc9c647074ad95dc1ec4be0bff8bdecb6c6f877/README.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "profile",
+        "title": "Employment details supplied by Shivam",
+        "href": "#experience",
+        "reviewedAt": "2026-11-04"
+      }
+    ]
+  },
+  {
+    "id": "recruiter.backend",
+    "topic": "recruiter",
+    "title": "Backend experience",
+    "keywords": "backend back end api database server experience",
+    "text": "His backend work includes Open Agent’s FastAPI service, PostgreSQL/pgvector document retrieval, project-ownership checks, bounded tool execution and provider fallback. His supplied Eazytag profile adds Java 21, Micronaut and MongoDB work on bookings, refunds, reporting and background scoring. These provide concrete API, data-boundary and failure-handling topics to discuss in an interview.",
+    "evidence": [
+      {
+        "basis": "repository",
+        "title": "agent-platform · README",
+        "href": "https://github.com/ShivamChavan01/agent-platform/blob/596022714a88ab95476d7881bfb0c158d9382d98/README.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "code",
+        "title": "agent-platform · rag.py",
+        "href": "https://github.com/ShivamChavan01/agent-platform/blob/596022714a88ab95476d7881bfb0c158d9382d98/app/rag.py",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "code",
+        "title": "agent-platform · projects.py",
+        "href": "https://github.com/ShivamChavan01/agent-platform/blob/596022714a88ab95476d7881bfb0c158d9382d98/app/routers/projects.py",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "profile",
+        "title": "Strivo scope from supplied résumé",
+        "href": "#experience",
+        "reviewedAt": "2026-11-04"
+      }
+    ]
+  },
+  {
+    "id": "recruiter.frontend",
+    "topic": "recruiter",
+    "title": "Frontend experience",
+    "keywords": "frontend front end ui interface react angular typescript experience",
+    "text": "His public projects include React/TypeScript interfaces for Open Agent and Cutroom. Open Agent connects the interface to streamed AI responses, documents and tool activity; Cutroom exposes timeline editing, version comparison and conflict review. His supplied Eazytag profile describes Angular frontend work alongside backend implementation.",
+    "evidence": [
+      {
+        "basis": "repository",
+        "title": "agent-platform · README",
+        "href": "https://github.com/ShivamChavan01/agent-platform/blob/596022714a88ab95476d7881bfb0c158d9382d98/README.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "repository",
+        "title": "cutroom · README",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/1bc9c647074ad95dc1ec4be0bff8bdecb6c6f877/README.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "profile",
+        "title": "Employment details supplied by Shivam",
+        "href": "#experience",
+        "reviewedAt": "2026-11-04"
+      }
+    ]
+  },
+  {
+    "id": "recruiter.ai",
+    "topic": "recruiter",
+    "title": "Applied AI experience",
+    "keywords": "ai llm experience background applied tools retrieval rag",
+    "text": "His applied-AI work includes project-scoped retrieval and tool calling in Open Agent, call analysis with validation in VoiceScope, and generated-tool evaluation and repair in MCP Foundry. The evidence concerns building and integrating AI applications, rather than a claim of training foundation models or publishing machine-learning research.",
+    "evidence": [
+      {
+        "basis": "repository",
+        "title": "agent-platform · README",
+        "href": "https://github.com/ShivamChavan01/agent-platform/blob/596022714a88ab95476d7881bfb0c158d9382d98/README.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "code",
+        "title": "voiceScope · pipeline.py",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f9d459c75e7152e370afed838bc547dde9d0a2d5/core/pipeline.py",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "repository",
+        "title": "voiceScope · README",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f9d459c75e7152e370afed838bc547dde9d0a2d5/README.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "code",
+        "title": "MCP_Foundry · main.py",
+        "href": "https://github.com/ShivamChavan01/MCP_Foundry/blob/dafb83fbaede2f2f5452dec748a47df06040a4b8/backend/main.py",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "repository",
+        "title": "MCP_Foundry · README",
+        "href": "https://github.com/ShivamChavan01/MCP_Foundry/blob/dafb83fbaede2f2f5452dec748a47df06040a4b8/README.md",
+        "reviewedAt": "2026-11-04"
+      }
+    ]
+  },
+  {
+    "id": "recruiter.ownership",
+    "topic": "recruiter",
+    "title": "Product ownership and production work",
+    "keywords": "ownership production oncall responsibility owned end to end",
+    "text": "His supplied Eazytag résumé describes owning full-stack features for Strivo, including bookings, waitlists, biometric check-in, refund reporting and a nightly health-scoring pipeline, with weekly on-call support. The stated customer scale is profile-provided. His public projects offer additional implementation examples, while production outcomes and team performance would need references or interview validation.",
+    "evidence": [
+      {
+        "basis": "profile",
+        "title": "Strivo scope from supplied résumé",
+        "href": "#experience",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "profile",
+        "title": "Portfolio project directory",
+        "href": "#work",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "public-record",
+        "title": "Public GitHub repository index",
+        "href": "https://github.com/ShivamChavan01?tab=repositories",
+        "reviewedAt": "2026-11-04"
+      }
+    ]
+  },
+  {
+    "id": "recruiter.testing",
+    "topic": "recruiter",
+    "title": "Testing and failure handling",
+    "keywords": "testing tests quality reliability engineering practices",
+    "text": "His projects provide several testing and failure-handling examples: Cutroom documents deterministic timeline checks and explicit merge-conflict review; MCP Foundry evaluates generated tools against an isolated mock and bounds repair attempts; Open Agent bounds tool use and implements provider fallback. These are concrete design choices to discuss, rather than a guarantee of complete coverage or production reliability.",
+    "evidence": [
+      {
+        "basis": "repository",
+        "title": "cutroom · README",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/1bc9c647074ad95dc1ec4be0bff8bdecb6c6f877/README.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "code",
+        "title": "MCP_Foundry · repair.py",
+        "href": "https://github.com/ShivamChavan01/MCP_Foundry/blob/dafb83fbaede2f2f5452dec748a47df06040a4b8/backend/pipeline/repair.py",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "repository",
+        "title": "MCP_Foundry · README",
+        "href": "https://github.com/ShivamChavan01/MCP_Foundry/blob/dafb83fbaede2f2f5452dec748a47df06040a4b8/README.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "code",
+        "title": "agent-platform · llm.py",
+        "href": "https://github.com/ShivamChavan01/agent-platform/blob/596022714a88ab95476d7881bfb0c158d9382d98/app/llm.py",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "repository",
+        "title": "agent-platform · README",
+        "href": "https://github.com/ShivamChavan01/agent-platform/blob/596022714a88ab95476d7881bfb0c158d9382d98/README.md",
+        "reviewedAt": "2026-11-04"
+      }
+    ]
+  },
+  {
+    "id": "recruiter.interview",
+    "topic": "recruiter",
+    "title": "Useful interview topics",
+    "keywords": "interview assess evaluate questions ask technical screen",
+    "text": "Useful interview topics include how Open Agent enforces project boundaries and bounds tool use, how Cutroom resolves conflicting timeline edits, and how MCP Foundry evaluates and repairs generated tools. For his employment work, ask him to walk through a booking or refund failure, the tests he used, and an on-call incident. Those questions let you assess reasoning and ownership against the published examples.",
+    "evidence": [
+      {
+        "basis": "code",
+        "title": "agent-platform · rag.py",
+        "href": "https://github.com/ShivamChavan01/agent-platform/blob/596022714a88ab95476d7881bfb0c158d9382d98/app/rag.py",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "code",
+        "title": "agent-platform · projects.py",
+        "href": "https://github.com/ShivamChavan01/agent-platform/blob/596022714a88ab95476d7881bfb0c158d9382d98/app/routers/projects.py",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "repository",
+        "title": "cutroom · README",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/1bc9c647074ad95dc1ec4be0bff8bdecb6c6f877/README.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "profile",
+        "title": "Strivo scope from supplied résumé",
+        "href": "#experience",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "code",
+        "title": "agent-platform · tools.py",
+        "href": "https://github.com/ShivamChavan01/agent-platform/blob/596022714a88ab95476d7881bfb0c158d9382d98/app/tools.py",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "repository",
+        "title": "agent-platform · README",
+        "href": "https://github.com/ShivamChavan01/agent-platform/blob/596022714a88ab95476d7881bfb0c158d9382d98/README.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "code",
+        "title": "MCP_Foundry · repair.py",
+        "href": "https://github.com/ShivamChavan01/MCP_Foundry/blob/dafb83fbaede2f2f5452dec748a47df06040a4b8/backend/pipeline/repair.py",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "repository",
+        "title": "MCP_Foundry · README",
+        "href": "https://github.com/ShivamChavan01/MCP_Foundry/blob/dafb83fbaede2f2f5452dec748a47df06040a4b8/README.md",
+        "reviewedAt": "2026-11-04"
+      }
+    ]
+  },
+  {
+    "id": "recruiter.gaps",
+    "topic": "recruiter",
+    "title": "Limits and areas to assess",
+    "keywords": "gaps weaknesses limitations improve missing concerns",
+    "text": "The portfolio is strongest as evidence of implementation choices; it does not independently establish a seniority level, team performance, or production reliability. Cutroom is a prototype and AutoAce’s accuracy result comes from three calibration calls. Ask for a code walkthrough, broader evaluation results and references to assess those areas rather than inferring personal weaknesses.",
+    "evidence": [
+      {
+        "basis": "repository",
+        "title": "cutroom · README",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/1bc9c647074ad95dc1ec4be0bff8bdecb6c6f877/README.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "code",
+        "title": "autoace-voice-tone-classifier · validation_results.md",
+        "href": "https://github.com/ShivamChavan01/autoace-voice-tone-classifier/blob/134e0088438e01df478e033c8af693370bdbe3a4/eval/validation_results.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "repository",
+        "title": "autoace-voice-tone-classifier · README",
+        "href": "https://github.com/ShivamChavan01/autoace-voice-tone-classifier/blob/134e0088438e01df478e033c8af693370bdbe3a4/README.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "profile",
+        "title": "Strivo scope from supplied résumé",
+        "href": "#experience",
+        "reviewedAt": "2026-11-04"
+      }
+    ]
+  },
+  {
+    "id": "recruiter.availability",
+    "topic": "recruiter",
+    "title": "Availability and next steps",
+    "keywords": "availability available notice period start date visa authorization relocation",
+    "text": "His current notice period, start date, relocation preferences and work authorization are not published in the reviewed records. You can ask him directly at shivamrc189@gmail.com and use the résumé and project links to discuss a specific opportunity.",
+    "evidence": [
+      {
+        "basis": "profile",
+        "title": "Published contact details",
+        "href": "#contact",
+        "reviewedAt": "2026-11-04"
+      }
+    ]
+  },
+  {
+    "id": "recruiter.collaboration",
+    "topic": "recruiter",
+    "title": "Collaboration and communication",
+    "keywords": "teamwork collaboration communicate communication clients soft skills leadership culture",
+    "text": "His supplied Eazytag résumé describes weekly on-call support alongside client engineering teams, providing a concrete example to discuss collaboration and handling production issues. The public project records do not establish a personality assessment or management level; communication quality and team fit are best assessed through interviews and references.",
+    "evidence": [
+      {
+        "basis": "profile",
+        "title": "Employment details supplied by Shivam",
+        "href": "#experience",
+        "reviewedAt": "2026-11-04"
+      }
+    ]
   }
 ];
