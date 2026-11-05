@@ -23,7 +23,7 @@ export default function Hero() {
       <p className="profile-location"><span aria-hidden="true">↗</span> {site.location}</p>
       <div className="profile-bio">
         <p>
-          I’m a full stack developer at <a href="#experience">Eazytag</a>,
+          I’m a full-stack engineer at <a href="#experience">Eazytag</a>,
           working on Strivo: class bookings, memberships, payments, and the
           backend systems that keep them in sync.
         </p>

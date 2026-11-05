@@ -65,6 +65,7 @@ test("hero identifies the engineer and exposes résumé and work destinations", 
   assert.ok(html.includes('class="profile-name font-geist"'));
   assert.ok(html.includes("profile-eyebrow"));
   assert.ok(html.includes(site.title));
+  assert.ok(html.includes("I’m a full-stack engineer at"));
   assert.ok(!html.includes("Good ideas."));
   assert.ok(!html.includes("orbit-stage"));
   assert.ok(decodeURIComponent(html).includes("/avatar.png"));
