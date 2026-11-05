@@ -12,9 +12,10 @@ type AnswerState =
   | { kind: "loading"; question: string }
   | { kind: "result"; question: string; response: AskResponse };
 const suggestions = [
+  "Why should we hire him?",
+  "What are his strengths?",
   "What has he built with AI?",
   "What does he do at Eazytag?",
-  "Tell me about Cutroom",
 ];
 export default function AskAboutMe() {
   const [open, setOpen] = useState(false);

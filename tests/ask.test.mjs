@@ -177,6 +177,22 @@ test("API returns exact reviewed sentences and only their actual evidence URLs",
   const post=setup(t);t.mock.method(globalThis,"fetch",async()=>Response.json(complete(selection("cutroom.limits"))));
   const r=await post(request());const body=await r.json();assert.equal(r.status,200);assert.equal(body.answer,fact("cutroom.limits").text);assert.equal(body.sources[0].href,fact("cutroom.limits").evidence[0].href);assert.ok(isAskResponse(body));assert.ok(!JSON.stringify(body).includes("test-key"));
 });
+test("API answers hiring and strengths questions using the reviewed recruiter summary",async t=>{
+  const post=setup(t);let calls=0;
+  t.mock.method(globalThis,"fetch",async(_,init)=>{
+    calls++;const payload=JSON.parse(init.body);
+    assert.ok(payload.response_format.json_schema.schema.properties.factIds.items.enum.includes("recruiter.fit"));
+    return Response.json(complete(selection("recruiter.fit")));
+  });
+  for(const question of ["Why shouwd we hire him?","What are his strengths?"]){
+    const response=await post(request({question}));const body=await response.json();
+    assert.equal(response.status,200);assert.equal(body.ok,true);
+    assert.equal(body.answer,fact("recruiter.fit").text);
+    assert.deepEqual(body.sources.map(s=>s.href),fact("recruiter.fit").evidence.map(e=>e.href));
+    assert.ok(isAskResponse(body));
+  }
+  assert.equal(calls,2);
+});
 test("API never surfaces malicious model prose, citations or IDs outside the candidate set",async t=>{
   const post=setup(t);let generated="invented employee at Google <script>alert(1)</script>";
   t.mock.method(globalThis,"fetch",async()=>Response.json(complete(generated)));
