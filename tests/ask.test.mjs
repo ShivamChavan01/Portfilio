@@ -193,6 +193,23 @@ test("API answers hiring and strengths questions using the reviewed recruiter su
   }
   assert.equal(calls,2);
 });
+test("API answers the reported engineering assessment and negative-things questions with sourced critique",async t=>{
+  const post=setup(t);let calls=0;
+  t.mock.method(globalThis,"fetch",async(_,init)=>{
+    calls++;const payload=JSON.parse(init.body);
+    const question=payload.messages.find(m=>m.role==="user").content;
+    const id=question.includes("good enginner")?"recruiter.assessment":"recruiter.gaps";
+    assert.ok(payload.response_format.json_schema.schema.properties.factIds.items.enum.includes(id));
+    return Response.json(complete(selection(id)));
+  });
+  for(const [question,id] of [["also is he a good enginner if not tell him is negative things?","recruiter.assessment"],["What are his negative things?","recruiter.gaps"]]){
+    const response=await post(request({question}));const body=await response.json();
+    assert.equal(response.status,200);assert.equal(body.ok,true);
+    assert.equal(body.answer,fact(id).text);
+    assert.ok(isAskResponse(body));assert.ok(body.sources.length>0);
+  }
+  assert.equal(calls,2);
+});
 test("API never surfaces malicious model prose, citations or IDs outside the candidate set",async t=>{
   const post=setup(t);let generated="invented employee at Google <script>alert(1)</script>";
   t.mock.method(globalThis,"fetch",async()=>Response.json(complete(generated)));

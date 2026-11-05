@@ -878,7 +878,7 @@ export const approvedFacts: readonly ProfileFact[] = [
     "topic": "recruiter",
     "title": "Limits and areas to assess",
     "keywords": "gaps weaknesses limitations improve missing concerns",
-    "text": "The portfolio is strongest as evidence of implementation choices; it does not independently establish a seniority level, team performance, or production reliability. Cutroom is a prototype and AutoAce’s accuracy result comes from three calibration calls. Ask for a code walkthrough, broader evaluation results and references to assess those areas rather than inferring personal weaknesses.",
+    "text": "Areas to improve in the public portfolio include production-readiness evidence and evaluation depth. Cutroom is documented as a prototype; AutoAce’s accuracy figure comes from only three calibration calls. Useful next steps are broader test/evaluation results, deployment evidence and examples of how failures were handled. Public records do not establish personal weaknesses, teamwork problems or a seniority level.",
     "evidence": [
       {
         "basis": "repository",
@@ -932,6 +932,51 @@ export const approvedFacts: readonly ProfileFact[] = [
         "basis": "profile",
         "title": "Employment details supplied by Shivam",
         "href": "#experience",
+        "reviewedAt": "2026-11-04"
+      }
+    ]
+  },
+  {
+    "id": "recruiter.assessment",
+    "topic": "recruiter",
+    "title": "Engineering ability and areas to improve",
+    "keywords": "good bad competent capable engineer enginner developer programmer assessment opinion pros cons criticism negatives",
+    "text": "Shivam is a full-stack engineer, and his reviewed work shows positive signs of engineering ability. Open Agent combines a React frontend, FastAPI services and database-backed retrieval; his supplied Eazytag résumé describes Angular, Java/Micronaut and MongoDB features, plus weekly on-call work. Areas to assess are production readiness and evaluation depth: Cutroom is a prototype, and AutoAce’s reported accuracy comes from only three calibration calls. He could strengthen the portfolio with broader evaluations, deployment evidence and examples of handling failures. A code walkthrough and references can help assess his engineering quality in a team.",
+    "evidence": [
+      {
+        "basis": "repository",
+        "title": "agent-platform · README",
+        "href": "https://github.com/ShivamChavan01/agent-platform/blob/596022714a88ab95476d7881bfb0c158d9382d98/README.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "code",
+        "title": "agent-platform · tools.py",
+        "href": "https://github.com/ShivamChavan01/agent-platform/blob/596022714a88ab95476d7881bfb0c158d9382d98/app/tools.py",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "profile",
+        "title": "Strivo scope from supplied résumé",
+        "href": "#experience",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "repository",
+        "title": "cutroom · README",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/1bc9c647074ad95dc1ec4be0bff8bdecb6c6f877/README.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "code",
+        "title": "autoace-voice-tone-classifier · validation_results.md",
+        "href": "https://github.com/ShivamChavan01/autoace-voice-tone-classifier/blob/134e0088438e01df478e033c8af693370bdbe3a4/eval/validation_results.md",
+        "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "repository",
+        "title": "autoace-voice-tone-classifier · README",
+        "href": "https://github.com/ShivamChavan01/autoace-voice-tone-classifier/blob/134e0088438e01df478e033c8af693370bdbe3a4/README.md",
         "reviewedAt": "2026-11-04"
       }
     ]
