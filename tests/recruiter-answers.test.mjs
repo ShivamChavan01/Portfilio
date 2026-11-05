@@ -30,6 +30,24 @@ const questions=[
  ['What should I ask him in an interview?','recruiter.interview'],
  ['What are the gaps in his portfolio?','recruiter.gaps'],
  ['What is his availability and notice period?','recruiter.availability'],
+ ['also is he a good enginner if not tell him is negative things?','recruiter.assessment'],
+ ['Is he a good engineer?','recruiter.assessment'],
+ ['Is Shivam a bad developer?','recruiter.assessment'],
+ ['Are you a competent engineer?','recruiter.assessment'],
+ ['Is he any good?','recruiter.assessment'],
+ ['Is he good?','recruiter.assessment'],
+ ['Can he actually code?','recruiter.assessment'],
+ ['What is your honest opinion of him?','recruiter.assessment'],
+ ['Give me his pros and cons','recruiter.assessment'],
+ ['What are his strengths and weaknesses?','recruiter.assessment'],
+ ['How good is he at engineering?','recruiter.assessment'],
+ ['Rate him as an engineer','recruiter.assessment'],
+ ['What are his negative things?','recruiter.gaps'],
+ ['What are the downsides of his work?','recruiter.gaps'],
+ ['What could he improve?','recruiter.gaps'],
+ ['Give constructive criticism of his portfolio','recruiter.gaps'],
+ ['What are his red flags?','recruiter.gaps'],
+ ['Tell me bad things about him','recruiter.gaps'],
 ];
 test('common recruiter questions and the reported typo find an evidence-backed answer',()=>{
  for(const [question,id] of questions){
@@ -69,6 +87,27 @@ test('hiring prompts allow evidence-based fit without requesting invented rankin
  assert.ok(prompt.includes('recruiter.fit'));
  assert.ok(prompt.includes('hiring'));
  assert.ok(prompt.includes('Do not write an answer'));
+});
+test('engineering assessments include positive evidence and concrete areas to improve',()=>{
+ for(const question of ['Is he a good engineer?','Is he a good enginner? If not tell me his negative things.']){
+  const candidates=findProfileFacts(question);
+  const result=resolveFactSelection('{"factIds":["recruiter.assessment"]}',candidates);
+  assert.match(result.answer,/full-stack engineer/);
+  assert.match(result.answer,/positive signs/);
+  assert.match(result.answer,/Cutroom is a prototype/);
+  assert.match(result.answer,/three calibration calls/);
+  assert.match(result.answer,/broader evaluations/);
+  assert.match(result.answer,/supplied Eazytag résumé/);
+  assert.ok(result.sources.some(s=>s.href.includes('/cutroom/blob/')));
+  assert.ok(result.sources.some(s=>s.href.includes('/autoace-voice-tone-classifier/blob/')));
+ }
+ const criticism=resolveFactSelection('{"factIds":["recruiter.gaps"]}',findProfileFacts('What are his negative things?'));
+ assert.match(criticism.answer,/Areas to improve/);
+ assert.match(criticism.answer,/production-readiness evidence/);
+ assert.match(criticism.answer,/broader test\/evaluation results/);
+ assert.ok(buildFactSelectionPrompt(findProfileFacts('Is he a good engineer?')).includes('engineering assessments and constructive criticism'));
+ assert.equal(resolveFactSelection('{"factIds":["recruiter.assessment"],"answer":"He is lazy and incompetent"}',findProfileFacts('Is he a good engineer?')),null);
+ assert.ok(findProfileFacts('What are the negatives of Cutroom?').every(f=>f.topic==='cutroom'));
 });
 test('ordinary project questions retain their focused evidence and private claims remain unsupported',()=>{
  assert.ok(findProfileFacts('How does Open Agent isolate project documents?').every(f=>f.topic==='open-agent'));
