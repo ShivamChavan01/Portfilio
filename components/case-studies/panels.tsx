@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { caseStudies, type CaseStudy, type CaseStudySection } from "@/lib/case-studies";
 import { ExternalLink } from "@/components/ui/external-link";
 import { VideoEmbed } from "@/components/ui/video-embed";
@@ -37,6 +38,7 @@ export default function CaseStudyPanels() {
   }, []);
 
   function select(entry: CaseStudy) {
+    trackEvent("engineering_notes_opened", { project: entry.slug });
     setActiveAnchor(entry.anchor);
     window.history.replaceState(window.history.state, "", `#${entry.anchor}`);
   }

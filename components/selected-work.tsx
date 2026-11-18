@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { work, type WorkEntry } from "@/lib/data";
 import { filters, filterProjects, type ProjectFilter } from "@/lib/projects";
+import { trackEvent } from "@/lib/analytics";
 import { ProjectArt, type ArtKind } from "./project-art";
 const featured: ArtKind[] = ["cutroom", "open-agent", "voicescope", "strivo", "mcp-foundry"];
 function Links({ entry }: { entry: WorkEntry }) {
@@ -61,7 +62,10 @@ export default function SelectedWork() {
             key={label}
             type="button"
             aria-pressed={filter === label}
-            onClick={() => setFilter(label)}
+            onClick={() => {
+              setFilter(label);
+              trackEvent("project_filter_selected", { filter: label });
+            }}
           >
             {label}
           </button>
@@ -103,7 +107,7 @@ export default function SelectedWork() {
         <div className="profile-more">
           <h3 className="archive-heading">More explorations <span>/{archive.length}</span></h3>
           {archive.map((entry) => (
-            <article className="profile-project-row" key={entry.slug}>
+            <article className="profile-project-row" data-project={entry.slug} key={entry.slug}>
               <h3>{entry.name}</h3>
               <p>{entry.summary}</p>
               <Links entry={entry} />

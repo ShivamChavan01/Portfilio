@@ -6,6 +6,7 @@ import {
   type AskResponse,
 } from "@/lib/ask-shared";
 import { site } from "@/lib/data";
+import { trackEvent } from "@/lib/analytics";
 
 type AnswerState =
   | { kind: "idle" }
@@ -42,6 +43,7 @@ export default function AskAboutMe() {
   }, []);
   useEffect(() => {
     if (open) {
+      trackEvent("ask_opened", {});
       wasOpen.current = true;
       input.current?.focus();
     } else if (wasOpen.current)
@@ -51,6 +53,7 @@ export default function AskAboutMe() {
     const text = value.trim();
     if (!text || text.length > MAX_QUESTION_LENGTH || pending.current) return;
     pending.current = true;
+    trackEvent("ask_submitted", {});
     controller.current?.abort();
     const active = new AbortController();
     controller.current = active;
@@ -90,7 +93,7 @@ export default function AskAboutMe() {
     void ask(question);
   }
   return (
-    <div className="ask-dock">
+    <div className="ask-dock ph-no-capture">
       {!open ? (
         <button
           ref={launcher}
