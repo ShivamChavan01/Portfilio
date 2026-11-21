@@ -30,89 +30,126 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "cutroom",
-    focus: "Versioned editing",
-    decision: "Review conflicts explicitly instead of silently moving clips to make a merge look valid.",
-    flow: [
-      { label: "Compare", detail: "Base + two timelines" },
-      { label: "Merge", detail: "Structured clip fields" },
-      { label: "Validate", detail: "Overlaps & geometry" },
-      { label: "Resolve", detail: "Explicit editor review" },
+    "slug": "cutroom",
+    "focus": "Evidence-grounded editing",
+    "decision": "Show the evidence behind an edit, preview its effect, and reject proposals that worsen required brief constraints.",
+    "flow": [
+      {
+        "label": "Ground",
+        "detail": "Brief + authored source notes"
+      },
+      {
+        "label": "Propose",
+        "detail": "Bounded evidence + preview"
+      },
+      {
+        "label": "Validate",
+        "detail": "Source, duration & ordering"
+      },
+      {
+        "label": "Review",
+        "detail": "Explicit Apply / Undo"
+      }
     ],
-    anchor: "case-study-cutroom",
-    project: "Cutroom",
-    teaser:
-      "What happens when two valid video edits produce an invalid combined timeline?",
-    stack: "TypeScript · React · IndexedDB · OPFS",
-    year: "2026",
-    heroMetric: "Explicit conflict resolution",
-    links: [
-      { label: "GitHub", href: "https://github.com/ShivamChavan01/cutroom" },
-      { label: "Try the editor", href: "https://cutroom-editor.vercel.app/" },
+    "anchor": "case-study-cutroom",
+    "project": "Cutroom",
+    "teaser": "Versioned editing, bounded Assistant proposals, and a local-first playback workflow.",
+    "stack": "TypeScript · React · IndexedDB · OPFS",
+    "year": "2026",
+    "heroMetric": "Reviewed editing decisions",
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/ShivamChavan01/cutroom"
+      },
+      {
+        "label": "Try the editor",
+        "href": "https://cutroom-editor.vercel.app/"
+      }
     ],
-    sections: [
+    "sections": [
       {
-        label: "CONTEXT",
-        body: "Cutroom explores version control for editing decisions. Alternate cuts share an ancestor, so editors can compare what changed and deliberately combine versions.",
+        "label": "CONTEXT",
+        "body": "Cutroom explores alternate editing decisions with a shared timeline ancestor. The November release also brings the editing brief and authored source evidence into the review process."
       },
       {
-        label: "ARCHITECTURE",
-        body: "A pure TypeScript engine records structured operations with undo and redo. Three-way merging compares clip fields, then checks the combined geometry for overlaps that neither individual version contained. IndexedDB stores project history; OPFS stores uploaded media.",
+        "label": "ARCHITECTURE",
+        "body": "A pure TypeScript engine records undoable timeline operations and compares branches against a common ancestor. Bounded lexical and source-time retrieval connects a saved brief to authored timestamped notes. Required duration, source coverage, and ordering checks gate proposed edits. IndexedDB transactions reject stale-tab overwrites while OPFS keeps source media local."
       },
       {
-        label: "DECISIONS",
-        body: "Conflicts require explicit review. The editor never silently shifts clips to hide overlaps. AI proposals are previewed before applying, and the sample workspace is isolated from personal projects.",
+        "label": "DECISIONS",
+        "body": "Merge conflicts require explicit choices. Assistant requests expose the evidence included and omitted, and edits are previewed before Apply. Three eligible manual gain edits can support a session-local suggestion on another clip. Synchronized buffering and separate full-resolution source editing copies preserve the original timeline references."
       },
       {
-        label: "RESULT",
-        body: "A hosted browser-editor prototype with alternate versions, diffs, merge review, and structural checks. Timeline exports support OTIO, FCPXML, EDL, and native JSON. Rendered-video export and live collaboration are not implemented.",
-      },
-    ],
+        "label": "RESULT",
+        "body": "The November release is on main with successful CI and deployment statuses, and the public editor bundle contains the new UI. It remains a browser-editor prototype. Timeline exports use OTIO, FCPXML, EDL, or native JSON. Rendered-sequence export and live collaboration are not implemented. This audit did not rerun live Assistant generation or interactive editing."
+      }
+    ]
   },
   {
-    slug: "voicescope",
-    focus: "Voice AI analysis",
-    decision: "Ground analysis in retrieved context, then validate the output. Treat the small labeled benchmark as a check, not an accuracy guarantee.",
-    flow: [
-      { label: "Ingest", detail: "Platform webhooks" },
-      { label: "Transcribe", detail: "Deepgram / Gemini / Whisper" },
-      { label: "Analyze", detail: "LLM + retrieved context" },
-      { label: "Validate", detail: "Structured findings" },
+    "slug": "voicescope",
+    "focus": "Evidence-first voice observability",
+    "decision": "Link findings to call evidence, retain applied policy versions, and withhold STT rates when the reference or alignment is insufficient.",
+    "flow": [
+      {
+        "label": "Ingest",
+        "detail": "Attributed text or recording"
+      },
+      {
+        "label": "Assess",
+        "detail": "Versioned rules + analysis"
+      },
+      {
+        "label": "Inspect",
+        "detail": "Quotes, audio & STT reference"
+      },
+      {
+        "label": "Review",
+        "detail": "Explicit evidence states"
+      }
     ],
-    anchor: "case-study-voicescope",
-    project: "VoiceScope",
-    teaser:
-      "Transcription, policy-grounded analysis, and output validation for voice AI calls.",
-    stack:
-      "Python · FastAPI · OpenAI · Anthropic · Gemini · Groq · Mistral · Whisper · ChromaDB · Railway",
-    year: "Jun – Jul 2026",
-    heroMetric: "6 platform integrations",
-    links: [
-      { label: "GitHub", href: "https://github.com/ShivamChavan01/voiceScope" },
-      { label: "Live", href: "https://voice-scope.vercel.app/runs" },
+    "anchor": "case-study-voicescope",
+    "project": "VoiceScope",
+    "teaser": "Review voice-agent calls through source quotes, original audio, policy evidence, and STT diagnostics.",
+    "stack": "Python · FastAPI · Next.js · TypeScript · SQLite · FastEmbed · Deepgram · PostgreSQL",
+    "year": "2026 · development branch",
+    "heroMetric": "Evidence-linked call review",
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/ShivamChavan01/voiceScope"
+      },
+      {
+        "label": "Live",
+        "href": "https://voice-scope.vercel.app/runs"
+      },
+      {
+        "label": "Latest code",
+        "href": "https://github.com/ShivamChavan01/voiceScope/tree/feat/voicescope-reliability-stt-demo"
+      }
     ],
-    sections: [
+    "sections": [
       {
-        label: "CONTEXT",
-        body: "Voice AI agents deployed on platforms like Vapi, Retell, Bland, Bolna, Synthflow, and Air.ai report back through webhooks. When an agent hallucinates an answer or returns malformed output, someone has to notice, ideally before the next call. VoiceScope is my open source answer: an observability and regression-testing platform for voice AI agents. It was built to make that noticing systematic rather than manual.",
+        "label": "CONTEXT",
+        "body": "VoiceScope is voice AI observability focused on post-call inspection. Operators review policy findings, attributed transcripts, original audio, STT diagnostics, and evaluator-output checks in one Calls interface."
       },
       {
-        label: "ARCHITECTURE",
-        body: "A three-stage agentic pipeline does the core work: Deepgram, Gemini, or Whisper transcription, then LLM-based analysis with RAG context retrieval, then structured report generation. ChromaDB provides the vector store for RAG; FastAPI serves the platform in Python. Deterministic output checks complement policy-grounded analysis of possible hallucinations and schema violations. The harness is itself measured: a benchmark checks a small labeled call set. Multi-LLM support spans OpenAI, Anthropic, Gemini, Groq, and Mistral, with results streaming to the UI over SSE. CI/CD runs on GitHub Actions; the stack deploys on Railway.",
+        "label": "ARCHITECTURE",
+        "body": "FastAPI accepts audio, attributed text, and completed-call webhooks. The pipeline combines speaker attribution, configured policy checks, retrieved context, model analysis, and structured reporting. The latest pushed branch uses local FastEmbed/SQLite indexes with explicit index migration and per-store snapshots. Its Next.js interface links exact-quote findings back to transcript turns."
       },
       {
-        label: "ENGINEERING CHALLENGE",
-        body: "Ingesting webhooks from six external platforms means ingesting attack surface, so the integration layer carries SSRF protection as a first-class requirement. A validation harness that judges other systems must itself be trustworthy, which is why the harness is checked against labeled call data. Supporting several LLM providers requires a shared interface; comparable output quality across vendors still needs evaluation. And a regression-testing platform needs CI that actually runs its suite on every push.",
+        "label": "ENGINEERING CHALLENGE",
+        "body": "Uncertainty must survive the pipeline. Inferred speakers retain their provenance. Refund-completion claims need action evidence. Separate STT comparison distinguishes human-verified references from automatically generated references, and missing timing or alignment can withhold a rate."
       },
       {
-        label: "DECISIONS",
-        body: "Validate first, trust later: every webhook passes SSRF-protected ingest before analysis. Check the validator: the harness is measured against a small labeled dataset, with results scoped to that dataset. Retrieve before judging: RAG context via ChromaDB grounds the LLM analysis in retrieved call context instead of model priors. Stay vendor-neutral: analysis runs across OpenAI, Anthropic, Gemini, Groq, and Mistral. Ship tests with the platform: the suite gates the build in GitHub Actions.",
+        "label": "DECISIONS",
+        "body": "Keep immutable applied policy snapshots and quoted evidence for the supported refund-guarantee and escalation checks. Persist Bolna ingestion receipts and fail visibly when configured storage is unavailable. Automatic STT comparisons are labeled as estimated transcript disagreement. Synthetic demo scenarios are kept separate from real calls and aggregate metrics."
       },
       {
-        label: "RESULT",
-        body: "VoiceScope is open source and documents adapters for six voice AI platforms. The platform transcribes, analyzes, and reports on voice agent calls with deterministic output checks and policy-grounded analysis that expose validation findings for review. Results from the small labeled benchmark do not establish accuracy on unseen calls. Streaming SSE keeps reports live in the browser.",
-      },
-    ],
+        "label": "RESULT",
+        "body": "The latest work is pushed on feat/voicescope-reliability-stt-demo at f661ef0, with seven successful CI jobs checked on 21 November 2026. It is a development candidate. The default main branch and current Vercel production deployment remain on the older baseline. The public frontend still presents the earlier Runs interface."
+      }
+    ]
   },
   {
     slug: "mcp-foundry",
@@ -165,45 +202,56 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    slug: "strivo",
-    focus: "Concurrent systems",
-    decision: "Keep booking correctness in the backend and broadcast changes through MongoDB Change Streams.",
-    flow: [
-      { label: "Interface", detail: "Angular workflows" },
-      { label: "Backend", detail: "Java / Micronaut" },
-      { label: "Persist", detail: "Tenant-scoped MongoDB" },
-      { label: "Broadcast", detail: "Change Streams" },
+    "slug": "strivo",
+    "focus": "Full-stack operational workflows",
+    "decision": "Keep tenant scope and membership invariants on the server, and make reporting and staff actions traceable.",
+    "flow": [
+      {
+        "label": "Interface",
+        "detail": "Angular workflows"
+      },
+      {
+        "label": "Backend",
+        "detail": "Java / Micronaut"
+      },
+      {
+        "label": "Persist",
+        "detail": "Tenant-scoped MongoDB"
+      },
+      {
+        "label": "Broadcast",
+        "detail": "Change Streams"
+      }
     ],
-    anchor: "case-study-strivo",
-    project: "Strivo",
-    teaser:
-      "Booking correctness under concurrent writes on a multi-tenant SaaS running 100+ gyms.",
-    stack: "Angular · Java 21 · Micronaut · MongoDB · Change Streams",
-    year: "10/2025 – Present",
-    heroMetric: "100+ gyms",
-    links: [],
-    sections: [
+    "anchor": "case-study-strivo",
+    "project": "Strivo",
+    "teaser": "Recent contributions across finance reporting, staff operations, biometric alerts, and membership integrity.",
+    "stack": "Angular · Java 21 · Micronaut · MongoDB · Change Streams",
+    "year": "10/2025 – Present",
+    "heroMetric": "Merged full-stack contributions",
+    "links": [],
+    "sections": [
       {
-        label: "CONTEXT",
-        body: "According to the supplied résumé, Strivo is Eazytag's gym SaaS platform, with a stated scope of 100+ gyms and 60+ tenants. Those production counts are profile-provided and are not independently verified by public source code. Two problems dominate the domain. Class booking is concurrency-heavy: slot scheduling, recurring series, waitlist promotion, biometric check-in, and a full session deduction/refund lifecycle all touch the same state. And gym operators were running a manual weekly review to understand facility health. I joined as Full Stack Developer in October 2025 and own features across the entire stack.",
+        "label": "CONTEXT",
+        "body": "Strivo is the multi-tenant gym SaaS platform I work on at Eazytag. Recent work crosses finance reporting, staff follow-ups, biometric device visibility, and membership lifecycle behavior."
       },
       {
-        label: "ARCHITECTURE",
-        body: "Angular on the frontend; Java 21 and Micronaut behind it; MongoDB as the data layer; MongoDB Change Streams broadcasting real-time updates across instances. The consolidated health scoring engine with alert tiers runs as a nightly pipeline, replacing the manual weekly review. Third-party APIs (WhatsApp, PDF, GST invoicing) sit behind integration layers with retry logic.",
+        "label": "ARCHITECTURE",
+        "body": "Angular interfaces connect native follow-up queues, Finance drilldowns, and staff-activity views to Java 21/Micronaut services and MongoDB. Server-side tenant scope protects product search and booking history, while waitlist admission and membership transitions retain shared invariants."
       },
       {
-        label: "ENGINEERING CHALLENGE",
-        body: "Concurrent writes are the core difficulty: two members booking the last slot, a waitlist promoting while someone checks in biometrically, a refund racing a session deduction. The design had to be correct under that load, and the proof had to be executable: a suite covering the booking lifecycle. External APIs fail on their own schedule, so retries are used to handle transient failures; they cannot guarantee incident-free operation. And operator intuition about gym health had to be translated into a scoring engine with alert tiers precise enough to act on nightly.",
+        "label": "ENGINEERING CHALLENGE",
+        "body": "Reports must reconcile category totals with their drilldowns, device alerts must distinguish connectivity states, and upgrades and transfers must preserve usage, approval, refund, and sales-attribution rules across existing data."
       },
       {
-        label: "DECISIONS",
-        body: "Treat tests as the specification: use booking lifecycle tests to check concurrent-write behavior. Passing tests do not establish correctness for every production interleaving. Automate the review: the manual weekly process became a nightly health-scoring pipeline with alert tiers. Put retries at the third-party boundary to handle transient WhatsApp, PDF, and GST invoicing failures at their boundary. Use MongoDB Change Streams to broadcast updates across instances without adding a separate message broker.",
+        "label": "DECISIONS",
+        "body": "Use native operational lists for dashboard follow-ups, explicit access attribution for staff reporting, gym-scoped database queries, and regression coverage for concurrent waitlist admission and legacy membership state. The work includes shared review contributions; the audit traces Shivam-authored commits within those PRs."
       },
       {
-        label: "RESULT",
-        body: "The supplied résumé reports production work across 100+ gyms and 60+ tenants. Booking lifecycle tests and third-party integrations behind retry logic. The health scoring engine replaced the manual weekly review with a nightly pipeline. And weekly on-call with client engineering teams: leading product demos, resolving production issues in real time, as the technical point of contact between product and customer.",
-      },
-    ],
+        "label": "RESULT",
+        "body": "A November source audit verified authored commits in merged development-branch PRs for reporting, staff activity, biometric alerts, tenant isolation, and membership fixes. Production deployment and customer-impact metrics were not independently verified. Weekly on-call remains supplied employment context."
+      }
+    ]
   },
   {
     slug: "open-agent",
@@ -253,4 +301,5 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
   },
+
 ];

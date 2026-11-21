@@ -5,22 +5,30 @@ import {
   isUnsafeQuestion,
   validateQuestion,
 } from "@/lib/ask";
-import { readBoundedJson } from "@/lib/bounded-json";
+import { renderPlainAnswer } from "@/lib/plain-answer";
+import { readBoundedJson, readBoundedText } from "@/lib/bounded-json";
 import type { AskResponse } from "@/lib/ask-shared";
 export const runtime = "nodejs";
 export const maxDuration = 20;
 const allowRequest = createAskLimiter();
-function respond(body: AskResponse, status = 200) {
-  return Response.json(body, {
-    status,
-    headers: {
+export async function POST(request: Request) {
+  const type = request.headers.get("content-type")?.split(";", 1)[0].trim().toLowerCase();
+  const form = type === "application/x-www-form-urlencoded";
+  let question: string | null = null;
+  function respond(body: AskResponse, status = 200) {
+    const headers = {
       "Cache-Control": "no-store",
       "X-Content-Type-Options": "nosniff",
       ...(status === 429 ? { "Retry-After": "60" } : {}),
-    },
-  });
-}
-export async function POST(request: Request) {
+    };
+    if (form) {
+      return new Response(renderPlainAnswer(question, body), {
+        status,
+        headers: { ...headers, "Content-Type": "text/html; charset=utf-8", "X-Robots-Tag": "noindex" },
+      });
+    }
+    return Response.json(body, { status, headers });
+  }
   const origin = request.headers.get("origin");
   if (origin) {
     try {
@@ -54,11 +62,16 @@ export async function POST(request: Request) {
   }
   if (request.headers.get("sec-fetch-site") === "cross-site")
     return respond({ ok: false, message: "Please ask from this portfolio page.", sources: [] }, 403);
-  if (request.headers.get("content-type")?.split(";", 1)[0].trim().toLowerCase() !== "application/json")
+  if (!form && type !== "application/json")
     return respond({ ok: false, message: "Please send a question as JSON.", sources: [] }, 415);
-  let question: string | null;
   try {
-    question = validateQuestion(await readBoundedJson({ body: request.body, maxBytes: 2048, signal: AbortSignal.any([request.signal, AbortSignal.timeout(3000)]) }));
+    const signal = AbortSignal.any([request.signal, AbortSignal.timeout(3000)]);
+    if (form) {
+      const data = new URLSearchParams(await readBoundedText({ body: request.body, maxBytes: 8192, signal }));
+      if (data.size === 1) question = validateQuestion({ question: data.get("question") });
+    } else {
+      question = validateQuestion(await readBoundedJson({ body: request.body, maxBytes: 2048, signal }));
+    }
   } catch {
     return respond(
       {

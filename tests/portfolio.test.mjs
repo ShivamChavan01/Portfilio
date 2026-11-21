@@ -58,6 +58,7 @@ test("selected work renders five illustrated projects, three archive entries, an
 });
 test("hero identifies the engineer and exposes résumé and work destinations", () => {
   const html = render("hero");
+  assert.ok(html.includes("voice AI observability"));
   assert.equal((html.match(/<h1 /g) || []).length, 1);
   assert.ok(html.includes(site.resume.replaceAll("&", "&amp;")));
   assert.ok(html.includes('href="#work"'));
@@ -154,17 +155,13 @@ test("open source preserves useful content when activity providers fail", async 
 });
 
 
-test("split page preserves the identity column, visible projects, and contact content", () => {
+test("the homepage serves the plain portfolio with its native Ask form", () => {
   const Home = require("../app/page.tsx").default;
-  const sections = React.Children.toArray(Home().props.children);
-  const main = sections.find((child) => child.type === "main");
-  assert.equal(main.props.className, "portfolio-layout");
-  const [identity, content] = React.Children.toArray(main.props.children);
-  assert.equal(identity.type, require("../components/hero.tsx").default);
-  assert.equal(content.props.className, "portfolio-content");
-  const contentSections = React.Children.toArray(content.props.children);
-  assert.equal(contentSections[0].type, require("../components/selected-work.tsx").default);
-  assert.equal(contentSections.at(-1).type, require("../components/footer.tsx").default);
+  const html = renderToStaticMarkup(React.createElement(Home));
+  assert.match(html, /<h1>Shivam Chavan<\/h1>/);
+  assert.match(html, /Compare two cuts/);
+  assert.match(html, /<form id="ask" action="\/api\/ask" method="post">/);
+  assert.match(html, /position: fixed/);
 });
 
 

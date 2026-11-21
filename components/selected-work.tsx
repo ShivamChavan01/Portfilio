@@ -107,7 +107,7 @@ export default function SelectedWork() {
         <div className="profile-more">
           <h3 className="archive-heading">More explorations <span>/{archive.length}</span></h3>
           {archive.map((entry) => (
-            <article className="profile-project-row" data-project={entry.slug} key={entry.slug}>
+            <article className="profile-project-row" id={`project-${entry.slug}`} data-project={entry.slug} key={entry.slug}>
               <h3>{entry.name}</h3>
               <p>{entry.summary}</p>
               <Links entry={entry} />

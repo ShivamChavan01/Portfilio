@@ -24,12 +24,12 @@ export default function Hero() {
       <div className="profile-bio">
         <p>
           I’m a full-stack engineer at <a href="#experience">Eazytag</a>,
-          working on Strivo: class bookings, memberships, payments, and the
-          backend systems that keep them in sync.
+          working on Strivo’s memberships, reporting, staff workflows, and
+          backend systems.
         </p>
         <p>
           Outside work, I build <a href="#case-study-voicescope">VoiceScope</a>{" "}
-          for voice AI call analysis, <a href="#case-study-cutroom">Cutroom</a>{" "}
+          for voice AI observability, <a href="#case-study-cutroom">Cutroom</a>{" "}
           for versioned video editing, and <a href="#work">tools for coding agents</a>.
         </p>
       </div>

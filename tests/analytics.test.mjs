@@ -44,7 +44,9 @@ test("invalid configuration and initialization failure never capture, and retrie
   assert.equal(initializeAnalytics("test", "https://eu.i.posthog.com", working), true);
   assert.equal(initializeAnalytics("test", "https://eu.i.posthog.com", working), true);
   assert.equal(initializations, 1);
+  assert.deepEqual(options.before_send({ event: "$pageview", properties: { path: "/" } }).properties, { path: "/", portfolio_version: "plain" });
   assert.equal(options.api_host, "https://eu.i.posthog.com");
+  assert.equal(options.request_batching, false);
   assert.equal(options.autocapture, false);
   assert.equal(options.disable_session_recording, true);
   assert.equal(options.person_profiles, "identified_only");
@@ -84,7 +86,7 @@ test("entrypoint listens for primary and middle link clicks, including safe Ask 
   delete require.cache[entrypoint];
   try {
     require(entrypoint);
-    assert.deepEqual(Object.keys(listeners).sort(), ["auxclick", "click"]);
+    assert.deepEqual(Object.keys(listeners).sort(), ["auxclick", "click", "submit", "toggle"]);
     listeners.click({ button: 0, target: new Element("#case-study-strivo") });
     listeners.auxclick({ button: 1, target: new Element(site.links.github, "autoace") });
     listeners.click({ button: 0, target: new Element(site.links.github, null, true) });
@@ -102,5 +104,30 @@ test("entrypoint listens for primary and middle link clicks, including safe Ask 
     globalThis.document = oldDocument;
     globalThis.Element = oldElement;
     delete require.cache[entrypoint];
+  }
+});
+
+test("native Ask and project notes record actions without question text", () => {
+  const analytics = freshAnalytics();
+  const captured = [];
+  analytics.initializeAnalytics("test", "https://us.i.posthog.com", { init() {}, capture(...args) { captured.push(args); } });
+  const originalDetails = globalThis.HTMLDetailsElement;
+  const originalForm = globalThis.HTMLFormElement;
+  try {
+    globalThis.HTMLDetailsElement = class {
+      constructor(open, dock) { this.open = open; this.classList = { contains: () => dock }; }
+      closest() { return { getAttribute: () => "cutroom" }; }
+    };
+    globalThis.HTMLFormElement = class { id = "ask"; };
+    for (const [open, dock] of [[false, true], [true, true], [true, false]]) {
+      analytics.handlePortfolioToggle({ target: new HTMLDetailsElement(open, dock) });
+    }
+    analytics.handlePortfolioSubmit({ target: new HTMLFormElement() });
+    assert.deepEqual(captured, [
+      ["ask_opened", {}], ["engineering_notes_opened", { project: "cutroom" }], ["ask_submitted", {}],
+    ]);
+  } finally {
+    globalThis.HTMLDetailsElement = originalDetails;
+    globalThis.HTMLFormElement = originalForm;
   }
 });

@@ -75,19 +75,19 @@
 }
 
 [data-theme="light"] {
-  --color-bg: #fafafa;
-  --color-surface: #f1f1f1;
-  --color-recessed: #e9e9e9;
-  --color-ink: #242424;
-  --color-ink-hover: #000000;
-  --color-ink-2: #424242;
-  --color-ink-muted: #646464;
-  --color-ink-faint: #767676;
-  --color-line: #e2e2e2;
-  --color-line-strong: #c9c9c9;
-  --color-accent: #35634a;
-  --color-accent-hover: #254b35;
-  --color-accent-tint: #e2ece5;
+  --color-bg: #e9e4da;
+  --color-surface: #e0dbd1;
+  --color-recessed: #d5d0c4;
+  --color-ink: #26251f;
+  --color-ink-hover: #141413;
+  --color-ink-2: #393832;
+  --color-ink-muted: #58554b;
+  --color-ink-faint: #625f55;
+  --color-line: #d5d0c4;
+  --color-line-strong: #bab3a4;
+  --color-accent: #93472f;
+  --color-accent-hover: #783923;
+  --color-accent-tint: #dfcbbf;
   --color-status: #3c7c54;
   color-scheme: light;
 }
@@ -175,5 +175,28 @@
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body,
+  h1,
+  h2,
+  h3,
+  p,
+  a,
+  button,
+  .profile-project,
+  .project-art,
+  .art-window,
+  .art-window-bar,
+  .cutroom-preview,
+  .booking-grid span,
+  .foundry-steps span,
+  .ask-launcher,
+  .ask-panel {
+    transition-property: background-color, color, border-color, box-shadow, transform;
+    transition-duration: 280ms;
+    transition-timing-function: ease-out;
   }
 }

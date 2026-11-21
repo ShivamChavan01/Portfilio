@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://shivamchavan.is-a.dev/">
+<title>Shivam Chavan · Full-stack engineer</title>
+<meta name="description" content="Shivam Chavan is a full-stack engineer in Bengaluru building web products, voice AI observability, and developer tools.">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<style>
+  :root { color-scheme: light dark; --paper: #e9e4da; --ink: #302e29; --muted: #625d53; --line: #c6bfb2; --link: #71452f; }
+  * { box-sizing: border-box; }
+  body { max-width: 44rem; margin: 3rem auto; padding: 0 1.25rem 4.5rem; background: var(--paper); color: var(--ink); font: 16px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  h1 { margin: 0; font-size: 1.9rem; line-height: 1.2; font-weight: 600; letter-spacing: -.035em; }
+  h2 { margin: 0 0 1.25rem; font-size: 1.15rem; font-weight: 600; }
+  h3 { margin: 0 0 .35rem; font-size: 1rem; font-weight: 600; }
+  p { margin: .65rem 0; }
+  a { color: var(--link); text-underline-offset: .2em; overflow-wrap: anywhere; }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible, summary:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+  .byline { margin: .4rem 0 1.5rem; color: var(--muted); font-size: .85rem; }
+  .ask-dock { position: fixed; z-index: 2; inset-inline-end: max(1rem, env(safe-area-inset-right)); bottom: max(.75rem, env(safe-area-inset-bottom)); max-width: calc(100% - 2rem); max-height: 70dvh; overflow: auto; color: var(--ink); background: var(--paper); border: 1px solid var(--muted); border-radius: .35rem; }
+  .ask-dock > summary { margin: 0; width: 100%; padding: .6rem .85rem; color: inherit; font-size: .9rem; }
+  .ask-dock > summary:focus-visible { outline-offset: -3px; }
+  #ask { width: 21rem; max-width: 100%; margin: 0; padding: 0 .85rem .7rem; }
+  #ask label { font-weight: 600; }
+  .ask-row { display: flex; gap: .5rem; max-width: 32rem; margin-top: .35rem; }
+  .ask-row input, .ask-row button { font: inherit; color: var(--ink); background: var(--paper); border: 1px solid var(--muted); border-radius: .25rem; padding: .4rem .65rem; }
+  .ask-row input { flex: 1; min-width: 0; }
+  .ask-row button { cursor: pointer; }
+  .contact-links, nav { font-size: .85rem; }
+  .contact-links { margin-top: 1.25rem; }
+  nav { margin-top: .75rem; }
+  section { margin-top: 2.75rem; }
+  .project { margin-bottom: 1.75rem; }
+  .project > p { margin: .35rem 0; }
+  .project-links, .meta { font-size: .82rem; }
+  .meta, summary { color: var(--muted); }
+  summary { width: fit-content; margin-top: .5rem; font-size: .82rem; cursor: pointer; }
+  .notes { margin-top: .75rem; padding-left: 1rem; border-left: 1px solid var(--line); font-size: .9rem; }
+  ul { padding-left: 1.2rem; }
+  li { margin-bottom: .75rem; }
+  .contributions { list-style: none; padding: 0; }
+  .contributions li { margin-bottom: 1.5rem; }
+  footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: .82rem; }
+  @media (prefers-color-scheme: dark) {
+    :root { --paper: #181816; --ink: #e0ded6; --muted: #b6b2a6; --line: #454239; --link: #d5b39d; }
+  }
+  @media (max-width: 480px) { body { margin-top: 1.75rem; } }
+</style>
+</head>
+<body>
+<header id="top">
+<h1>Shivam Chavan</h1>
+<p class="byline">Full-stack engineer · Bengaluru, India</p>
+<div class="intro">
+<p>I'm a full-stack engineer who loves finding gaps in products and building the features I wish existed.</p>
+<p>At <a href="#experience">Eazytag</a>, I'm helping build Strivo, a platform for running gyms, across the frontend, backend, and database.</p>
+<p>Outside work, I'm building <a href="#project-cutroom">Cutroom</a>, a video editor with version control, and <a href="#project-voicescope">VoiceScope</a>, a voice AI observability tool for reviewing calls and finding where they went wrong.</p>
+</div>
+<p class="contact-links"><a href="https://drive.google.com/file/d/1Urq06xCQivEwkBLXqahpKLpPQHH0oW7O/view?usp=sharing">Résumé</a> · <a href="mailto:shivamrc189@gmail.com">Email</a> · <a href="https://github.com/ShivamChavan01">GitHub</a> · <a href="https://www.linkedin.com/in/ShivamChavan01">LinkedIn</a></p>
+<nav aria-label="Sections"><a href="#projects">Projects</a> · <a href="#experience">Work</a> · <a href="#open-source">Open source</a> · <a href="#contact">Contact</a> · <a href="#ask">Ask</a></nav>
+</header>
+<main>
+<section id="projects" aria-labelledby="projects-title">
+<h2 id="projects-title">Selected projects</h2>
+<article class="project" id="project-cutroom" data-project="cutroom">
+<h3>Cutroom</h3>
+<p>What happens when two edits put different shots in the same second? The sample opens with both cuts ready. Compare them, then choose which shot to keep.</p>
+
+<p class="project-links"><a href="https://cutroom-editor.vercel.app/?demo=1">Compare two cuts</a> · <a href="https://github.com/ShivamChavan01/cutroom">GitHub</a></p>
+<details>
+<summary>Engineering notes</summary>
+<div class="notes">
+<p><a href="https://cutroom-editor.vercel.app/">Open your own workspace</a></p>
+<p>Versioned browser video editing with brief-grounded proposals and merge review.</p>
+<p>A browser-editor prototype with alternate cuts, three-way timeline merges, and explicit conflict review. The November release adds brief-grounded Assistant proposals, local gain-match suggestions, synchronized multitrack playback, and full-resolution source editing copies. IndexedDB and OPFS restore local work with stale-tab overwrite protection. Timeline delivery uses interchange files. Rendered-sequence export and live collaboration remain unimplemented.</p>
+<p class="meta">TypeScript · React · IndexedDB · OPFS</p>
+<p><strong>The decision.</strong> Show the evidence behind an edit, preview its effect, and reject proposals that worsen required brief constraints.</p>
+<p><strong>Context.</strong> Cutroom explores alternate editing decisions with a shared timeline ancestor. The November release also brings the editing brief and authored source evidence into the review process.</p>
+<p><strong>Implementation.</strong> A pure TypeScript engine records undoable timeline operations and compares branches against a common ancestor. Bounded lexical and source-time retrieval connects a saved brief to authored timestamped notes. Required duration, source coverage, and ordering checks gate proposed edits. IndexedDB transactions reject stale-tab overwrites while OPFS keeps source media local.</p>
+<p><strong>Decisions.</strong> Merge conflicts require explicit choices. Assistant requests expose the evidence included and omitted, and edits are previewed before Apply. Three eligible manual gain edits can support a session-local suggestion on another clip. Synchronized buffering and separate full-resolution source editing copies preserve the original timeline references.</p>
+<p><strong>Current status.</strong> The November release is on main with successful CI and deployment statuses, and the public editor bundle contains the new UI. It remains a browser-editor prototype. Timeline exports use OTIO, FCPXML, EDL, or native JSON. Rendered-sequence export and live collaboration are not implemented. This audit did not rerun live Assistant generation or interactive editing.</p>
+</div>
+</details>
+</article>
+
+<article class="project" id="project-voicescope" data-project="voicescope">
+<h3>VoiceScope</h3>
+<p>Voice AI observability for reviewing calls through transcript evidence, original audio, policy findings, and speech-to-text diagnostics.</p>
+<p class="meta">Latest features are on the development branch. The public demo uses the earlier version.</p>
+<p class="project-links"><a href="https://github.com/ShivamChavan01/voiceScope">GitHub</a> · <a href="https://voice-scope.vercel.app/runs">Earlier demo</a> · <a href="https://github.com/ShivamChavan01/voiceScope/tree/feat/voicescope-reliability-stt-demo">Latest code</a></p>
+<details>
+<summary>Engineering notes</summary>
+<div class="notes">
+<p>Voice AI observability through evidence-linked post-call analysis and STT review.</p>
+<p>Voice AI observability for post-call inspection using transcripts, original audio, policy findings, and evaluator checks. The latest pushed development branch adds quote-linked Calls review, versioned refund and escalation checks, STT reference comparison, persistent Bolna ingestion receipts, and SQLite/FastEmbed retrieval. Its CI passes, while the public demo still runs the older main baseline. Automatic STT comparisons are labeled as transcript disagreement, and uncertain findings remain reviewable.</p>
+<p class="meta">Python · FastAPI · Next.js · TypeScript · SQLite · FastEmbed · Deepgram · PostgreSQL</p>
+<p><strong>The decision.</strong> Link findings to call evidence, retain applied policy versions, and withhold STT rates when the reference or alignment is insufficient.</p>
+<p><strong>Context.</strong> VoiceScope is voice AI observability focused on post-call inspection. Operators review policy findings, attributed transcripts, original audio, STT diagnostics, and evaluator-output checks in one Calls interface.</p>
+<p><strong>Implementation.</strong> FastAPI accepts audio, attributed text, and completed-call webhooks. The pipeline combines speaker attribution, configured policy checks, retrieved context, model analysis, and structured reporting. The latest pushed branch uses local FastEmbed/SQLite indexes with explicit index migration and per-store snapshots. Its Next.js interface links exact-quote findings back to transcript turns.</p>
+<p><strong>Engineering challenge.</strong> Uncertainty must survive the pipeline. Inferred speakers retain their provenance. Refund-completion claims need action evidence. Separate STT comparison distinguishes human-verified references from automatically generated references, and missing timing or alignment can withhold a rate.</p>
+<p><strong>Decisions.</strong> Keep immutable applied policy snapshots and quoted evidence for the supported refund-guarantee and escalation checks. Persist Bolna ingestion receipts and fail visibly when configured storage is unavailable. Automatic STT comparisons are labeled as estimated transcript disagreement. Synthetic demo scenarios are kept separate from real calls and aggregate metrics.</p>
+<p><strong>Current status.</strong> The latest work is pushed on feat/voicescope-reliability-stt-demo at f661ef0, with seven successful CI jobs checked on 21 November 2026. It is a development candidate. The default main branch and current Vercel production deployment remain on the older baseline. The public frontend still presents the earlier Runs interface.</p>
+</div>
+</details>
+</article>
+
+<article class="project" id="project-open-agent" data-project="open-agent">
+<h3>Open Agent</h3>
+<p>Project-scoped AI assistants with document search, controlled tool use, provider fallback, and streamed responses.</p>
+
+<p class="project-links"><a href="https://github.com/ShivamChavan01/agent-platform">GitHub</a> · <a href="https://agent-platform-popb.onrender.com/">Live</a></p>
+<details>
+<summary>Engineering notes</summary>
+<div class="notes">
+<p>Project-specific AI assistants with document search, tools, and configurable model providers.</p>
+<p>Built the React chat interface and FastAPI backend around project-specific prompts, conversations, and knowledge bases. Document retrieval uses pgvector, and assistants can call calculator, document-search, and web-search tools. Responses and tool updates stream over SSE; provider fallback handles unavailable models.</p>
+<p class="meta">Python · FastAPI · SQLAlchemy · PostgreSQL · pgvector · JWT · React · TypeScript · Docker</p>
+<p><strong>The decision.</strong> Enforce project access, retrieval scope, tool limits, and token accounting on the server.</p>
+<p><strong>Context.</strong> Open Agent is a multi-tenant chatbot platform built around a practical question: how do you let different projects use capable language models without losing control of prompts, tools, data, or spend? Each project has its own system prompt and knowledge base. The platform has configurable model providers, calculator and search tools, document-grounded answers, streamed output, and configurable session and weekly token budgets.</p>
+<p><strong>Implementation.</strong> A React and TypeScript frontend talks to a FastAPI backend. SQLAlchemy persists users, projects, conversations, messages, usage, and uploaded documents in PostgreSQL. Document chunks are embedded into pgvector with project-scoped retrieval. Chat responses stream to the browser over Server-Sent Events, including tool and provider updates, while Docker packages the application for deployment.</p>
+<p><strong>Engineering challenge.</strong> The hard part is coordinating several failure-prone boundaries in one request: authentication, tenant ownership, retrieval, model selection, tool execution, and streaming. A model can return malformed tool arguments, a provider can fail mid-conversation, or a user can exhaust a budget while a stream is active. The server therefore owns project access and token accounting instead of trusting the client, and the tool-calling loop is bounded so a model cannot run forever.</p>
+<p><strong>Decisions.</strong> Keep provider integration behind one interface so the same conversation can fall back across models when a provider is unavailable. Filter RAG retrieval by project ID and enforce ownership checks on the server. These implementation checks still need deployment-specific tenant-isolation testing. Use SSE for incremental output because chat is unidirectional from server to browser and does not need a heavier WebSocket protocol. Keep the tool loop and usage limits on the server, where they can be validated and enforced consistently.</p>
+<p><strong>Current status.</strong> Open Agent works end to end as a multi-tenant AI platform: projects, conversations, JWT authentication, pgvector-backed RAG, calculator/document/web tools, provider fallback, SSE token streaming, and rolling token-budget metering. The repository includes automated tests and links to a public demo. This source audit does not establish the demo’s current reliability or a complete tenant-security guarantee.</p>
+</div>
+</details>
+</article>
+
+<article class="project" id="project-mcp-foundry" data-project="mcp-foundry">
+<h3>MCP Foundry</h3>
+<p>Generate MCP tools from an API specification, evaluate them against a mock API, and repair failures in a bounded loop.</p>
+
+<p class="project-links"><a href="https://github.com/ShivamChavan01/MCP_Foundry">GitHub</a> · <a href="https://youtu.be/vRT6zaGCySg">Demo</a></p>
+<details>
+<summary>Engineering notes</summary>
+<div class="notes">
+<p>Generate MCP tools from API specs, then evaluate and repair them.</p>
+<p>A generated tool with a vague description fails at agent runtime. MCP Foundry rewrites ambiguous descriptions with an LLM, evaluates each tool against a live agent on an isolated Prism mock, and auto-repairs failures for up to 3 rounds across direct, rephrased, edge-case, and adversarial prompts. Survivors register into Codex's MCP config with a pass/fail scorecard. Built at the OpenAI Build Week Hackathon.</p>
+<p class="meta">Python · FastAPI · OpenAPI · provider adapters · Prism · FastMCP</p>
+<p><strong>The decision.</strong> Evaluate generated tools on an isolated API mock and cap repair attempts at three rounds.</p>
+<p><strong>Context.</strong> MCP servers give coding agents new tools, and OpenAPI specs describe existing APIs. Bridging the two by hand is slow; generating blindly is worse, because a generated tool with an ambiguous description or broken behavior fails at agent runtime. MCP Foundry, built during the OpenAI Build Week Hackathon in July 2026, is a self-verifying OpenAPI-to-MCP server generator. The generation flow includes behavioral evaluation before registration.</p>
+<p><strong>Implementation.</strong> The generator parses supported OpenAPI specifications and produces MCP server tooling. An LLM pass rewrites ambiguous tool descriptions before anything is evaluated. Evaluation runs every generated tool against a live agent on an isolated Prism mock; the reviewed evaluation pipeline uses that mock as its target. Failing tools enter an auto-repair loop: repair, re-test, repeat, for up to 3 rounds against four prompt classes: direct, rephrased, edge-case, and adversarial. Tools that survive are registered into Codex's MCP config with a transparent pass/fail scorecard. The stack is Python, FastAPI, OpenAPI, provider adapters, Prism, and FastMCP.</p>
+<p><strong>Engineering challenge.</strong> Evaluation needs an agent to evaluate against, so every tool check runs a live agent, which means the mock environment has to be isolated, or verification becomes the hazard. Auto-repair needs a stopping condition, bounded here at 3 rounds. And the test surface has to be adversarial enough to be worth the loop: direct, rephrased, edge-case, and adversarial prompts, not a single happy path.</p>
+<p><strong>Decisions.</strong> Rewrite descriptions with an LLM before testing: ambiguous descriptions are a defect class you can fix upstream. Evaluate against a live agent on an isolated Prism mock instead of static checks, because tool quality is behavior, not syntax. Bound repair at 3 rounds across four prompt classes so the loop terminates. Gate registration on the scorecard, so Codex's MCP config only receives tools that passed.</p>
+<p><strong>Current status.</strong> MCP Foundry produces MCP tooling and a scorecard from an API specification. Passing mock-based evaluation does not establish compatibility with every production service. Every generated tool is evaluated against a live agent across direct, rephrased, edge-case, and adversarial prompts before it can register. Built and demoed during OpenAI Build Week; the demo is public on YouTube.</p>
+</div>
+</details>
+</article>
+</section>
+<section id="experience" aria-labelledby="experience-title">
+<h2 id="experience-title">Work</h2>
+<article id="project-strivo" data-project="strivo">
+<h3>Eazytag · Full Stack Developer</h3>
+<p class="meta">10/2025 – Present · Bengaluru, India</p>
+<p>Full-stack contributions across Angular, Java 21 with Micronaut, and MongoDB. Recent merged work spans reporting, staff operations, tenant isolation, and membership correctness.</p>
+<ul><li>Contributed revenue-category comparisons and Finance drilldowns, plus fixes for payment fees missing from collection reporting.</li>
+<li>Added staff follow-up counts and access attribution, native dashboard follow-up navigation, and biometric connectivity alerts with admin notifications.</li>
+<li>Fixed gym-scoped product search and booking-history access, atomic waitlist admission, and stale responses in booking dialogs.</li>
+<li>Preserved usage and approval rules during membership upgrades, transfer and refund state, personal-information edits, and enquiry-creator sales attribution.</li></ul>
+<details>
+<summary>Engineering notes</summary>
+<div class="notes">
+<p>Multi-tenant gym SaaS covering memberships, reporting, staff workflows, and biometric alerts.</p>
+<p>My recent merged contributions cover revenue-category comparisons and Finance drilldowns, staff follow-up counts and access attribution, native follow-up navigation, and biometric outage notifications. Membership work preserves upgrade usage, refund/session integrity, transfer type, and sales attribution. Tenant-isolation fixes scope product search and booking history to the current gym. These changes were merged into the development branch; production deployment was not independently verified in this audit.</p>
+<p class="meta">Angular · Java 21 · Micronaut · MongoDB · Change Streams</p>
+<p><strong>The decision.</strong> Keep tenant scope and membership invariants on the server, and make reporting and staff actions traceable.</p>
+<p><strong>Context.</strong> Strivo is the multi-tenant gym SaaS platform I work on at Eazytag. Recent work crosses finance reporting, staff follow-ups, biometric device visibility, and membership lifecycle behavior.</p>
+<p><strong>Implementation.</strong> Angular interfaces connect native follow-up queues, Finance drilldowns, and staff-activity views to Java 21/Micronaut services and MongoDB. Server-side tenant scope protects product search and booking history, while waitlist admission and membership transitions retain shared invariants.</p>
+<p><strong>Engineering challenge.</strong> Reports must reconcile category totals with their drilldowns, device alerts must distinguish connectivity states, and upgrades and transfers must preserve usage, approval, refund, and sales-attribution rules across existing data.</p>
+<p><strong>Decisions.</strong> Use native operational lists for dashboard follow-ups, explicit access attribution for staff reporting, gym-scoped database queries, and regression coverage for concurrent waitlist admission and legacy membership state. The work includes shared review contributions; the audit traces Shivam-authored commits within those PRs.</p>
+<p><strong>Current status.</strong> A November source audit verified authored commits in merged development-branch PRs for reporting, staff activity, biometric alerts, tenant isolation, and membership fixes. Production deployment and customer-impact metrics were not independently verified. Weekly on-call remains supplied employment context.</p>
+</div>
+</details>
+</article>
+</section>
+<section id="more-projects" aria-labelledby="more-projects-title">
+<h2 id="more-projects-title">More projects</h2>
+<article class="project" id="project-autoace" data-project="autoace">
+<h3>AutoAce</h3>
+<p>Call-audio classification using DSP and language models, with cost reporting and a small three-call calibration set.</p>
+
+<p class="project-links"><a href="https://github.com/ShivamChavan01/autoace-voice-tone-classifier">GitHub</a></p>
+<details>
+<summary>Engineering notes</summary>
+<div class="notes">
+<p>Hybrid DSP and LLM call-audio classification with calibration and cost reporting.</p>
+<p>Nine fields — tone, noise type and severity, quality, overlap, silence — classified by a hybrid DSP + LLM pipeline that measures under $0.001/min at 85% field-match accuracy against 56% for DSP alone. A login-gated dashboard handles batch ZIP upload, cost tracking, and CSV/JSON export. The accuracy figure is a calibration measurement over three labeled calls.</p>
+<p class="meta">Python · Groq (Whisper + LLM) · librosa · Silero VAD (ONNX) · FastAPI · React</p>
+
+</div>
+</details>
+</article>
+
+<article class="project" id="project-opencode-terminal" data-project="opencode-terminal">
+<h3>opencode-terminal</h3>
+<p>Native terminal windows and persistent processes for coding agents, including servers, REPLs, and interactive programs.</p>
+
+<p class="project-links"><a href="https://github.com/ShivamChavan01/opencode-terminal">GitHub</a> · <a href="https://www.npmjs.com/package/opencode-terminal">npm</a></p>
+<details>
+<summary>Engineering notes</summary>
+<div class="notes">
+<p>An OpenCode plugin for real terminals and persistent process control.</p>
+<p>Agent shells run a command and wait; development needs persistent servers, REPLs, and TTY programs. Nine tools open native terminal windows, auto-detect the project's run command across 15+ stacks, and manage background sessions — start, poll logs, send input, kill the whole process tree. Process cleanup is best-effort and depends on the operating system and terminal setup. Published to npm under MIT.</p>
+<p class="meta">TypeScript · Node · Bun · OpenCode Plugins · macOS · Windows · Linux</p>
+
+</div>
+</details>
+</article>
+
+<article class="project" id="project-voicecli" data-project="voicecli">
+<h3>voicecli</h3>
+<p>Offline push-to-talk transcription and local speech playback for terminal agents.</p>
+
+<p class="project-links"><a href="https://github.com/ShivamChavan01/voicecli">GitHub</a> · <a href="https://youtu.be/fVV5UPiRxZI">Demo</a></p>
+<details>
+<summary>Engineering notes</summary>
+<div class="notes">
+<p>An offline push-to-talk voice layer for terminal coding agents.</p>
+<p>Terminal agents are read, not heard. voicecli holds Ctrl+Space to record, transcribes locally with faster-whisper, and types the text into whichever CLI has focus. A background watcher tails each agent's session store — Claude Code and Codex CLI JSONL, OpenCode's SQLite database — and speaks new assistant messages back through Piper TTS. The core loop runs locally after model setup, using a supported desktop environment, with no cloud STT key.</p>
+<p class="meta">Python · faster-whisper · xdotool · Piper TTS · SQLite</p>
+
+</div>
+</details>
+</article>
+</section>
+<section id="open-source" aria-labelledby="open-source-title">
+<h2 id="open-source-title">Open source</h2>
+<ul class="contributions">
+<li><p><strong>Eclipse JKube</strong><br>GitHub shows 27 authored pull requests and 18 merged in Eclipse JKube, checked on 21 November 2026, including AssertJ and Mockito test modernization.</p>
+<p class="project-links"><a href="https://github.com/eclipse-jkube/jkube">GitHub</a></p></li>
+<li><p><strong>OpenMetadata</strong><br>Submitted frontend Roles search (PR #27602), Greenplum DDL extraction (#27445), and Databricks lineage (#27648). All three PRs were closed and unmerged when checked on 21 November 2026.</p>
+<p class="project-links"><a href="https://github.com/open-metadata/OpenMetadata/pull/27602">PR #27602</a> · <a href="https://github.com/open-metadata">Organization</a></p></li>
+<li><p><strong>Jira CI/CD Status Panel</strong><br>A Forge/React Jira issue panel that fetches GitHub Actions status, commit information, and recent runs. The repository uses fixed demo configuration; ForgeQuest participation is profile-provided.</p>
+<p class="project-links"><a href="https://github.com/ShivamChavan01/jira-cicd-panel">GitHub</a></p></li>
+<li><p><strong>supabase-lingo</strong><br>Published an npm package for a real-time, PostgreSQL event-driven translation pipeline, built for the Lingo.dev Hackathon.</p>
+<p class="project-links"><a href="https://www.npmjs.com/package/supabase-lingo">npm</a> · <a href="https://youtu.be/03hsGuhBdzQ">Demo</a> · <a href="https://github.com/ShivamChavan01/supabase-lingo">GitHub</a></p></li>
+</ul>
+</section>
+<section id="education" aria-labelledby="education-title">
+<h2 id="education-title">Education</h2>
+<p class="meta">08/2020 – 06/2023 · B.E. ELECTRONICS AND COMMUNICATION · BIET, DAVANGERE · CGPA 7.5</p>
+</section>
+<section id="contact" aria-labelledby="contact-title">
+<h2 id="contact-title">Contact</h2>
+<p>If I’ve built something you’d like to bring to your product, I’d love to join your team and keep working on it.</p>
+<p><a href="mailto:shivamrc189@gmail.com">shivamrc189@gmail.com</a> · <a href="https://cal.com/shivamchavan">Book a call</a></p>
+</section>
+<details class="ask-dock">
+<summary>Ask about Shivam</summary>
+<form id="ask" action="/api/ask" method="post">
+<label for="ask-question">Ask about my work</label>
+<div class="ask-row"><input id="ask-question" name="question" type="text" maxlength="500" required placeholder="Projects, skills or experience…" aria-describedby="ask-note"><button type="submit">Ask</button></div>
+<small id="ask-note" class="meta">Groq helps answer questions using my portfolio. Please leave out personal details.</small>
+</form>
+</details>
+</main>
+<footer><a href="#top">Back to top</a></footer>
+</body>
+</html>

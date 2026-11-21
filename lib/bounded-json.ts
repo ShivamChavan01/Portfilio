@@ -1,9 +1,10 @@
-/** Bound network JSON before parsing, including responses without Content-Length. */
-export async function readBoundedJson({ body, maxBytes, signal }: {
+type BoundedBody = {
   body: ReadableStream<Uint8Array> | null;
   maxBytes: number;
   signal: AbortSignal;
-}): Promise<unknown> {
+};
+
+export async function readBoundedText({ body, maxBytes, signal }: BoundedBody): Promise<string> {
   if (!body || signal.aborted) throw new Error("Unavailable body");
   const reader = body.getReader();
   const cancel = () => { void reader.cancel().catch(() => undefined); };
@@ -25,9 +26,13 @@ export async function readBoundedJson({ body, maxBytes, signal }: {
     const bytes = new Uint8Array(size);
     let offset = 0;
     for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.byteLength; }
-    return JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes));
+    return new TextDecoder("utf-8", { fatal: true }).decode(bytes);
   } finally {
     signal.removeEventListener("abort", cancel);
     reader.releaseLock();
   }
+}
+
+export async function readBoundedJson(input: BoundedBody): Promise<unknown> {
+  return JSON.parse(await readBoundedText(input));
 }

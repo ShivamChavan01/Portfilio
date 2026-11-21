@@ -491,6 +491,81 @@
 .project-highlights strong { font-size: 15px; font-weight: 500; color: var(--color-ink); }
 .project-highlights li > span { font-size: 15px; line-height: 1.7; color: var(--color-ink-muted); }
 .project-art-open-agent { min-height: 400px; }
+/* Project illustrations share the page's light palette. */
+[data-theme="light"] .project-art {
+  background: var(--color-recessed);
+  color: var(--color-accent);
+}
+
+[data-theme="light"] .project-art .art-window {
+  background: var(--color-bg);
+  color: var(--color-ink-2);
+  border-color: var(--color-line-strong);
+  box-shadow: 0 6px 20px #493b2112;
+}
+
+[data-theme="light"] :is(
+  .art-window-bar,
+  .preview-caption,
+  .timeline-ruler,
+  .voice-footnote,
+  .booking-grid span,
+  .foundry-repair,
+  .agent-project > span,
+  .agent-provider > span,
+  .agent-architecture > p
+) {
+  color: var(--color-ink-muted);
+}
+
+[data-theme="light"] :is(
+  .art-window-bar,
+  .voice-pipeline span,
+  .booking-grid span,
+  .foundry-input,
+  .foundry-steps span,
+  .foundry-repair,
+  .agent-project,
+  .agent-provider,
+  .agent-capabilities span
+) {
+  border-color: var(--color-line-strong);
+}
+
+[data-theme="light"] .cutroom-preview {
+  background: var(--color-surface);
+}
+
+[data-theme="light"] .cutroom-frame {
+  background: #e6b89d;
+}
+[data-theme="light"] .cutroom-frame::before {
+  border-color: #b15b40;
+}
+[data-theme="light"] .cutroom-frame::after {
+  border-color: #d97757;
+}
+
+[data-theme="light"] :is(.timeline-track span, .foundry-steps span, .booking-grid .booked) {
+  background: var(--color-accent-tint);
+  border-color: #c99c86;
+  color: #713b2b;
+}
+
+[data-theme="light"] .timeline-track.audio span {
+  background: repeating-linear-gradient(90deg, #efd6c8 0 3px, #b66a4b 3px 4px);
+}
+
+[data-theme="light"] .voice-waveform {
+  color: var(--color-accent);
+}
+
+[data-theme="light"] .booking-grid .confirmed {
+  color: #435338;
+  background: #e0e6d8;
+  border-color: #a5b395;
+}
+
 /* Bottom question bar and its anchored panel. */
 .ask-dock {
   position: fixed;

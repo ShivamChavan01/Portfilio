@@ -1,27 +1,16 @@
-import Nav from "@/components/nav";
-import Hero from "@/components/hero";
-import SelectedWork from "@/components/selected-work";
-import CaseStudies from "@/components/case-studies";
-import Experience from "@/components/experience";
-import OpenSource from "@/components/open-source";
-import Footer from "@/components/footer";
-import AskAboutMe from "@/components/ask-about-me";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 
+// Use the reviewed HTML itself so the published homepage and the standalone copy stay in sync.
 export default function Home() {
+  const document = readFileSync(join(process.cwd(), "public", "plain.html"), "utf8");
+  const style = document.match(/<style>([\s\S]*?)<\/style>/)?.[1];
+  const body = document.match(/<body>([\s\S]*?)<\/body>/)?.[1];
+  if (!style || !body) throw new Error("The portfolio document needs a style block and a body.");
   return (
     <>
-      <Nav />
-      <main id="main" className="portfolio-layout">
-        <Hero />
-        <div className="portfolio-content">
-          <SelectedWork />
-          <Experience />
-          <CaseStudies />
-          <OpenSource />
-          <Footer />
-        </div>
-      </main>
-      <AskAboutMe />
+      <style dangerouslySetInnerHTML={{ __html: style }} />
+      <div dangerouslySetInnerHTML={{ __html: body }} />
     </>
   );
 }

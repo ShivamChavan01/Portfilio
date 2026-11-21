@@ -71,6 +71,12 @@ export function initializeAnalytics(
     if (url.protocol !== "https:" || url.username || url.password || url.search || url.hash) return false;
     client.init(token, {
       api_host: host,
+      // Native forms and links can leave the document immediately.
+      request_batching: false,
+      before_send: (event) => ({
+        ...event,
+        properties: { ...event.properties, portfolio_version: "plain" },
+      }),
       capture_pageview: "history_change",
       capture_pageleave: true,
       autocapture: false,
@@ -99,4 +105,21 @@ export function handleAnalyticsClick(event: MouseEvent) {
   if (link.closest(".ask-dock") && href !== `mailto:${site.email}` && !isSafeSourceHref(href)) return;
   const result = getLinkEvent(href, link.closest("[data-project]")?.getAttribute("data-project") ?? null);
   if (result) trackEvent(result.name, result.properties);
+}
+
+export function handlePortfolioToggle(event: Event) {
+  const details = event.target;
+  if (!(details instanceof HTMLDetailsElement) || !details.open) return;
+  if (details.classList.contains("ask-dock")) {
+    trackEvent("ask_opened", {});
+    return;
+  }
+  const project = projectForSlug(details.closest("[data-project]")?.getAttribute("data-project") ?? null);
+  if (project) trackEvent("engineering_notes_opened", { project });
+}
+
+export function handlePortfolioSubmit(event: Event) {
+  if (event.target instanceof HTMLFormElement && event.target.id === "ask") {
+    trackEvent("ask_submitted", {});
+  }
 }

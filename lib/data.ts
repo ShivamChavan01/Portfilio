@@ -83,74 +83,87 @@ export type WorkEntry = {
 
 export const work: WorkEntry[] = [
   {
-    slug: "cutroom",
-    index: "00",
-    name: "Cutroom",
-    year: "2026",
-    descriptor:
-      "Browser video editing with alternate versions, diffs, and merge review.",
-    summary:
-      "A browser video-editor prototype with versioned timelines, three-way merges, explicit conflict resolution, and structural checks. Local edits restore through IndexedDB and OPFS. Exports are timeline interchange files, not rendered video; live collaboration is not implemented.",
-    stack: ["TypeScript", "React", "IndexedDB", "OPFS"],
-    spec: [
+    "slug": "cutroom",
+    "index": "00",
+    "name": "Cutroom",
+    "year": "2026",
+    "descriptor": "Versioned browser video editing with brief-grounded proposals and merge review.",
+    "summary": "A browser-editor prototype with alternate cuts, three-way timeline merges, and explicit conflict review. The November release adds brief-grounded Assistant proposals, local gain-match suggestions, synchronized multitrack playback, and full-resolution source editing copies. IndexedDB and OPFS restore local work with stale-tab overwrite protection. Timeline delivery uses interchange files. Rendered-sequence export and live collaboration remain unimplemented.",
+    "stack": [
+      "TypeScript",
+      "React",
+      "IndexedDB",
+      "OPFS"
+    ],
+    "spec": [
       "Three-way timeline merge",
-      "Explicit conflict review",
-      "Local persistence",
+      "Brief-grounded edit review",
+      "Stale-tab save protection"
     ],
-    links: [
+    "links": [
       {
-        label: "Try the editor",
-        href: "https://cutroom-editor.vercel.app/",
-        external: true,
+        "label": "Try the editor",
+        "href": "https://cutroom-editor.vercel.app/",
+        "external": true
       },
       {
-        label: "GitHub",
-        href: "https://github.com/ShivamChavan01/cutroom",
-        external: true,
-      },
+        "label": "GitHub",
+        "href": "https://github.com/ShivamChavan01/cutroom",
+        "external": true
+      }
     ],
-    caseStudyHref: "#case-study-cutroom",
+    "caseStudyHref": "#case-study-cutroom",
+    "highlights": [
+      {
+        "label": "Review before applying",
+        "detail": "Inspect retrieved source notes, preview proposed edits, and enforce required duration, source coverage, and ordering constraints."
+      },
+      {
+        "label": "Local playback workflow",
+        "detail": "Coordinate multitrack buffering and prepare source editing copies while retaining original media references."
+      }
+    ]
   },
   {
-    slug: "voicescope",
-    index: "01",
-    name: "VoiceScope",
-    year: "Jun – Jul 2026",
-    descriptor: "Voice AI call analysis grounded in transcripts and policies.",
-    summary:
-      "Voice agents fail in the field and their operators rarely see why. VoiceScope ingests call webhooks from six voice AI platforms through a pipeline with Deepgram, Gemini, or Whisper transcription, LLM analysis grounded in a knowledge base, structured reporting, and deterministic validation. The benchmark uses a small labeled dataset; its results are not a guarantee of accuracy on new calls.",
-    stack: [
+    "slug": "voicescope",
+    "index": "01",
+    "name": "VoiceScope",
+    "year": "2026 · active development",
+    "descriptor": "Voice AI observability through evidence-linked post-call analysis and STT review.",
+    "summary": "Voice AI observability for post-call inspection using transcripts, original audio, policy findings, and evaluator checks. The latest pushed development branch adds quote-linked Calls review, versioned refund and escalation checks, STT reference comparison, persistent Bolna ingestion receipts, and SQLite/FastEmbed retrieval. Its CI passes, while the public demo still runs the older main baseline. Automatic STT comparisons are labeled as transcript disagreement, and uncertain findings remain reviewable.",
+    "stack": [
       "Python",
       "FastAPI",
-      "OpenAI",
-      "Anthropic",
-      "Gemini",
-      "Groq",
-      "Mistral",
-      "Whisper",
-      "ChromaDB",
-      "RAG",
-      "Railway",
+      "Next.js",
+      "TypeScript",
+      "SQLite",
+      "FastEmbed",
+      "Deepgram",
+      "PostgreSQL"
     ],
-    spec: [
-      "6 platform integrations",
-      "SSRF protection",
-      "Deterministic validation",
-      "KB-grounded hallucination detection",
+    "spec": [
+      "Evidence-linked call review",
+      "Policy and STT diagnostics",
+      "Pushed development branch"
     ],
-    links: [
+    "links": [
       {
-        label: "GitHub",
-        href: "https://github.com/ShivamChavan01/voiceScope",
-        external: true,
+        "label": "GitHub",
+        "href": "https://github.com/ShivamChavan01/voiceScope",
+        "external": true
       },
       {
-        label: "Live",
-        href: "https://voice-scope.vercel.app/runs",
-        external: true,
+        "label": "Live",
+        "href": "https://voice-scope.vercel.app/runs",
+        "external": true
       },
+      {
+        "label": "Latest code",
+        "href": "https://github.com/ShivamChavan01/voiceScope/tree/feat/voicescope-reliability-stt-demo",
+        "external": true
+      }
     ],
-    caseStudyHref: "#case-study-voicescope",
+    "caseStudyHref": "#case-study-voicescope"
   },
   {
     slug: "mcp-foundry",
@@ -186,19 +199,27 @@ export const work: WorkEntry[] = [
     caseStudyHref: "#case-study-mcp-foundry",
   },
   {
-    slug: "strivo",
-    index: "03",
-    name: "Strivo",
-    year: "10/2025 – Present",
-    current: true,
-    descriptor:
-      "Multi-tenant gym SaaS: bookings, biometric check-in, health scoring, GST invoicing.",
-    summary:
-      "Slot scheduling, recurring series, waitlists, biometric check-in, and refunds all touch the same state, so the booking platform is built for correctness under concurrent writes. A nightly health-scoring pipeline with alert tiers replaced a manual weekly review; MongoDB change streams broadcast realtime updates, and third-party integrations sit behind retry logic.",
-    stack: ["Angular", "Java 21", "Micronaut", "MongoDB", "Change Streams"],
-    spec: ["100+ gyms", "60+ tenants"],
-    links: [],
-    caseStudyHref: "#case-study-strivo",
+    "slug": "strivo",
+    "index": "03",
+    "name": "Strivo",
+    "year": "10/2025 – Present",
+    "current": true,
+    "descriptor": "Multi-tenant gym SaaS covering memberships, reporting, staff workflows, and biometric alerts.",
+    "summary": "My recent merged contributions cover revenue-category comparisons and Finance drilldowns, staff follow-up counts and access attribution, native follow-up navigation, and biometric outage notifications. Membership work preserves upgrade usage, refund/session integrity, transfer type, and sales attribution. Tenant-isolation fixes scope product search and booking history to the current gym. These changes were merged into the development branch; production deployment was not independently verified in this audit.",
+    "stack": [
+      "Angular",
+      "Java 21",
+      "Micronaut",
+      "MongoDB",
+      "Change Streams"
+    ],
+    "spec": [
+      "Angular + Micronaut + MongoDB",
+      "Reporting and staff workflows",
+      "Tenant-scoped data access"
+    ],
+    "links": [],
+    "caseStudyHref": "#case-study-strivo"
   },
   {
     slug: "open-agent",
@@ -331,23 +352,23 @@ export const work: WorkEntry[] = [
       { label: "Demo", href: "https://youtu.be/fVV5UPiRxZI", external: true },
     ],
   },
+
 ];
 
 export const experience = {
-  role: "Full Stack Developer",
-  org: "Eazytag",
-  platform: "Strivo SaaS Platform",
-  dates: "10/2025 – Present",
-  location: "Bengaluru, India",
-  current: true,
-  framing:
-    "Full-stack features across Angular, Java 21 with Micronaut, and MongoDB — with weekly on-call alongside client engineering teams.",
-  bullets: [
-    "Shipped full-stack features (Angular, Java 21, Micronaut, MongoDB change streams) for 100+ gyms and 60+ tenants.",
-    "Engineered the class booking platform for correctness under concurrent writes: waitlists, biometric check-in, refund lifecycle.",
-    "Fixed a money-pipeline bug where transfer, freeze, and settlement fees never reached collection reports; added a payment-category model and dual-writes so fees surface in reporting.",
-    "Automated manual weekly reviews into a nightly health-scoring pipeline with alert tiers; third-party integrations run behind retry logic.",
-  ],
+  "role": "Full Stack Developer",
+  "org": "Eazytag",
+  "platform": "Strivo SaaS Platform",
+  "dates": "10/2025 – Present",
+  "location": "Bengaluru, India",
+  "current": true,
+  "framing": "Full-stack contributions across Angular, Java 21 with Micronaut, and MongoDB. Recent merged work spans reporting, staff operations, tenant isolation, and membership correctness.",
+  "bullets": [
+    "Contributed revenue-category comparisons and Finance drilldowns, plus fixes for payment fees missing from collection reporting.",
+    "Added staff follow-up counts and access attribution, native dashboard follow-up navigation, and biometric connectivity alerts with admin notifications.",
+    "Fixed gym-scoped product search and booking-history access, atomic waitlist admission, and stale responses in booking dialogs.",
+    "Preserved usage and approval rules during membership upgrades, transfer and refund state, personal-information edits, and enquiry-creator sales attribution."
+  ]
 } as const;
 
 export const education =
@@ -368,8 +389,8 @@ export const openSource: OpenSourceEntry[] = [
     org: "Eclipse Foundation",
     period: "07/2024 – 11/2024",
     description:
-      "18 merged PRs in Eclipse JKube were returned by GitHub’s authored-PR search on 4 November 2026, including AssertJ and Mockito test modernization.",
-    meta: "ECLIPSE FOUNDATION · 07/2024 – 11/2024 · 18 MERGED PRS CHECKED 2026-11-04 · ASSERTJ + MOCKITO",
+      "GitHub shows 27 authored pull requests and 18 merged in Eclipse JKube, checked on 21 November 2026, including AssertJ and Mockito test modernization.",
+    meta: "ECLIPSE FOUNDATION · 07/2024 – 11/2024 · 27 AUTHORED · 18 MERGED PRS CHECKED 2026-11-21 · ASSERTJ + MOCKITO",
     links: [
       {
         label: "GitHub",
@@ -381,7 +402,7 @@ export const openSource: OpenSourceEntry[] = [
   {
     name: "OpenMetadata",
     description:
-      "Submitted frontend Roles search (PR #27602), Greenplum DDL extraction (#27445), and Databricks lineage (#27648). All three PRs were closed and unmerged when checked on 4 November 2026.",
+      "Submitted frontend Roles search (PR #27602), Greenplum DDL extraction (#27445), and Databricks lineage (#27648). All three PRs were closed and unmerged when checked on 21 November 2026.",
     meta: "PR #27602 · ANT DESIGN TYPEAHEAD · ROLES ENTITY SEARCH · GREENPLUM DDL + DATABRICKS LINEAGE",
     links: [
       {
@@ -399,9 +420,9 @@ export const openSource: OpenSourceEntry[] = [
   {
     name: "Jira CI/CD Status Panel",
     description:
-      "A Jira Forge plugin surfacing real-time CI/CD pipeline status inside Jira issues, built for the Atlassian ForgeQuest Hackathon.",
-    meta: "ATLASSIAN FORGE · REAL-TIME CI/CD IN JIRA · FORGEQUEST HACKATHON",
-    links: [],
+      "A Forge/React Jira issue panel that fetches GitHub Actions status, commit information, and recent runs. The repository uses fixed demo configuration; ForgeQuest participation is profile-provided.",
+    meta: "ATLASSIAN FORGE · GITHUB ACTIONS IN JIRA · SOURCE REVIEWED 2026-11-21",
+    links: [{ label: "GitHub", href: "https://github.com/ShivamChavan01/jira-cicd-panel", external: true }],
   },
   {
     name: "supabase-lingo",
@@ -415,6 +436,7 @@ export const openSource: OpenSourceEntry[] = [
         external: true,
       },
       { label: "Demo", href: "https://youtu.be/03hsGuhBdzQ", external: true },
+      { label: "GitHub", href: "https://github.com/ShivamChavan01/supabase-lingo", external: true },
     ],
   },
 ];
@@ -423,5 +445,5 @@ export const contact = {
   closing:
     "I build production systems and take the on-call for them. If that's useful to you, email is the fastest route.",
   colophon: "Shivam Chavan · Full Stack Engineer · Bengaluru, India · 2026",
-  buildNote: "NEXT.JS + TAILWIND · NO TRACKING",
+  buildNote: "NEXT.JS + TAILWIND · POSTHOG ANALYTICS",
 } as const;

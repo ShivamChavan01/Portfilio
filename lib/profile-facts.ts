@@ -65,19 +65,25 @@ export const approvedFacts: readonly ProfileFact[] = [
     "topic": "profile",
     "title": "Technical stack",
     "keywords": "skills stack technologies languages python typescript java angular react fastapi micronaut mongodb postgres programming",
-    "text": "The reviewed project repositories use Python/FastAPI and TypeScript/React. His supplied employment profile lists Angular, Java 21, Micronaut, and MongoDB.",
+    "text": "Reviewed project sources cover TypeScript/React, Python/FastAPI, PostgreSQL/pgvector, and local SQLite/FastEmbed retrieval. His employment contributions use Angular, Java 21/Micronaut, and MongoDB.",
     "evidence": [
       {
-        "basis": "repository",
-        "title": "agent-platform · technical stack",
-        "href": "https://github.com/ShivamChavan01/agent-platform/blob/596022714a88ab95476d7881bfb0c158d9382d98/README.md",
-        "reviewedAt": "2026-11-04"
+        "basis": "code",
+        "title": "Cutroom source reviewed November 2026",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/README.md",
+        "reviewedAt": "2026-11-21"
+      },
+      {
+        "basis": "code",
+        "title": "VoiceScope development branch source",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f661ef06fcdc9b1600edc118ce1939ef4a5906f5/docs/semantic-retrieval.md",
+        "reviewedAt": "2026-11-21"
       },
       {
         "basis": "profile",
-        "title": "Employment stack supplied by Shivam",
+        "title": "Reviewed employment and local project scope",
         "href": "#experience",
-        "reviewedAt": "2026-11-04"
+        "reviewedAt": "2026-11-21"
       }
     ]
   },
@@ -86,19 +92,13 @@ export const approvedFacts: readonly ProfileFact[] = [
     "topic": "projects",
     "title": "Project directory",
     "keywords": "projects portfolio built build developed work software",
-    "text": "His portfolio lists Cutroom, Open Agent, VoiceScope, MCP Foundry, AutoAce, opencode-terminal, voicecli, and Strivo. Seven have linked public repositories; Strivo is described in his supplied employment profile.",
+    "text": "His portfolio includes Cutroom, Open Agent, VoiceScope, MCP Foundry, AutoAce, opencode-terminal, voicecli, and Strivo. Cutroom has a verified November deployment; VoiceScope’s newest reviewed work is on a pushed development branch.",
     "evidence": [
       {
         "basis": "profile",
-        "title": "Portfolio project directory",
+        "title": "Current portfolio project directory",
         "href": "#work",
-        "reviewedAt": "2026-11-04"
-      },
-      {
-        "basis": "public-record",
-        "title": "Public GitHub repository index",
-        "href": "https://github.com/ShivamChavan01?tab=repositories",
-        "reviewedAt": "2026-11-04"
+        "reviewedAt": "2026-11-21"
       }
     ]
   },
@@ -122,13 +122,13 @@ export const approvedFacts: readonly ProfileFact[] = [
     "topic": "experience",
     "title": "Strivo responsibilities",
     "keywords": "eazytag strivo bookings membership payments gyms tenants oncall responsibility production",
-    "text": "His résumé describes work on bookings, waitlists, biometric check-in, refund reporting, and a nightly health-scoring pipeline, plus weekly on-call support. The stated scale of 100+ gyms and 60+ tenants is profile-provided, not independently confirmed from public production records.",
+    "text": "His weekly on-call employment context is profile-provided. A November private-repository audit verified authored commits in merged development-branch PRs for Finance drilldowns, staff activity and access attribution, biometric notifications, tenant isolation, and membership integrity. Production deployment and scale/impact metrics were not independently verified.",
     "evidence": [
       {
         "basis": "profile",
-        "title": "Strivo scope from supplied résumé",
+        "title": "Private employment contribution audit",
         "href": "#experience",
-        "reviewedAt": "2026-11-04"
+        "reviewedAt": "2026-11-21"
       }
     ]
   },
@@ -137,13 +137,19 @@ export const approvedFacts: readonly ProfileFact[] = [
     "topic": "cutroom",
     "title": "Cutroom",
     "keywords": "cutroom video editor editing timeline version versions merge",
-    "text": "The reviewed Cutroom repository describes a browser video-editor prototype with versioned timelines, change comparison, three-way merging, and explicit conflict review.",
+    "text": "A browser-editor prototype with alternate cuts, three-way timeline merges, and explicit conflict review. The November release adds brief-grounded Assistant proposals, local gain-match suggestions, synchronized multitrack playback, and full-resolution source editing copies. IndexedDB and OPFS restore local work with stale-tab overwrite protection. Timeline delivery uses interchange files. Rendered-sequence export and live collaboration remain unimplemented.",
     "evidence": [
       {
-        "basis": "repository",
-        "title": "cutroom · README",
-        "href": "https://github.com/ShivamChavan01/cutroom/blob/1bc9c647074ad95dc1ec4be0bff8bdecb6c6f877/README.md",
-        "reviewedAt": "2026-11-04"
+        "basis": "code",
+        "title": "Cutroom source reviewed November 2026",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/README.md",
+        "reviewedAt": "2026-11-21"
+      },
+      {
+        "basis": "code",
+        "title": "Cutroom source reviewed November 2026",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/docs/editor-guide.md",
+        "reviewedAt": "2026-11-21"
       }
     ]
   },
@@ -152,13 +158,19 @@ export const approvedFacts: readonly ProfileFact[] = [
     "topic": "cutroom",
     "title": "Cutroom export limits",
     "keywords": "cutroom export mp4 render otio fcpxml edl json collaboration limitations",
-    "text": "Cutroom's documented exports are timeline interchange files: OTIO, FCPXML, EDL, and native JSON. It does not export rendered MP4 video or provide live collaboration; full mobile editing is also unsupported.",
+    "text": "Cutroom is a browser-editor prototype. It exports OTIO, FCPXML, EDL, and native JSON. A full-resolution MP4 editing copy can be prepared for a single source. Rendered edited-sequence export, live collaboration, and full mobile editing remain unimplemented or unsupported. Live Assistant quality was not tested in the November audit.",
     "evidence": [
       {
-        "basis": "repository",
-        "title": "cutroom · README",
-        "href": "https://github.com/ShivamChavan01/cutroom/blob/1bc9c647074ad95dc1ec4be0bff8bdecb6c6f877/README.md",
-        "reviewedAt": "2026-11-04"
+        "basis": "code",
+        "title": "Cutroom source reviewed November 2026",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/README.md",
+        "reviewedAt": "2026-11-21"
+      },
+      {
+        "basis": "code",
+        "title": "Cutroom source reviewed November 2026",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/docs/editor-guide.md",
+        "reviewedAt": "2026-11-21"
       }
     ]
   },
@@ -167,13 +179,13 @@ export const approvedFacts: readonly ProfileFact[] = [
     "topic": "cutroom",
     "title": "Cutroom local storage",
     "keywords": "cutroom storage persistence indexeddb opfs local sample restore",
-    "text": "Cutroom documents IndexedDB for project state and OPFS for uploaded media, with a separate sample workspace. Browser storage is local to the device and origin and can be evicted.",
+    "text": "Cutroom stores acknowledged project state in IndexedDB and source media in OPFS. Transactional snapshot comparison rejects stale-tab overwrites. Browser quota, origin/device scope, eviction, and save acknowledgment remain important limits; this local persistence does not establish cloud backup or collaboration.",
     "evidence": [
       {
-        "basis": "repository",
-        "title": "cutroom · README",
-        "href": "https://github.com/ShivamChavan01/cutroom/blob/1bc9c647074ad95dc1ec4be0bff8bdecb6c6f877/README.md",
-        "reviewedAt": "2026-11-04"
+        "basis": "code",
+        "title": "Cutroom source reviewed November 2026",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/apps/web/src/lib/persistence/storage.ts",
+        "reviewedAt": "2026-11-21"
       }
     ]
   },
@@ -281,19 +293,19 @@ export const approvedFacts: readonly ProfileFact[] = [
     "topic": "voicescope",
     "title": "VoiceScope",
     "keywords": "voicescope voice scope ai calls audio transcription analysis observability platform rag",
-    "text": "VoiceScope's reviewed Python pipeline runs call processing with a validation harness and structured reports. Its repository documents transcription options, retrieved knowledge context, and a FastAPI interface.",
+    "text": "Voice AI observability for post-call inspection using transcripts, original audio, policy findings, and evaluator checks. The latest pushed development branch adds quote-linked Calls review, versioned refund and escalation checks, STT reference comparison, persistent Bolna ingestion receipts, and SQLite/FastEmbed retrieval. Its CI passes, while the public demo still runs the older main baseline. Automatic STT comparisons are labeled as transcript disagreement, and uncertain findings remain reviewable.",
     "evidence": [
       {
         "basis": "code",
-        "title": "voiceScope · pipeline.py",
-        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f9d459c75e7152e370afed838bc547dde9d0a2d5/core/pipeline.py",
-        "reviewedAt": "2026-11-04"
+        "title": "VoiceScope development branch source",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f661ef06fcdc9b1600edc118ce1939ef4a5906f5/core/pipeline.py",
+        "reviewedAt": "2026-11-21"
       },
       {
-        "basis": "repository",
-        "title": "voiceScope · README",
-        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f9d459c75e7152e370afed838bc547dde9d0a2d5/README.md",
-        "reviewedAt": "2026-11-04"
+        "basis": "code",
+        "title": "VoiceScope development branch source",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f661ef06fcdc9b1600edc118ce1939ef4a5906f5/frontend/src/components/call-review.tsx",
+        "reviewedAt": "2026-11-21"
       }
     ]
   },
@@ -302,19 +314,19 @@ export const approvedFacts: readonly ProfileFact[] = [
     "topic": "voicescope",
     "title": "VoiceScope validation limits",
     "keywords": "voicescope harness validation hallucination benchmark accuracy evaluation tests",
-    "text": "VoiceScope combines deterministic checks with policy-grounded analysis. Its labeled benchmark is a small dataset; it does not prove general hallucination detection accuracy or a guarantee that every incorrect answer is caught.",
+    "text": "The latest pushed VoiceScope branch separates configured policy findings, evaluator consistency checks, and STT diagnostics. Its benchmark remains scoped to labeled fixtures. Model flags, automated transcript comparisons, and an absence of configured policy matches do not establish overall call truthfulness or compliance.",
     "evidence": [
       {
         "basis": "code",
-        "title": "voiceScope · harness.py",
-        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f9d459c75e7152e370afed838bc547dde9d0a2d5/core/harness.py",
-        "reviewedAt": "2026-11-04"
+        "title": "VoiceScope development branch source",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f661ef06fcdc9b1600edc118ce1939ef4a5906f5/core/reliability.py",
+        "reviewedAt": "2026-11-21"
       },
       {
-        "basis": "repository",
-        "title": "voiceScope · README",
-        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f9d459c75e7152e370afed838bc547dde9d0a2d5/README.md",
-        "reviewedAt": "2026-11-04"
+        "basis": "code",
+        "title": "VoiceScope development branch source",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f661ef06fcdc9b1600edc118ce1939ef4a5906f5/core/harness.py",
+        "reviewedAt": "2026-11-21"
       }
     ]
   },
@@ -323,19 +335,19 @@ export const approvedFacts: readonly ProfileFact[] = [
     "topic": "voicescope",
     "title": "VoiceScope webhook handling",
     "keywords": "voicescope integration integrations webhook bolna vapi retell bland synthflow air security ssrf",
-    "text": "VoiceScope documents integrations for six voice platforms. The reviewed webhook route validates recording URLs with an SSRF-checking helper before processing; this source inspection is not a full security audit or live integration test.",
+    "text": "The reviewed VoiceScope development branch includes adapters for six voice platforms and transcript-first Bolna ingestion with preserved speaker metadata, validated recording downloads, and persistent deduplication receipts. The audit did not verify fresh hosted webhook delivery or durable production execution.",
     "evidence": [
       {
         "basis": "code",
-        "title": "voiceScope · routes.py",
-        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f9d459c75e7152e370afed838bc547dde9d0a2d5/api/routes.py",
-        "reviewedAt": "2026-11-04"
+        "title": "VoiceScope development branch source",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f661ef06fcdc9b1600edc118ce1939ef4a5906f5/api/routes.py",
+        "reviewedAt": "2026-11-21"
       },
       {
-        "basis": "repository",
-        "title": "voiceScope · README",
-        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f9d459c75e7152e370afed838bc547dde9d0a2d5/README.md",
-        "reviewedAt": "2026-11-04"
+        "basis": "code",
+        "title": "VoiceScope development branch source",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f661ef06fcdc9b1600edc118ce1939ef4a5906f5/storage/webhook_receipts.py",
+        "reviewedAt": "2026-11-21"
       }
     ]
   },
@@ -443,7 +455,7 @@ export const approvedFacts: readonly ProfileFact[] = [
         "basis": "public-record",
         "title": "npm package record",
         "href": "https://www.npmjs.com/package/opencode-terminal",
-        "reviewedAt": "2026-11-04"
+        "reviewedAt": "2026-11-21"
       },
       {
         "basis": "code",
@@ -479,13 +491,13 @@ export const approvedFacts: readonly ProfileFact[] = [
     "topic": "oss-jkube",
     "title": "Eclipse JKube contributions",
     "keywords": "jkube eclipse foundation open source contributions prs merged assertj mockito",
-    "text": "GitHub's merged-PR search returned 18 Eclipse JKube PRs by ShivamChavan01 on the review date, including test modernization work. This is an authored contribution record, not evidence of employment at Eclipse.",
+    "text": "GitHub’s authored-PR search returned 27 Eclipse JKube PRs for ShivamChavan01, of which 18 are merged, checked on 21 November 2026. The work includes AssertJ and Mockito test modernization.",
     "evidence": [
       {
         "basis": "public-record",
-        "title": "JKube authored merged pull requests",
-        "href": "https://github.com/eclipse-jkube/jkube/pulls?q=is%3Apr+author%3AShivamChavan01+is%3Amerged",
-        "reviewedAt": "2026-11-04"
+        "title": "Authored Eclipse JKube PRs",
+        "href": "https://github.com/eclipse-jkube/jkube/pulls?q=is%3Apr+author%3AShivamChavan01",
+        "reviewedAt": "2026-11-21"
       }
     ]
   },
@@ -500,19 +512,19 @@ export const approvedFacts: readonly ProfileFact[] = [
         "basis": "public-record",
         "title": "OpenMetadata PR #27602",
         "href": "https://github.com/open-metadata/OpenMetadata/pull/27602",
-        "reviewedAt": "2026-11-04"
+        "reviewedAt": "2026-11-21"
       },
       {
         "basis": "public-record",
         "title": "OpenMetadata PR #27445",
         "href": "https://github.com/open-metadata/OpenMetadata/pull/27445",
-        "reviewedAt": "2026-11-04"
+        "reviewedAt": "2026-11-21"
       },
       {
         "basis": "public-record",
         "title": "OpenMetadata PR #27648",
         "href": "https://github.com/open-metadata/OpenMetadata/pull/27648",
-        "reviewedAt": "2026-11-04"
+        "reviewedAt": "2026-11-21"
       }
     ]
   },
@@ -527,7 +539,7 @@ export const approvedFacts: readonly ProfileFact[] = [
         "basis": "public-record",
         "title": "supabase-lingo package record",
         "href": "https://www.npmjs.com/package/supabase-lingo",
-        "reviewedAt": "2026-11-04"
+        "reviewedAt": "2026-11-21"
       },
       {
         "basis": "profile",
@@ -542,13 +554,13 @@ export const approvedFacts: readonly ProfileFact[] = [
     "topic": "oss-jira",
     "title": "Jira CI/CD Status Panel",
     "keywords": "jira atlassian forge cicd status panel hackathon",
-    "text": "Shivam's supplied profile describes a Jira Forge CI/CD status panel built for ForgeQuest. No independently reviewed public repository was linked for this project.",
+    "text": "The public jira-cicd-panel repository implements a Forge/React Jira issue panel that fetches GitHub Actions workflow status, recent runs, and commit information. The repository documents fixed demo configuration. ForgeQuest participation is supplied profile context, and current Forge deployment was not verified.",
     "evidence": [
       {
-        "basis": "profile",
-        "title": "Jira project in supplied profile",
-        "href": "#open-source",
-        "reviewedAt": "2026-11-04"
+        "basis": "repository",
+        "title": "Jira CI/CD panel README",
+        "href": "https://github.com/ShivamChavan01/jira-cicd-panel/blob/fc86a9117a9c5b70134ce40db05805c164445f3a/README.md",
+        "reviewedAt": "2026-11-21"
       }
     ]
   },
@@ -557,7 +569,7 @@ export const approvedFacts: readonly ProfileFact[] = [
     "topic": "recruiter",
     "title": "Reasons to consider Shivam",
     "keywords": "hire hiring candidate strengths value team company recommend choose consider",
-    "text": "Shivam is a full-stack engineer with experience building interfaces, backend services and database-backed product features. His supplied Eazytag résumé describes Angular, Java/Micronaut and MongoDB work on Strivo, plus weekly on-call support. Open Agent adds a React frontend, FastAPI backend, document retrieval, tool calling, provider fallback and usage controls.",
+    "text": "Shivam is a full-stack engineer with concrete interface, backend, and database work. Recent merged employment contributions use Angular, Java 21/Micronaut, and MongoDB across reporting, staff workflows, tenant isolation, and membership correctness. Open Agent combines a React frontend, FastAPI backend, and PostgreSQL retrieval and tools. Cutroom adds deployed browser-editing improvements.",
     "evidence": [
       {
         "basis": "repository",
@@ -573,9 +585,15 @@ export const approvedFacts: readonly ProfileFact[] = [
       },
       {
         "basis": "profile",
-        "title": "Strivo scope from supplied résumé",
+        "title": "November portfolio audit and local-development status",
         "href": "#experience",
-        "reviewedAt": "2026-11-04"
+        "reviewedAt": "2026-11-21"
+      },
+      {
+        "basis": "code",
+        "title": "Cutroom source reviewed November 2026",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/README.md",
+        "reviewedAt": "2026-11-21"
       }
     ]
   },
@@ -584,7 +602,7 @@ export const approvedFacts: readonly ProfileFact[] = [
     "topic": "recruiter",
     "title": "Professional introduction",
     "keywords": "summary introduction introduce overview bio yourself",
-    "text": "Shivam Chavan is a full-stack engineer based in Bengaluru. His supplied résumé lists a Full Stack Developer role at Eazytag, working on Strivo. His public projects include Open Agent for project-specific AI assistants, Cutroom for versioned video editing, and VoiceScope for voice-call analysis. His work spans TypeScript/React interfaces and Python/FastAPI backends, with Angular/Java experience described in his employment profile.",
+    "text": "Shivam Chavan is a full-stack engineer in Bengaluru working on Strivo at Eazytag. His reviewed work includes finance and staff workflows, tenant-scoped backend fixes, Cutroom’s deployed editing improvements, and VoiceScope’s pushed observability candidate. His public projects span interfaces, backend services, databases, and developer tools.",
     "evidence": [
       {
         "basis": "profile",
@@ -599,28 +617,28 @@ export const approvedFacts: readonly ProfileFact[] = [
         "reviewedAt": "2026-11-04"
       },
       {
-        "basis": "repository",
-        "title": "cutroom · README",
-        "href": "https://github.com/ShivamChavan01/cutroom/blob/1bc9c647074ad95dc1ec4be0bff8bdecb6c6f877/README.md",
-        "reviewedAt": "2026-11-04"
+        "basis": "code",
+        "title": "Cutroom source reviewed November 2026",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/README.md",
+        "reviewedAt": "2026-11-21"
       },
       {
         "basis": "code",
-        "title": "voiceScope · pipeline.py",
-        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f9d459c75e7152e370afed838bc547dde9d0a2d5/core/pipeline.py",
-        "reviewedAt": "2026-11-04"
+        "title": "voiceScope · pipeline.py · development branch",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f661ef06fcdc9b1600edc118ce1939ef4a5906f5/core/pipeline.py",
+        "reviewedAt": "2026-11-21"
       },
       {
         "basis": "repository",
-        "title": "voiceScope · README",
-        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f9d459c75e7152e370afed838bc547dde9d0a2d5/README.md",
-        "reviewedAt": "2026-11-04"
+        "title": "voiceScope · README · development branch",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f661ef06fcdc9b1600edc118ce1939ef4a5906f5/README.md",
+        "reviewedAt": "2026-11-21"
       },
       {
         "basis": "profile",
-        "title": "Employment details supplied by Shivam",
+        "title": "November portfolio audit and local-development status",
         "href": "#experience",
-        "reviewedAt": "2026-11-04"
+        "reviewedAt": "2026-11-21"
       }
     ]
   },
@@ -640,8 +658,8 @@ export const approvedFacts: readonly ProfileFact[] = [
       {
         "basis": "repository",
         "title": "cutroom · README",
-        "href": "https://github.com/ShivamChavan01/cutroom/blob/1bc9c647074ad95dc1ec4be0bff8bdecb6c6f877/README.md",
-        "reviewedAt": "2026-11-04"
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/README.md",
+        "reviewedAt": "2026-11-21"
       },
       {
         "basis": "profile",
@@ -656,7 +674,7 @@ export const approvedFacts: readonly ProfileFact[] = [
     "topic": "recruiter",
     "title": "Backend experience",
     "keywords": "backend back end api database server experience",
-    "text": "His backend work includes Open Agent’s FastAPI service, PostgreSQL/pgvector document retrieval, project-ownership checks, bounded tool execution and provider fallback. His supplied Eazytag profile adds Java 21, Micronaut and MongoDB work on bookings, refunds, reporting and background scoring. These provide concrete API, data-boundary and failure-handling topics to discuss in an interview.",
+    "text": "His reviewed backend work includes FastAPI, PostgreSQL/pgvector, and bounded tool execution in Open Agent, plus Java 21/Micronaut and MongoDB employment contributions. Recent employment fixes cover tenant-scoped queries, reporting drilldowns, waitlist concurrency, and membership state.",
     "evidence": [
       {
         "basis": "repository",
@@ -678,9 +696,15 @@ export const approvedFacts: readonly ProfileFact[] = [
       },
       {
         "basis": "profile",
-        "title": "Strivo scope from supplied résumé",
+        "title": "November portfolio audit and local-development status",
         "href": "#experience",
-        "reviewedAt": "2026-11-04"
+        "reviewedAt": "2026-11-21"
+      },
+      {
+        "basis": "code",
+        "title": "Cutroom source reviewed November 2026",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/README.md",
+        "reviewedAt": "2026-11-21"
       }
     ]
   },
@@ -700,8 +724,8 @@ export const approvedFacts: readonly ProfileFact[] = [
       {
         "basis": "repository",
         "title": "cutroom · README",
-        "href": "https://github.com/ShivamChavan01/cutroom/blob/1bc9c647074ad95dc1ec4be0bff8bdecb6c6f877/README.md",
-        "reviewedAt": "2026-11-04"
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/README.md",
+        "reviewedAt": "2026-11-21"
       },
       {
         "basis": "profile",
@@ -716,7 +740,7 @@ export const approvedFacts: readonly ProfileFact[] = [
     "topic": "recruiter",
     "title": "Applied AI experience",
     "keywords": "ai llm experience background applied tools retrieval rag",
-    "text": "His applied-AI work includes project-scoped retrieval and tool calling in Open Agent, call analysis with validation in VoiceScope, and generated-tool evaluation and repair in MCP Foundry. The evidence concerns building and integrating AI applications, rather than a claim of training foundation models or publishing machine-learning research.",
+    "text": "His applied-AI work includes project-scoped retrieval and tool use in Open Agent, evidence-grounded edit proposals in Cutroom, VoiceScope’s pushed call-review and STT candidate, and generated-tool evaluation and repair in MCP Foundry. The evidence concerns application engineering and evaluation boundaries; it does not establish foundation-model training or published ML research.",
     "evidence": [
       {
         "basis": "repository",
@@ -726,15 +750,15 @@ export const approvedFacts: readonly ProfileFact[] = [
       },
       {
         "basis": "code",
-        "title": "voiceScope · pipeline.py",
-        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f9d459c75e7152e370afed838bc547dde9d0a2d5/core/pipeline.py",
-        "reviewedAt": "2026-11-04"
+        "title": "voiceScope · pipeline.py · development branch",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f661ef06fcdc9b1600edc118ce1939ef4a5906f5/core/pipeline.py",
+        "reviewedAt": "2026-11-21"
       },
       {
         "basis": "repository",
-        "title": "voiceScope · README",
-        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f9d459c75e7152e370afed838bc547dde9d0a2d5/README.md",
-        "reviewedAt": "2026-11-04"
+        "title": "voiceScope · README · development branch",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f661ef06fcdc9b1600edc118ce1939ef4a5906f5/README.md",
+        "reviewedAt": "2026-11-21"
       },
       {
         "basis": "code",
@@ -747,6 +771,18 @@ export const approvedFacts: readonly ProfileFact[] = [
         "title": "MCP_Foundry · README",
         "href": "https://github.com/ShivamChavan01/MCP_Foundry/blob/dafb83fbaede2f2f5452dec748a47df06040a4b8/README.md",
         "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "profile",
+        "title": "November portfolio audit and local-development status",
+        "href": "#experience",
+        "reviewedAt": "2026-11-21"
+      },
+      {
+        "basis": "code",
+        "title": "Cutroom source reviewed November 2026",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/README.md",
+        "reviewedAt": "2026-11-21"
       }
     ]
   },
@@ -755,13 +791,13 @@ export const approvedFacts: readonly ProfileFact[] = [
     "topic": "recruiter",
     "title": "Product ownership and production work",
     "keywords": "ownership production oncall responsibility owned end to end",
-    "text": "His supplied Eazytag résumé describes owning full-stack features for Strivo, including bookings, waitlists, biometric check-in, refund reporting and a nightly health-scoring pipeline, with weekly on-call support. The stated customer scale is profile-provided. His public projects offer additional implementation examples, while production outcomes and team performance would need references or interview validation.",
+    "text": "His supplied Eazytag employment context includes end-to-end features and weekly on-call support. A November audit verified authored commits in shared, merged development-branch PRs across reporting, staff operations, tenant isolation, biometric alerts, and memberships. It did not independently verify production deployment or sole ownership of the platform.",
     "evidence": [
       {
         "basis": "profile",
-        "title": "Strivo scope from supplied résumé",
+        "title": "November portfolio audit and local-development status",
         "href": "#experience",
-        "reviewedAt": "2026-11-04"
+        "reviewedAt": "2026-11-21"
       },
       {
         "basis": "profile",
@@ -774,6 +810,12 @@ export const approvedFacts: readonly ProfileFact[] = [
         "title": "Public GitHub repository index",
         "href": "https://github.com/ShivamChavan01?tab=repositories",
         "reviewedAt": "2026-11-04"
+      },
+      {
+        "basis": "code",
+        "title": "Cutroom source reviewed November 2026",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/README.md",
+        "reviewedAt": "2026-11-21"
       }
     ]
   },
@@ -787,8 +829,8 @@ export const approvedFacts: readonly ProfileFact[] = [
       {
         "basis": "repository",
         "title": "cutroom · README",
-        "href": "https://github.com/ShivamChavan01/cutroom/blob/1bc9c647074ad95dc1ec4be0bff8bdecb6c6f877/README.md",
-        "reviewedAt": "2026-11-04"
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/README.md",
+        "reviewedAt": "2026-11-21"
       },
       {
         "basis": "code",
@@ -838,8 +880,8 @@ export const approvedFacts: readonly ProfileFact[] = [
       {
         "basis": "repository",
         "title": "cutroom · README",
-        "href": "https://github.com/ShivamChavan01/cutroom/blob/1bc9c647074ad95dc1ec4be0bff8bdecb6c6f877/README.md",
-        "reviewedAt": "2026-11-04"
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/README.md",
+        "reviewedAt": "2026-11-21"
       },
       {
         "basis": "profile",
@@ -883,8 +925,8 @@ export const approvedFacts: readonly ProfileFact[] = [
       {
         "basis": "repository",
         "title": "cutroom · README",
-        "href": "https://github.com/ShivamChavan01/cutroom/blob/1bc9c647074ad95dc1ec4be0bff8bdecb6c6f877/README.md",
-        "reviewedAt": "2026-11-04"
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/README.md",
+        "reviewedAt": "2026-11-21"
       },
       {
         "basis": "code",
@@ -964,8 +1006,8 @@ export const approvedFacts: readonly ProfileFact[] = [
       {
         "basis": "repository",
         "title": "cutroom · README",
-        "href": "https://github.com/ShivamChavan01/cutroom/blob/1bc9c647074ad95dc1ec4be0bff8bdecb6c6f877/README.md",
-        "reviewedAt": "2026-11-04"
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/README.md",
+        "reviewedAt": "2026-11-21"
       },
       {
         "basis": "code",
@@ -978,6 +1020,198 @@ export const approvedFacts: readonly ProfileFact[] = [
         "title": "autoace-voice-tone-classifier · README",
         "href": "https://github.com/ShivamChavan01/autoace-voice-tone-classifier/blob/134e0088438e01df478e033c8af693370bdbe3a4/README.md",
         "reviewedAt": "2026-11-04"
+      }
+    ]
+  },
+  {
+    "id": "cutroom.production",
+    "topic": "cutroom",
+    "title": "Cutroom brief-grounded proposals",
+    "keywords": "cutroom assistant production brief source evidence notes retrieval constraints proposals duration preserve ordering",
+    "text": "Cutroom’s November release stores editing briefs and authored timestamped notes, retrieves bounded source evidence, and exposes omitted context. Proposals are previewed, and Apply rejects edits worsening required duration, source-coverage, or ordering constraints. Subjective style and continuity remain human review.",
+    "evidence": [
+      {
+        "basis": "code",
+        "title": "Cutroom source reviewed November 2026",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/docs/production-context.md",
+        "reviewedAt": "2026-11-21"
+      },
+      {
+        "basis": "code",
+        "title": "Cutroom source reviewed November 2026",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/apps/web/src/lib/production/review.ts",
+        "reviewedAt": "2026-11-21"
+      }
+    ]
+  },
+  {
+    "id": "cutroom.gain",
+    "topic": "cutroom",
+    "title": "Cutroom local gain suggestions",
+    "keywords": "cutroom gain matching suggestions audio volume local undo three edits",
+    "text": "Cutroom can suggest a gain match after three eligible manual edits on distinct clips from the same source and track. Support is inspectable, preview changes nothing, and Apply is undoable. The rule is local to the session and does not call a model or measure loudness normalization.",
+    "evidence": [
+      {
+        "basis": "code",
+        "title": "Cutroom source reviewed November 2026",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/apps/web/src/lib/gainSuggestions.ts",
+        "reviewedAt": "2026-11-21"
+      }
+    ]
+  },
+  {
+    "id": "cutroom.playback",
+    "topic": "cutroom",
+    "title": "Cutroom playback and editing copies",
+    "keywords": "cutroom playback seek buffer multitrack editing copies mp4 source performance",
+    "text": "Cutroom’s November release synchronizes multitrack buffering and lets a lone video decoder pace the timeline during stalls. A full-resolution MP4 editing copy supports source preview while keeping original timeline references. The measured fixture results do not establish general 4K/8K or production-length performance.",
+    "evidence": [
+      {
+        "basis": "code",
+        "title": "Cutroom source reviewed November 2026",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/apps/web/src/components/Player.tsx",
+        "reviewedAt": "2026-11-21"
+      },
+      {
+        "basis": "code",
+        "title": "Cutroom source reviewed November 2026",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/apps/web/src/lib/media/editingCopy.ts",
+        "reviewedAt": "2026-11-21"
+      }
+    ]
+  },
+  {
+    "id": "cutroom.delivery",
+    "topic": "cutroom",
+    "title": "Cutroom November delivery",
+    "keywords": "cutroom latest shipped release deployed live main november status",
+    "text": "The November 21 audit found Cutroom commit 8faedfec on main with successful CI, Pages deployment, and Vercel commit status. The public editor returned HTTP 200 and its bundle included the new brief, gain-suggestion, and editing-copy UI. Interactive editing and live Assistant generation were not rerun in that audit.",
+    "evidence": [
+      {
+        "basis": "public-record",
+        "title": "Cutroom exact-head CI",
+        "href": "https://github.com/ShivamChavan01/cutroom/actions/runs/44815016413",
+        "reviewedAt": "2026-11-21"
+      },
+      {
+        "basis": "code",
+        "title": "Cutroom source reviewed November 2026",
+        "href": "https://github.com/ShivamChavan01/cutroom/blob/8faedfec10e9c7c2d200a4d586ee3c5b457f53c5/README.md",
+        "reviewedAt": "2026-11-21"
+      }
+    ]
+  },
+  {
+    "id": "voicescope.evidence-review",
+    "topic": "voicescope",
+    "title": "VoiceScope Calls review",
+    "keywords": "voicescope calls review findings transcript quote audio policy evidence latest",
+    "text": "The latest pushed VoiceScope development branch adds a Calls interface with Findings, Transcript, Speech diagnostics, STT quality, and Evaluation checks. Quotes link to source turns, original audio remains available, and synthetic and real calls are labeled separately. Deployment of this branch was not verified.",
+    "evidence": [
+      {
+        "basis": "code",
+        "title": "VoiceScope development branch source",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f661ef06fcdc9b1600edc118ce1939ef4a5906f5/frontend/src/components/call-review.tsx",
+        "reviewedAt": "2026-11-21"
+      }
+    ]
+  },
+  {
+    "id": "voicescope.stt-review",
+    "topic": "voicescope",
+    "title": "VoiceScope STT comparison",
+    "keywords": "voicescope stt transcription speech quality bolna deepgram human reference alignment wer accuracy disagreement",
+    "text": "VoiceScope’s pushed development work compares retained Bolna recordings and original text with a separate Deepgram or supplied human-verified reference. Automatic comparisons are estimated transcript disagreement. WER requires an adequate human-verified timed reference, and insufficient alignment withholds a rate.",
+    "evidence": [
+      {
+        "basis": "code",
+        "title": "VoiceScope development branch source",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f661ef06fcdc9b1600edc118ce1939ef4a5906f5/core/stt_quality.py",
+        "reviewedAt": "2026-11-21"
+      },
+      {
+        "basis": "code",
+        "title": "VoiceScope development branch source",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f661ef06fcdc9b1600edc118ce1939ef4a5906f5/core/stt_alignment.py",
+        "reviewedAt": "2026-11-21"
+      }
+    ]
+  },
+  {
+    "id": "voicescope.policy-checks",
+    "topic": "voicescope",
+    "title": "VoiceScope policy evidence",
+    "keywords": "voicescope refund escalation policy version snapshot quote evidence review",
+    "text": "The pushed VoiceScope candidate supports configured refund-guarantee and escalation checks with stored policy snapshots and exact evidence quotes. Uncertain intent or inferred speakers remain reviewable. A claim that a refund completed needs action evidence. These bounded rules do not provide general compliance certification.",
+    "evidence": [
+      {
+        "basis": "code",
+        "title": "VoiceScope development branch source",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f661ef06fcdc9b1600edc118ce1939ef4a5906f5/core/reliability.py",
+        "reviewedAt": "2026-11-21"
+      },
+      {
+        "basis": "code",
+        "title": "VoiceScope development branch source",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f661ef06fcdc9b1600edc118ce1939ef4a5906f5/core/policy_store.py",
+        "reviewedAt": "2026-11-21"
+      }
+    ]
+  },
+  {
+    "id": "voicescope.storage",
+    "topic": "voicescope",
+    "title": "VoiceScope storage hardening",
+    "keywords": "voicescope sqlite fastembed semantic retrieval database migration backup chroma",
+    "text": "The latest VoiceScope feature branch replaces runtime Chroma with local FastEmbed/SQLite semantic indexes. It implements explicit offline index migration, fail-closed configured storage errors, indexed-call deletion, and individual SQLite snapshots. This audit did not verify a hosted migration or coordinated whole-system restore.",
+    "evidence": [
+      {
+        "basis": "code",
+        "title": "VoiceScope development branch source",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f661ef06fcdc9b1600edc118ce1939ef4a5906f5/storage/semantic_index.py",
+        "reviewedAt": "2026-11-21"
+      },
+      {
+        "basis": "code",
+        "title": "VoiceScope development branch source",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f661ef06fcdc9b1600edc118ce1939ef4a5906f5/docs/storage-reliability.md",
+        "reviewedAt": "2026-11-21"
+      }
+    ]
+  },
+  {
+    "id": "voicescope.delivery",
+    "topic": "voicescope",
+    "title": "VoiceScope development delivery",
+    "keywords": "voicescope latest shipped release branch deployed status ci november",
+    "text": "On 21 November 2026, VoiceScope main remained at f9d459c while the latest authored work was pushed on feat/voicescope-reliability-stt-demo at f661ef0. Its exact commit passed seven CI jobs. No merged PR was found. Current Vercel production metadata and the public frontend still point to the older main baseline.",
+    "evidence": [
+      {
+        "basis": "public-record",
+        "title": "VoiceScope development CI",
+        "href": "https://github.com/ShivamChavan01/voiceScope/actions/runs/43942424429",
+        "reviewedAt": "2026-11-21"
+      },
+      {
+        "basis": "code",
+        "title": "VoiceScope development branch source",
+        "href": "https://github.com/ShivamChavan01/voiceScope/blob/f661ef06fcdc9b1600edc118ce1939ef4a5906f5/README.md",
+        "reviewedAt": "2026-11-21"
+      }
+    ]
+  },
+  {
+    "id": "experience.recent",
+    "topic": "experience",
+    "title": "Recent merged employment contributions",
+    "keywords": "strivo eazytag recent reporting finance staff followup biometric notifications tenant upgrade transfer sales",
+    "text": "The November private-repository audit traced Shivam-authored commits in merged development-branch PRs for Finance drilldowns, staff follow-up/access attribution, biometric outage notifications, tenant-isolated product search and booking history, atomic waitlist admission, and membership upgrade/transfer/sales fixes. PRs include shared review commits. Production deployment was not independently verified.",
+    "evidence": [
+      {
+        "basis": "profile",
+        "title": "Private employment contribution audit",
+        "href": "#case-study-strivo",
+        "reviewedAt": "2026-11-21"
       }
     ]
   }
